@@ -1,4 +1,4 @@
-ABAP-Workbench-Objects-Framework
+Unit testing with JUnit
 ================================
 
-ABAP Workbench Objects Framework
+Java rocks! As Oracle does!
