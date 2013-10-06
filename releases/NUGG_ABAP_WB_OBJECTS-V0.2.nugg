@@ -296,10 +296,57 @@
    <redefinition CLSNAME="ZCL_WB_CLASS_GLOBAL" REFCLSNAME="ZCL_WB_CLASS" VERSION="1" MTDNAME="ZIF_WB_OBJECT~LOAD" EXPOSURE="2"/>
   </inheritance>
   <interfaceMethod CLSNAME="ZCL_WB_CLASS_GLOBAL" CPDNAME="ZIF_WB_OBJECT~LOAD">
-   <source>method ZIF_WB_OBJECT~LOAD.
+   <source>METHOD zif_wb_object~load.
 *CALL METHOD SUPER-&gt;ZIF_WB_OBJECT~LOAD
 *    .
-endmethod.</source>
+
+    CALL FUNCTION &apos;SEO_CLASS_TYPEINFO_GET&apos;
+      EXPORTING
+        clskey                        = me-&gt;clskey
+        version                       = me-&gt;version
+        state                         = me-&gt;state
+        with_descriptions             = me-&gt;with_descriptions
+        resolve_eventhandler_typeinfo = me-&gt;resolve_eventhandler_info
+        with_master_language          = me-&gt;with_master_language
+        with_enhancements             = me-&gt;with_enhancements
+        read_active_enha              = me-&gt;read_active_enha
+        enha_action                   = me-&gt;enha_action
+        ignore_switches               = me-&gt;ignore_switches
+      IMPORTING
+        class                         = me-&gt;class
+        attributes                    = me-&gt;attributes
+        methods                       = me-&gt;methods
+        events                        = me-&gt;events
+        types                         = me-&gt;types
+        parameters                    = me-&gt;parameters
+        exceps                        = me-&gt;exceps
+        implementings                 = me-&gt;implementings
+        inheritance                   = me-&gt;inheritance
+        redefinitions                 = me-&gt;redefinitions
+        impl_details                  = me-&gt;impl_details
+        friendships                   = me-&gt;friendships
+        typepusages                   = me-&gt;typepusages
+        clsdeferrds                   = me-&gt;clsdeferrds
+        intdeferrds                   = me-&gt;intdeferrds
+        explore_inheritance           = me-&gt;explore_inheritance
+        explore_implementings         = me-&gt;explore_implementings
+        aliases                       = me-&gt;aliases
+        enhancement_methods           = me-&gt;enhancement_methods
+        enhancement_attributes        = me-&gt;enhancement_attributes
+        enhancement_events            = me-&gt;enhancement_events
+        enhancement_implementings     = me-&gt;enhancement_implementings
+        enhancement_types             = me-&gt;enhancement_types
+      EXCEPTIONS
+        not_existing                  = 1
+        is_interface                  = 2
+        model_only                    = 3
+        OTHERS                        = 4.
+
+    IF sy-subrc &lt;&gt; 0.
+* Implement suitable error handling here
+    ENDIF.
+
+  ENDMETHOD.                    &quot;ZIF_WB_OBJECT~LOAD</source>
   </interfaceMethod>
   <method CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_CLSKEY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOCLSKEY"/>
@@ -312,8 +359,8 @@ endmethod.</source>
    <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_READ_ACTIVE_ENHA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="8 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOX_BOOLEAN" PARVALUE="SEOX_FALSE"/>
    <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_ENHA_ACTION" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="9 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOX_BOOLEAN" PARVALUE="SEOX_FALSE"/>
    <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_IGNORE_SWITCHES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="10 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="CHAR1" PARVALUE="&apos;X&apos;"/>
-   <source>METHOD CONSTRUCTOR.
-    super-&gt;CONSTRUCTOR( ).
+   <source>METHOD constructor.
+    super-&gt;constructor( ).
     me-&gt;clskey                    = im_clskey.
     me-&gt;version                   = im_version.
     me-&gt;state                     = im_state.
