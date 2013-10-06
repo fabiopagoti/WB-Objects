@@ -1,4 +1,3 @@
-Unit testing with JUnit
+WB Objects framework
 ================================
 
-Java rocks! As Oracle does!
