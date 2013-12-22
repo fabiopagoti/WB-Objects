@@ -49,3 +49,6 @@ There are many ways to contribute. Don't worry if you are not (yet) an ABAP deve
 ## Special thanks to:
 * Who collaborate on this project sharing it on SAP Community Network, Facebook, Twitter, LinkedIn
 * SAP developers who wrote some very useful function modules
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/fabiopagoti/wb-objects/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
