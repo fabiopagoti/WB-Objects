@@ -26,6 +26,8 @@ o_any_class->zif_wb_object~load( ).
 ## System Requirements
 This projects is developed using SAP NetWeaver Trial Edition (SAP NetWeaver 7.31 Support Package 4). We do our best to keep a modern project so at the moment there is no guarantee it works perfectly on previous releases. We would love your support to test it if you have older releases and tell us possible issues.
 
+For better usability, log into your SAP system using the English language
+
 ## Installation
 The installation of this projects comes as SAPLink files so you should have it installed into your system. Refer to the Installation page for more details.
 

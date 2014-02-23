@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nugget name="ABAP_WB_OBJECTS_V1_0">
+<nugget name="ABAP_WB_OBJECTS_V1_1_ZWB_OBJECTS">
+ <CLAS CLSNAME="ZCX_WB_REPORT_WITHOUT_INTER" VERSION="1" LANGU="E" DESCRIPT="Report/Include without interfaces" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <inheritance CLSNAME="ZCX_WB_REPORT_WITHOUT_INTER" REFCLSNAME="ZCX_WB_OBJECTS" VERSION="1" STATE="1"/>
+ </CLAS>
  <CLAS CLSNAME="ZCX_WB_REPORT_WITHOUT_CLASS" VERSION="1" LANGU="E" DESCRIPT="Report/Include without classes" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
@@ -33,7 +44,7 @@
 *&quot;* in the implementation part of the class</localMacros>
   <inheritance CLSNAME="ZCX_WB_OBJECTS" REFCLSNAME="CX_STATIC_CHECK" VERSION="1" STATE="1"/>
  </CLAS>
- <CLAS CLSNAME="ZCX_IS_INTERFACE" VERSION="1" LANGU="E" DESCRIPT="Objects is not a class but an interface" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+ <CLAS CLSNAME="ZCX_WB_IS_INTERFACE" VERSION="1" LANGU="E" DESCRIPT="Objects is not a class but an interface" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
 *&quot;* declarations</localImplementation>
@@ -42,9 +53,9 @@
 *&quot;* components in the private section</localTypes>
   <localMacros>*&quot;* use this source file for any macro definitions you need
 *&quot;* in the implementation part of the class</localMacros>
-  <inheritance CLSNAME="ZCX_IS_INTERFACE" REFCLSNAME="ZCX_WB_OBJECTS" VERSION="1" STATE="1"/>
+  <inheritance CLSNAME="ZCX_WB_IS_INTERFACE" REFCLSNAME="ZCX_WB_OBJECTS" VERSION="1" STATE="1"/>
  </CLAS>
- <CLAS CLSNAME="ZCX_CLASS_IS_MODEL_ONLY" VERSION="1" LANGU="E" DESCRIPT="Class is model only" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+ <CLAS CLSNAME="ZCX_WB_IS_CLASS" VERSION="1" LANGU="E" DESCRIPT="Objects is not an interface but a class" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
 *&quot;* declarations</localImplementation>
@@ -53,9 +64,9 @@
 *&quot;* components in the private section</localTypes>
   <localMacros>*&quot;* use this source file for any macro definitions you need
 *&quot;* in the implementation part of the class</localMacros>
-  <inheritance CLSNAME="ZCX_CLASS_IS_MODEL_ONLY" REFCLSNAME="ZCX_WB_OBJECTS" VERSION="1" STATE="1"/>
+  <inheritance CLSNAME="ZCX_WB_IS_CLASS" REFCLSNAME="ZCX_WB_OBJECTS" VERSION="1" STATE="1"/>
  </CLAS>
- <CLAS CLSNAME="ZCX_CLASS_DONT_EXIST" VERSION="1" LANGU="E" DESCRIPT="Class do not exist" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+ <CLAS CLSNAME="ZCX_WB_INTERFACE_IS_MODEL_ONLY" VERSION="1" LANGU="E" DESCRIPT="Interface is model only" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
 *&quot;* declarations</localImplementation>
@@ -64,7 +75,40 @@
 *&quot;* components in the private section</localTypes>
   <localMacros>*&quot;* use this source file for any macro definitions you need
 *&quot;* in the implementation part of the class</localMacros>
-  <inheritance CLSNAME="ZCX_CLASS_DONT_EXIST" REFCLSNAME="ZCX_WB_OBJECTS" VERSION="1" STATE="1"/>
+  <inheritance CLSNAME="ZCX_WB_INTERFACE_IS_MODEL_ONLY" REFCLSNAME="ZCX_WB_OBJECTS" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_WB_INTERFACE_DONT_EXIST" VERSION="1" LANGU="E" DESCRIPT="Interface do not exist" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <inheritance CLSNAME="ZCX_WB_INTERFACE_DONT_EXIST" REFCLSNAME="ZCX_WB_OBJECTS" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_WB_CLASS_IS_MODEL_ONLY" VERSION="1" LANGU="E" DESCRIPT="Class is model only" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <inheritance CLSNAME="ZCX_WB_CLASS_IS_MODEL_ONLY" REFCLSNAME="ZCX_WB_OBJECTS" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCX_WB_CLASS_DONT_EXIST" VERSION="1" LANGU="E" DESCRIPT="Class do not exist" CATEGORY="40" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <inheritance CLSNAME="ZCX_WB_CLASS_DONT_EXIST" REFCLSNAME="ZCX_WB_OBJECTS" VERSION="1" STATE="1"/>
  </CLAS>
  <CLAS CLSNAME="ZCL_WB_SCANNER_OBJECTS" VERSION="1" LANGU="E" DESCRIPT="Copy of include LS_ABAP_OBJECTS_SCANTOP" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <types CLSNAME="ZCL_WB_SCANNER_OBJECTS" CMPNAME="SCOPE_REC_TYPE" VERSION="1" LANGU="E" DESCRIPT="SCOPE_REC_TYPE" EXPOSURE="0" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="4 " SRCCOLUMN1="4 " SRCROW2="9 " SRCCOLUMN2="26 " TYPESRC_LENG="215 " TYPESRC="BEGIN OF scope_rec_type,
@@ -2463,7 +2507,6 @@ endmethod.</source>
   </method>
  </CLAS>
  <CLAS CLSNAME="ZCL_WB_INTERFACE_LOCAL" VERSION="1" LANGU="E" DESCRIPT="Local Interface" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCL_WB_INTERFACE">
-  <implementing CLSNAME="ZCL_WB_INTERFACE_LOCAL" REFCLSNAME="ZIF_WB_OBJECT" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
 *&quot;* declarations</localImplementation>
@@ -2486,7 +2529,37 @@ endmethod.</source>
   <forwardDeclaration>SEOT</forwardDeclaration>
   <attribute CLSNAME="ZCL_WB_INTERFACE_LOCAL" CMPNAME="INTERF_NAME" VERSION="1" LANGU="E" DESCRIPT="Object Type Name" EXPOSURE="1" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="VSEOINTERF-CLSNAME" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_WB_INTERFACE_LOCAL" CMPNAME="PROGRAM" VERSION="1" LANGU="E" DESCRIPT="ABAP Program Name" EXPOSURE="1" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="PROGRAMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <inheritance CLSNAME="ZCL_WB_INTERFACE_LOCAL" REFCLSNAME="ZCL_WB_INTERFACE" VERSION="1" STATE="1"/>
+  <attribute CLSNAME="ZCL_WB_INTERFACE_LOCAL" CMPNAME="T_VSEO_TABS" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SABOO_VSEOT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <inheritance CLSNAME="ZCL_WB_INTERFACE_LOCAL" REFCLSNAME="ZCL_WB_INTERFACE" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCL_WB_INTERFACE_LOCAL" REFCLSNAME="ZCL_WB_INTERFACE" VERSION="1" MTDNAME="ZIF_WB_OBJECT~LOAD" EXPOSURE="2"/>
+  </inheritance>
+  <interfaceMethod CLSNAME="ZCL_WB_INTERFACE_LOCAL" CPDNAME="ZIF_WB_OBJECT~LOAD">
+   <source>METHOD zif_wb_object~load.
+
+  DATA lt_source_code TYPE saboo_sourt.
+  DATA r_wb_scanner TYPE REF TO zcl_wb_scanner_objects.
+  DATA lwa_interface LIKE LINE OF me-&gt;t_vseo_tabs-inter_tab.
+
+  READ REPORT me-&gt;program INTO lt_source_code.
+  zcl_wb_scanner_objects=&gt;create(
+    IMPORTING
+      scanner = r_wb_scanner
+    CHANGING
+      sourc_tab = lt_source_code  ).
+
+  me-&gt;t_vseo_tabs = r_wb_scanner-&gt;scan_source( ).
+
+  READ TABLE me-&gt;t_vseo_tabs-inter_tab INTO lwa_interface WITH KEY clsname = me-&gt;interf_name.
+  IF sy-subrc IS INITIAL.
+    me-&gt;move_vseo_tabs_to_att(
+    EXPORTING
+      im_vseo_tabs = me-&gt;t_vseo_tabs
+    ).
+  ELSE.
+    RAISE EXCEPTION TYPE zcx_wb_class_dont_exist.
+  ENDIF.
+ENDMETHOD.</source>
+  </interfaceMethod>
   <method CLSNAME="ZCL_WB_INTERFACE_LOCAL" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_WB_INTERFACE_LOCAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_PROGRAM" VERSION="1" LANGU="E" DESCRIPT="ABAP Program Name" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="PROGRAMM"/>
    <parameter CLSNAME="ZCL_WB_INTERFACE_LOCAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_INTERFACE_NAME" VERSION="1" LANGU="E" DESCRIPT="Object Type Name" CMPTYPE="1" MTDTYPE="2" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="VSEOINTERF-CLSNAME"/>
@@ -2508,6 +2581,11 @@ endmethod.</source>
   DATA lwa_interface LIKE LINE OF lwa_vseo_tabs-inter_tab.
 
   READ REPORT im_program INTO t_source_code.
+  IF sy-subrc IS NOT INITIAL.
+    &quot; If the report doesn&apos;t exist or cannot be read, the same exception is thrown
+    RAISE EXCEPTION TYPE zcx_wb_report_dont_exist.
+  ENDIF.
+
   zcl_wb_scanner_objects=&gt;create(
     IMPORTING
       scanner = r_wb_scanner
@@ -2515,6 +2593,10 @@ endmethod.</source>
       sourc_tab = t_source_code  ).
 
   lwa_vseo_tabs = r_wb_scanner-&gt;scan_source( ).
+
+  IF lwa_vseo_tabs-inter_tab IS INITIAL.
+    RAISE EXCEPTION TYPE zcx_wb_report_without_inter.
+  ENDIF.
 
   DATA lr_local_interface TYPE REF TO zcl_wb_interface_local.
   LOOP AT lwa_vseo_tabs-inter_tab INTO lwa_interface.
@@ -2590,7 +2672,6 @@ endmethod.</source>
   </method>
  </CLAS>
  <CLAS CLSNAME="ZCL_WB_INTERFACE_GLOBAL" VERSION="1" LANGU="E" DESCRIPT="WB global interface" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCL_WB_INTERFACE">
-  <implementing CLSNAME="ZCL_WB_INTERFACE_GLOBAL" REFCLSNAME="ZIF_WB_OBJECT" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
 *&quot;* declarations</localImplementation>
@@ -2607,9 +2688,12 @@ endmethod.</source>
   <attribute CLSNAME="ZCL_WB_INTERFACE_GLOBAL" CMPNAME="VERSION" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOVERSION" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_WB_INTERFACE_GLOBAL" CMPNAME="WITH_ENHANCEMENTS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOX_BOOLEAN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_WB_INTERFACE_GLOBAL" CMPNAME="WITH_MASTER_LANGUAGE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOX_BOOLEAN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <inheritance CLSNAME="ZCL_WB_INTERFACE_GLOBAL" REFCLSNAME="ZCL_WB_INTERFACE" VERSION="1" STATE="1"/>
+  <inheritance CLSNAME="ZCL_WB_INTERFACE_GLOBAL" REFCLSNAME="ZCL_WB_INTERFACE" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCL_WB_INTERFACE_GLOBAL" REFCLSNAME="ZCL_WB_INTERFACE" VERSION="1" MTDNAME="ZIF_WB_OBJECT~LOAD" EXPOSURE="2"/>
+  </inheritance>
   <interfaceMethod CLSNAME="ZCL_WB_INTERFACE_GLOBAL" CPDNAME="ZIF_WB_OBJECT~LOAD">
-   <source>method ZIF_WB_OBJECT~LOAD.
+   <source>METHOD zif_wb_object~load.
+
 
     CALL FUNCTION &apos;SEO_INTERFACE_TYPEINFO_GET&apos;
       EXPORTING
@@ -2645,11 +2729,18 @@ endmethod.</source>
         is_class                = 2
         model_only              = 3
         OTHERS                  = 4.
-    IF sy-subrc &lt;&gt; 0.
-* Implement suitable error handling here
-    ENDIF.
 
-endmethod.</source>
+
+    CASE sy-subrc.
+      WHEN 1.
+        RAISE EXCEPTION TYPE zcx_wb_interface_dont_exist.
+      WHEN 2.
+        RAISE EXCEPTION TYPE zcx_wb_is_class.
+      WHEN 3.
+        RAISE EXCEPTION TYPE zcx_wb_interface_is_model_only.
+    ENDCASE.
+
+  ENDMETHOD.                    &quot;zif_wb_object~load</source>
   </interfaceMethod>
   <method CLSNAME="ZCL_WB_INTERFACE_GLOBAL" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_WB_INTERFACE_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_INTKEY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOCLSKEY"/>
@@ -2660,9 +2751,9 @@ endmethod.</source>
    <parameter CLSNAME="ZCL_WB_INTERFACE_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_READ_ACTIVE_ENHA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="6 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOX_BOOLEAN" PARVALUE="SEOX_FALSE"/>
    <parameter CLSNAME="ZCL_WB_INTERFACE_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_ENHA_ACTION" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="7 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOX_BOOLEAN" PARVALUE="SEOX_FALSE"/>
    <parameter CLSNAME="ZCL_WB_INTERFACE_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_IGNORE_SWITCHES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="8 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="CHAR1" PARVALUE="&apos;X&apos;"/>
-   <source>method CONSTRUCTOR.
+   <source>METHOD constructor.
 
-  super-&gt;constructor( ).
+    super-&gt;constructor( ).
 
     me-&gt;intkey                = im_intkey.
     me-&gt;version               = im_version.
@@ -2673,10 +2764,11 @@ endmethod.</source>
     me-&gt;enha_action           = im_enha_action.
     me-&gt;ignore_switches       = im_ignore_switches.
 
-endmethod.</source>
+  ENDMETHOD.                    &quot;CONSTRUCTOR</source>
   </method>
  </CLAS>
  <CLAS CLSNAME="ZCL_WB_INTERFACE" VERSION="1" LANGU="E" DESCRIPT="Generic Interface" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="ZCL_WB_INTERFACE" REFCLSNAME="ZIF_WB_OBJECT" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
 *&quot;* declarations</localImplementation>
@@ -2713,9 +2805,15 @@ endmethod.</source>
   <attribute CLSNAME="ZCL_WB_INTERFACE" CMPNAME="PARAMETERS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOS_PARAMETERS_R" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_WB_INTERFACE" CMPNAME="TYPEPUSAGES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOT_TYPEPUSAGES_R" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_WB_INTERFACE" CMPNAME="TYPES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOO_TYPES_R" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <method CLSNAME="ZCL_WB_INTERFACE" CMPNAME="TO_STRING" VERSION="1" LANGU="E" DESCRIPT="To String" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>METHOD to_string.
-
+  <interfaceMethod CLSNAME="ZCL_WB_INTERFACE" CPDNAME="ZIF_WB_OBJECT~LOAD">
+   <source>method ZIF_WB_OBJECT~LOAD.
+endmethod.</source>
+  </interfaceMethod>
+  <interfaceMethod CLSNAME="ZCL_WB_INTERFACE" CPDNAME="ZIF_WB_OBJECT~TO_STRING">
+   <source>METHOD zif_wb_object~to_string.
+* This method is currently for demonstration purposes of the framework
+* sooner or later it will be removed from here.
+* DO NOT USE!
 
   WRITE:
     &apos;Interface:&apos;,
@@ -2741,7 +2839,11 @@ endmethod.</source>
   ULINE.
 
 ENDMETHOD.</source>
-  </method>
+  </interfaceMethod>
+  <interfaceMethod CLSNAME="ZCL_WB_INTERFACE" CPDNAME="ZIF_WB_OBJECT~WRITE">
+   <source>method ZIF_WB_OBJECT~WRITE.
+endmethod.</source>
+  </interfaceMethod>
  </CLAS>
  <CLAS CLSNAME="ZCL_WB_CLASS_LOCAL" VERSION="1" LANGU="E" DESCRIPT="Local Class" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCL_WB_CLASS">
   <localImplementation>*&quot;* use this source file for the definition and implementation of
@@ -3196,7 +3298,7 @@ ENDMETHOD.</source>
       im_vseo_tabs = me-&gt;t_vseo_tabs
     ).
   ELSE.
-    RAISE EXCEPTION TYPE zcx_class_dont_exist.
+    RAISE EXCEPTION TYPE zcx_wb_class_dont_exist.
   ENDIF.
 
 ENDMETHOD.</source>
@@ -3317,6 +3419,7 @@ endmethod.</source>
   </method>
  </CLAS>
  <CLAS CLSNAME="ZCL_WB_CLASS_GLOBAL" VERSION="1" LANGU="E" DESCRIPT="ABAP global class" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCL_WB_CLASS">
+  <friends CLSNAME="ZCL_WB_CLASS_GLOBAL" REFCLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" FRIENDTYPE="0" VERSION="1" STATE="1"/>
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
 *&quot;* declarations</localImplementation>
@@ -3325,7 +3428,10 @@ endmethod.</source>
 *&quot;* components in the private section</localTypes>
   <localMacros>*&quot;* use this source file for any macro definitions you need
 *&quot;* in the implementation part of the class</localMacros>
-  <localTestClasses>*----------------------------------------------------------------------*
+  <localTestClasses>CLASS zcl_wb_class_global_test DEFINITION DEFERRED.
+CLASS zcl_wb_class_global DEFINITION LOCAL FRIENDS zcl_wb_class_global_test.
+
+*----------------------------------------------------------------------*
 *       CLASS zcl_Wb_Class_Global_Test DEFINITION
 *----------------------------------------------------------------------*
 *
@@ -3339,14 +3445,15 @@ CLASS zcl_wb_class_global_test DEFINITION FOR TESTING
 
   PUBLIC SECTION.
 
-    METHODS load_class_loaded
-    FOR TESTING .
-    METHODS load_class_dont_exist
-    FOR TESTING .
-    METHODS load_class_is_interface
-    FOR TESTING .
-    METHODS load_class_is_model_only
-    FOR TESTING .
+    METHODS load_class_loaded FOR TESTING.
+    METHODS load_class_dont_exist FOR TESTING.
+    METHODS load_class_is_interface FOR TESTING.
+    METHODS load_class_is_model_only FOR TESTING.
+
+    METHODS load_subclasses_0_sub FOR TESTING.
+    METHODS load_subclasses_1_sub FOR TESTING.
+    METHODS load_subclasses_1_grandma FOR TESTING.
+
   PROTECTED SECTION.
 
 *  GIVEN
@@ -3357,8 +3464,15 @@ CLASS zcl_wb_class_global_test DEFINITION FOR TESTING
     METHODS given_class_dont_exist .
     METHODS given_class_is_interface .
     METHODS given_class_model_only .
+
+    METHODS given_no_subclasses.
+    METHODS given_1_subclass.
+    METHODS given_1_grandma_class.
+
 *  WHEN
     METHODS when_load .
+    METHODS when_load_subclasses.
+
 *  THEN
     METHODS then_class_loaded .
     METHODS then_class_not_loaded .
@@ -3366,11 +3480,21 @@ CLASS zcl_wb_class_global_test DEFINITION FOR TESTING
       IMPORTING
         !im_class_name TYPE seoclsname .
     METHODS then_no_exception_raised .
+    METHODS then_no_subclasses_loaded.
+    METHODS then_1_subclass_loaded.
+    METHODS then_all_child_classes_loaded.
+
   PRIVATE SECTION.
     METHODS setup.
     METHODS teardown.
     DATA o_wb_global_class TYPE REF TO zcl_wb_class_global .
     DATA o_wb_exception TYPE REF TO zcx_wb_objects .
+
+
+
+* load_subclasses context
+    DATA v_superclass TYPE seoclsname.
+
 ENDCLASS.       &quot;zcl_Wb_Class_Global_Test
 
 
@@ -3393,11 +3517,63 @@ CLASS zcl_wb_class_global_test IMPLEMENTATION.
   ENDMETHOD.       &quot;teardown
 
 
+************************************************
+* Methods Under Test
+************************************************
+  METHOD load_class_dont_exist.
+
+    given_class_dont_exist( ).
+    when_load( ).
+    then_class_not_loaded( ).
+    then_exception_raised( &apos;ZCX_CLASS_DONT_EXIST&apos; ).
+  ENDMETHOD.                    &quot;LOAD_CLASS_DONT_EXIST
+
+  METHOD load_class_is_interface.
+    given_class_is_interface( ).
+    when_load( ).
+    then_class_not_loaded( ).
+    then_exception_raised( &apos;ZCX_IS_INTERFACE&apos; ).
+  ENDMETHOD.                    &quot;load_class_is_interface
+
+
+  METHOD load_class_is_model_only.
+    given_class_model_only( ).
+    when_load( ).
+    then_class_not_loaded( ).
+    then_exception_raised( &apos;ZCX_CLASS_IS_MODEL_ONLY&apos; ).
+  ENDMETHOD.                    &quot;load_class_is_model_only
+
+  METHOD load_class_loaded.
+    given_class_exist( ).
+    when_load( ).
+    then_class_loaded( ).
+    then_no_exception_raised( ).
+  ENDMETHOD.                    &quot;LOAD_CLASS_LOADED
+
+  METHOD load_subclasses_0_sub.
+    given_no_subclasses( ).
+    when_load_subclasses( ).
+    then_no_subclasses_loaded( ).
+  ENDMETHOD.                    &quot;load_subclasses_0_sub
+
+  METHOD load_subclasses_1_sub.
+    given_1_subclass( ).
+    when_load_subclasses( ).
+    then_1_subclass_loaded( ).
+  ENDMETHOD.                    &quot;load_subclasses_1_sub
+
+  METHOD load_subclasses_1_grandma.
+    given_1_grandma_class( ).
+    when_load_subclasses( ).
+    then_all_child_classes_loaded( ).
+  ENDMETHOD.                    &quot;LOAD_SUBCLASSES_1_GRANDMA
+
+************************************************
+* GIVEN
+************************************************
   METHOD given_class_dont_exist.
     given_class_is( &apos;ZCL_NOT_CREATED_CLASS&apos; ).
   ENDMETHOD.                    &quot;given_class_dont_exist
-
-
 
   METHOD given_class_exist.
     given_class_is( &apos;ZCL_WB_CLASS_GLOBAL&apos; ).
@@ -3424,55 +3600,77 @@ CLASS zcl_wb_class_global_test IMPLEMENTATION.
 
   ENDMETHOD.                    &quot;given_class_is
 
-
   METHOD given_class_is_interface.
     given_class_is( &apos;ZIF_WB_FAKE_INTERFACE&apos; ).
   ENDMETHOD.                    &quot;given_class_is_interface
-
 
   METHOD given_class_model_only.
 * MODEL ONLY seems not exist on NetWeaver 7.31 - Is that right?
     given_class_is( &apos;ZCL_WB_FAKE_MODEL_ONLY&apos; ).
   ENDMETHOD.                    &quot;given_class_model_only
 
+  METHOD given_no_subclasses.
+    me-&gt;v_superclass = &apos;ZCL_WB_FAKE_SUBCLASS1_A&apos;.
+  ENDMETHOD.                    &quot;given_no_subclasses
 
-  METHOD load_class_dont_exist.
+  METHOD given_1_subclass.
+    me-&gt;v_superclass = &apos;ZCL_WB_FAKE_SUBCLASS1&apos;.
+  ENDMETHOD.                    &quot;given_1_subclass
 
-    given_class_dont_exist( ).
-    when_load( ).
-    then_class_not_loaded( ).
-    then_exception_raised( &apos;ZCX_CLASS_DONT_EXIST&apos; ).
-
-  ENDMETHOD.                    &quot;LOAD_CLASS_DONT_EXIST
-
-
-  METHOD load_class_is_interface.
-
-    given_class_is_interface( ).
-    when_load( ).
-    then_class_not_loaded( ).
-    then_exception_raised( &apos;ZCX_IS_INTERFACE&apos; ).
-
-  ENDMETHOD.                    &quot;load_class_is_interface
+  METHOD given_1_grandma_class.
+    me-&gt;v_superclass = &apos;ZCL_WB_FAKE_SUPERCLASS&apos;.
+  ENDMETHOD.                    &quot;given_1_grandma_class
 
 
-  METHOD load_class_is_model_only.
+************************************************
+* WHEN
+************************************************
+  METHOD when_load.
 
-    given_class_model_only( ).
-    when_load( ).
-    then_class_not_loaded( ).
-    then_exception_raised( &apos;ZCX_CLASS_IS_MODEL_ONLY&apos; ).
+    TRY .
+        me-&gt;o_wb_global_class-&gt;zif_wb_object~load( ).
+      CATCH zcx_wb_objects INTO me-&gt;o_wb_exception.
+    ENDTRY.
 
-  ENDMETHOD.                    &quot;load_class_is_model_only
+  ENDMETHOD.                    &quot;when_load
 
-  METHOD load_class_loaded.
+  METHOD when_load_subclasses.
 
-    given_class_exist( ).
-    when_load( ).
-    then_class_loaded( ).
-    then_no_exception_raised( ).
+    DATA lwa_clskey TYPE seoclskey.
+    lwa_clskey-clsname = me-&gt;v_superclass.
 
-  ENDMETHOD.                    &quot;LOAD_CLASS_LOADED
+    CREATE OBJECT me-&gt;o_wb_global_class
+      EXPORTING
+        im_clskey                    = lwa_clskey
+*       im_version                   = SEOC_VERSION_INACTIVE
+*       im_state                     = &apos;1&apos;
+*       im_with_descriptions         = SEOX_TRUE
+*       im_resolve_eventhandler_info = SEOX_FALSE
+*       im_with_master_language      = SEOX_FALSE
+*       im_with_enhancements         = SEOX_FALSE
+*       im_read_active_enha          = SEOX_FALSE
+*       im_enha_action               = SEOX_FALSE
+*       im_ignore_switches           = &apos;X&apos;
+      .
+
+    me-&gt;o_wb_global_class-&gt;load_subclasses( ).
+
+*    DATA lo_mocker TYPE REF TO zif_mocka_mocker.
+*    DATA lwa_class_mocked TYPE vseoclass.
+*    lwa_class_mocked-clsname = me-&gt;v_superclass.
+*
+*    lo_mocker = zcl_mocka_mocker=&gt;zif_mocka_mocker~mock( iv_interface = &apos;ZCL_WB_CLASS_GLOBAL&apos; ).
+*    lo_mocker-&gt;attribute( iv_attribute = &apos;CLASS&apos; )-&gt;returns( i_return = lwa_class_mocked  ).
+*
+*    me-&gt;o_wb_global_class ?= lo_mocker-&gt;generate_mockup( ).
+    me-&gt;o_wb_global_class-&gt;load_subclasses( ).
+
+  ENDMETHOD.                    &quot;when_load_subclasses
+
+
+************************************************
+* THEN
+************************************************
 
   METHOD then_class_loaded.
 
@@ -3481,7 +3679,6 @@ CLASS zcl_wb_class_global_test IMPLEMENTATION.
         act              = me-&gt;o_wb_global_class-&gt;class-clsname    &quot; Actual Data Object
         msg              = &apos;Class name not loaded&apos;    &quot; Message in Case of Error
     ).
-
 
   ENDMETHOD.                    &quot;then_class_loaded
 
@@ -3499,7 +3696,7 @@ CLASS zcl_wb_class_global_test IMPLEMENTATION.
   METHOD then_exception_raised.
 
 * TODO: how to dynamically assert that a specific exception was thrown?
-
+* answer: via RTTS and an empty reference
     cl_aunit_assert=&gt;assert_bound(
       EXPORTING
         act              = me-&gt;o_wb_exception    &quot; Reference Variable to Be Checked
@@ -3519,15 +3716,77 @@ CLASS zcl_wb_class_global_test IMPLEMENTATION.
   ENDMETHOD.                    &quot;then_no_exception_raised
 
 
-  METHOD when_load.
+  METHOD then_no_subclasses_loaded.
+    cl_aunit_assert=&gt;assert_initial(
+      EXPORTING
+        act              = me-&gt;o_wb_global_class-&gt;subclasses    &quot; Actual Data Object
+*    msg              =     &quot; Message in Case of Error
+*    level            = CRITICAL    &quot; Error Severity
+*    quit             = METHOD    &quot; Flow Control in Case of Error
+*  RECEIVING
+*    assertion_failed =     &quot; Condition not met
+    ).
 
-    TRY .
-        me-&gt;o_wb_global_class-&gt;zif_wb_object~load( ).
-      CATCH zcx_wb_objects INTO me-&gt;o_wb_exception.
+  ENDMETHOD.                    &quot;then_no_subclasses_loaded
 
-    ENDTRY.
+  METHOD then_1_subclass_loaded.
 
-  ENDMETHOD.                    &quot;when_load
+    DATA lt_exp TYPE  seo_relkeys.
+    DATA lwa_exp TYPE  seorelkey.
+
+    lwa_exp-clsname = &apos;ZCL_WB_FAKE_SUBCLASS1_A&apos;.
+    lwa_exp-refclsname = &apos;ZCL_WB_FAKE_SUBCLASS1&apos;.
+    APPEND lwa_exp TO lt_exp.
+
+    cl_aunit_assert=&gt;assert_equals(
+      EXPORTING
+        exp                  = lt_exp    &quot; Data Object with Expected Type
+        act                  = me-&gt;o_wb_global_class-&gt;subclasses    &quot; Data Object with Current Value
+*    msg                  =     &quot; Message in Case of Error
+*    level                = CRITICAL    &quot; Error Severity
+*    tol                  =     &quot; Tolerance Range for Floating Point Numbers
+*    quit                 = METHOD    &quot; Flow Control in Case of Error
+*    ignore_hash_sequence = ABAP_FALSE    &quot; Ignore change sequence in hash tables
+*  RECEIVING
+*    assertion_failed     =     &quot; Condition not met
+    ).
+
+  ENDMETHOD.                    &quot;then_1_subclass_loaded
+
+  METHOD then_all_child_classes_loaded.
+
+    DATA lt_exp TYPE  seo_relkeys.
+    DATA lwa_exp TYPE  seorelkey.
+
+    lwa_exp-clsname = &apos;ZCL_WB_FAKE_SUBCLASS1&apos;.
+    lwa_exp-refclsname = &apos;ZCL_WB_FAKE_SUPERCLASS&apos;.
+    APPEND lwa_exp TO lt_exp.
+
+    lwa_exp-clsname = &apos;ZCL_WB_FAKE_SUBCLASS2&apos;.
+    lwa_exp-refclsname = &apos;ZCL_WB_FAKE_SUPERCLASS&apos;.
+    APPEND lwa_exp TO lt_exp.
+
+    lwa_exp-clsname = &apos;ZCL_WB_FAKE_SUBCLASS1_A&apos;.
+    lwa_exp-refclsname = &apos;ZCL_WB_FAKE_SUBCLASS1&apos;.
+    APPEND lwa_exp TO lt_exp.
+
+    cl_aunit_assert=&gt;assert_equals(
+      EXPORTING
+        exp                  = lt_exp    &quot; Data Object with Expected Type
+        act                  = me-&gt;o_wb_global_class-&gt;subclasses    &quot; Data Object with Current Value
+*    msg                  =     &quot; Message in Case of Error
+*    level                = CRITICAL    &quot; Error Severity
+*    tol                  =     &quot; Tolerance Range for Floating Point Numbers
+*    quit                 = METHOD    &quot; Flow Control in Case of Error
+*    ignore_hash_sequence = ABAP_FALSE    &quot; Ignore change sequence in hash tables
+*  RECEIVING
+*    assertion_failed     =     &quot; Condition not met
+    ).
+
+
+
+  ENDMETHOD.                    &quot;then_all_child_classes_loaded
+
 
 
 ENDCLASS.       &quot;zcl_Wb_Class_Global_Test</localTestClasses>
@@ -3549,63 +3808,67 @@ ENDCLASS.       &quot;zcl_Wb_Class_Global_Test</localTestClasses>
   <attribute CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="WITH_ENHANCEMENTS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOX_BOOLEAN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="WITH_MASTER_LANGUAGE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOX_BOOLEAN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <inheritance CLSNAME="ZCL_WB_CLASS_GLOBAL" REFCLSNAME="ZCL_WB_CLASS" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCL_WB_CLASS_GLOBAL" REFCLSNAME="ZCL_WB_CLASS" VERSION="1" MTDNAME="GET_DIRECT_IMPLEMENTATIONS" EXPOSURE="2"/>
+   <redefinition CLSNAME="ZCL_WB_CLASS_GLOBAL" REFCLSNAME="ZCL_WB_CLASS" VERSION="1" MTDNAME="LOAD_SUBCLASSES" EXPOSURE="1"/>
    <redefinition CLSNAME="ZCL_WB_CLASS_GLOBAL" REFCLSNAME="ZCL_WB_CLASS" VERSION="1" MTDNAME="ZIF_WB_OBJECT~LOAD" EXPOSURE="0"/>
   </inheritance>
   <interfaceMethod CLSNAME="ZCL_WB_CLASS_GLOBAL" CPDNAME="ZIF_WB_OBJECT~LOAD">
    <source>METHOD zif_wb_object~load.
 
-  CALL FUNCTION &apos;SEO_CLASS_TYPEINFO_GET&apos;
-    EXPORTING
-      clskey                        = me-&gt;clskey
-      version                       = me-&gt;version
-      state                         = me-&gt;state
-      with_descriptions             = me-&gt;with_descriptions
-      resolve_eventhandler_typeinfo = me-&gt;resolve_eventhandler_info
-      with_master_language          = me-&gt;with_master_language
-      with_enhancements             = me-&gt;with_enhancements
-      read_active_enha              = me-&gt;read_active_enha
-      enha_action                   = me-&gt;enha_action
-      ignore_switches               = me-&gt;ignore_switches
-    IMPORTING
-      class                         = me-&gt;class
-      attributes                    = me-&gt;attributes
-      methods                       = me-&gt;methods
-      events                        = me-&gt;events
-      types                         = me-&gt;types
-      parameters                    = me-&gt;parameters
-      exceps                        = me-&gt;exceps
-      implementings                 = me-&gt;implementings
-      inheritance                   = me-&gt;inheritance
-      redefinitions                 = me-&gt;redefinitions
-      impl_details                  = me-&gt;impl_details
-      friendships                   = me-&gt;friendships
-      typepusages                   = me-&gt;typepusages
-      clsdeferrds                   = me-&gt;clsdeferrds
-      intdeferrds                   = me-&gt;intdeferrds
-      explore_inheritance           = me-&gt;explore_inheritance
-      explore_implementings         = me-&gt;explore_implementings
-      aliases                       = me-&gt;aliases
-      enhancement_methods           = me-&gt;enhancement_methods
-      enhancement_attributes        = me-&gt;enhancement_attributes
-      enhancement_events            = me-&gt;enhancement_events
-      enhancement_implementings     = me-&gt;enhancement_implementings
-      enhancement_types             = me-&gt;enhancement_types
-    EXCEPTIONS
-      not_existing                  = 1
-      is_interface                  = 2
-      model_only                    = 3
-      OTHERS                        = 4.
+    CALL FUNCTION &apos;SEO_CLASS_TYPEINFO_GET&apos;
+      EXPORTING
+        clskey                        = me-&gt;clskey
+        version                       = me-&gt;version
+        state                         = me-&gt;state
+        with_descriptions             = me-&gt;with_descriptions
+        resolve_eventhandler_typeinfo = me-&gt;resolve_eventhandler_info
+        with_master_language          = me-&gt;with_master_language
+        with_enhancements             = me-&gt;with_enhancements
+        read_active_enha              = me-&gt;read_active_enha
+        enha_action                   = me-&gt;enha_action
+        ignore_switches               = me-&gt;ignore_switches
+      IMPORTING
+        class                         = me-&gt;class
+        attributes                    = me-&gt;attributes
+        methods                       = me-&gt;methods
+        events                        = me-&gt;events
+        types                         = me-&gt;types
+        parameters                    = me-&gt;parameters
+        exceps                        = me-&gt;exceps
+        implementings                 = me-&gt;implementings
+        inheritance                   = me-&gt;inheritance
+        redefinitions                 = me-&gt;redefinitions
+        impl_details                  = me-&gt;impl_details
+        friendships                   = me-&gt;friendships
+        typepusages                   = me-&gt;typepusages
+        clsdeferrds                   = me-&gt;clsdeferrds
+        intdeferrds                   = me-&gt;intdeferrds
+        explore_inheritance           = me-&gt;explore_inheritance
+        explore_implementings         = me-&gt;explore_implementings
+        aliases                       = me-&gt;aliases
+        enhancement_methods           = me-&gt;enhancement_methods
+        enhancement_attributes        = me-&gt;enhancement_attributes
+        enhancement_events            = me-&gt;enhancement_events
+        enhancement_implementings     = me-&gt;enhancement_implementings
+        enhancement_types             = me-&gt;enhancement_types
+      EXCEPTIONS
+        not_existing                  = 1
+        is_interface                  = 2
+        model_only                    = 3
+        OTHERS                        = 4.
 
-  CASE sy-subrc.
-    WHEN 1.
-      RAISE EXCEPTION TYPE zcx_class_dont_exist.
-    WHEN 2.
-      RAISE EXCEPTION TYPE zcx_is_interface.
-    WHEN 3.
-      RAISE EXCEPTION TYPE zcx_class_is_model_only.
-  ENDCASE.
+    CASE sy-subrc.
+      WHEN 1.
+        RAISE EXCEPTION TYPE zcx_wb_class_dont_exist.
+      WHEN 2.
+        RAISE EXCEPTION TYPE zcx_wb_is_interface.
+      WHEN 3.
+        RAISE EXCEPTION TYPE zcx_wb_class_is_model_only.
+    ENDCASE.
 
-ENDMETHOD.</source>
+    me-&gt;load_subclasses( ).
+
+  ENDMETHOD.                    &quot;zif_wb_object~load</source>
   </interfaceMethod>
   <method CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_CLSKEY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOCLSKEY"/>
@@ -3618,7 +3881,7 @@ ENDMETHOD.</source>
    <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_READ_ACTIVE_ENHA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="8 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOX_BOOLEAN" PARVALUE="SEOX_FALSE"/>
    <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_ENHA_ACTION" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="9 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOX_BOOLEAN" PARVALUE="SEOX_FALSE"/>
    <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL" CMPNAME="CONSTRUCTOR" SCONAME="IM_IGNORE_SWITCHES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="10 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="CHAR1" PARVALUE="&apos;X&apos;"/>
-   <source>method CONSTRUCTOR.
+   <source>METHOD constructor.
     super-&gt;constructor( ).
     me-&gt;clskey                    = im_clskey.
     me-&gt;version                   = im_version.
@@ -3630,11 +3893,69 @@ ENDMETHOD.</source>
     me-&gt;read_active_enha          = im_read_active_enha.
     me-&gt;enha_action               = im_enha_action.
     me-&gt;ignore_switches           = im_ignore_switches.
+  ENDMETHOD.                    &quot;CONSTRUCTOR</source>
+  </method>
+  <method CLSNAME="ZCL_WB_CLASS" CMPNAME="GET_DIRECT_IMPLEMENTATIONS" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD get_direct_implementations.
 
-endmethod.</source>
+    data lt_partial_result type seo_class_names.
+
+    FIELD-SYMBOLS &lt;implemented_interface&gt; TYPE seor_implementing_r.
+    DATA lwa_direct_implementation TYPE seoclass.
+    DATA lo_interface TYPE REF TO cl_oo_interface.
+    DATA lt_comprised_interfaces TYPE seo_relkeys. &quot; interfaces that an interface implements
+    FIELD-SYMBOLS &lt;wa_comprised_interface&gt; TYPE seorelkey.
+
+
+* implementings has all interfaces that are implemented by the class no matter if directly or not
+    LOOP AT me-&gt;implementings ASSIGNING &lt;implemented_interface&gt;.
+
+      TRY.
+&quot; Get all interfaces that each interface implements (as known as &apos;Comprised Interfaces&apos;)
+          lo_interface ?= cl_oo_interface=&gt;get_instance( clsname = &lt;implemented_interface&gt;-refclsname  ).
+          lt_comprised_interfaces = lo_interface-&gt;get_comprised_interfaces( ).
+          CATCH cx_class_not_existent.  &quot; Class Does Not Exist
+            CONTINUE.
+        ENDTRY.
+
+
+&quot; Check if a comprised interface implements one of the know interfaces (which the class implements)
+          LOOP AT lt_comprised_interfaces ASSIGNING &lt;wa_comprised_interface&gt;.
+
+*            READ TABLE me-&gt;implementings WITH KEY clsname = me-&gt;refclsname refclsname = &lt;wa_comprised_interface&gt;-refclsname.
+
+
+          endloop.
+
+
+
+
+
+
+
+
+        lwa_direct_implementation = &lt;implemented_interface&gt;-refclsname.
+        APPEND lwa_direct_implementation TO re_t_direct_implementations.
+
+        CLEAR lo_interface.
+      ENDLOOP.
+
+    ENDMETHOD.                    &quot;GET_DIRECT_IMPLEMENTATIONS</source>
+  </method>
+  <method CLSNAME="ZCL_WB_CLASS" CMPNAME="LOAD_SUBCLASSES" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD load_subclasses.
+    DATA lo_oo_class TYPE REF TO cl_oo_class.
+
+    TRY.
+        lo_oo_class ?= cl_oo_class=&gt;get_instance( clsname = me-&gt;clskey-clsname ).
+        me-&gt;subclasses = lo_oo_class-&gt;get_subclasses( ).
+      CATCH cx_class_not_existent.    &quot; Class Does Not Exist
+    ENDTRY.
+
+  ENDMETHOD.                    &quot;load_subclasses</source>
   </method>
  </CLAS>
- <CLAS CLSNAME="ZCL_WB_CLASS" VERSION="1" LANGU="E" DESCRIPT="Generic class" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSABSTRCT="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+ <CLAS CLSNAME="ZCL_WB_CLASS" VERSION="1" LANGU="E" DESCRIPT="Generic class" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <implementing CLSNAME="ZCL_WB_CLASS" REFCLSNAME="ZIF_WB_OBJECT" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
   <localImplementation>*&quot;* use this source file for the definition and implementation of
 *&quot;* local helper classes, interface definitions and type
@@ -3660,22 +3981,56 @@ endmethod.</source>
   <attribute CLSNAME="ZCL_WB_CLASS" CMPNAME="METHODS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOO_METHODS_R" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_WB_CLASS" CMPNAME="PARAMETERS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOS_PARAMETERS_R" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_WB_CLASS" CMPNAME="REDEFINITIONS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOR_REDEFINITIONS_R" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_CLASS" CMPNAME="SUBCLASSES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="17 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEO_RELKEYS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_WB_CLASS" CMPNAME="TYPEPUSAGES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOT_TYPEPUSAGES_R" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_WB_CLASS" CMPNAME="TYPES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOO_TYPES_R" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <interfaceMethod CLSNAME="ZCL_WB_CLASS" CPDNAME="ZIF_WB_OBJECT~LOAD">
-   <source>method ZIF_WB_OBJECT~LOAD.
+   <source>METHOD zif_wb_object~load.
 
-endmethod.</source>
+  ENDMETHOD.                    &quot;ZIF_WB_OBJECT~LOAD</source>
   </interfaceMethod>
-  <interfaceMethod CLSNAME="ZCL_WB_CLASS" CPDNAME="ZIF_WB_OBJECT~WRITE">
-   <source>method ZIF_WB_OBJECT~WRITE.
+  <interfaceMethod CLSNAME="ZCL_WB_CLASS" CPDNAME="ZIF_WB_OBJECT~TO_STRING">
+   <source>METHOD zif_wb_object~to_string.
+* This method is currently for demonstration purposes of the framework
+* sooner or later it will be removed from here.
+* DO NOT USE!
 
+* Class name
   WRITE:
     &apos;Class:&apos;,
     me-&gt;class-clsname,
     &apos; - &apos;,
     me-&gt;class-descript.
   NEW-LINE.
+
+* attributes
+  DATA lwa_attributes TYPE vseoattrib.
+  WRITE: &apos;Attributes&apos; COLOR 3. NEW-LINE.
+
+  LOOP AT me-&gt;attributes INTO lwa_attributes.
+    WRITE lwa_attributes-cmpname        . NEW-LINE.
+
+  ENDLOOP.
+
+* methods
+  DATA lwa_method TYPE seoo_method_r.
+  WRITE: &apos;Methods&apos; COLOR 3. NEW-LINE.
+  LOOP AT me-&gt;methods INTO lwa_method.
+    WRITE lwa_method-cmpname. NEW-LINE.
+  ENDLOOP.
+  ULINE.
+
+ENDMETHOD.</source>
+  </interfaceMethod>
+  <interfaceMethod CLSNAME="ZCL_WB_CLASS" CPDNAME="ZIF_WB_OBJECT~WRITE">
+   <source>METHOD zif_wb_object~write.
+
+    WRITE:
+      &apos;Class:&apos;,
+      me-&gt;class-clsname,
+      &apos; - &apos;,
+      me-&gt;class-descript.
+    NEW-LINE.
 
 *    WRITE me-&gt;class-version           .  NEW-LINE.
 *    WRITE me-&gt;class-langu             .  NEW-LINE.
@@ -3718,12 +4073,12 @@ endmethod.</source>
 *    WRITE me-&gt;class-within_package    .  NEW-LINE.
 
 * attributes
-  DATA lwa_attributes TYPE vseoattrib.
-  WRITE: &apos;Attributes&apos; COLOR 3. NEW-LINE.
+    DATA lwa_attributes TYPE vseoattrib.
+    WRITE: &apos;Attributes&apos; COLOR 3. NEW-LINE.
 
-  LOOP AT me-&gt;attributes INTO lwa_attributes.
+    LOOP AT me-&gt;attributes INTO lwa_attributes.
 *      WRITE lwa_attributes-clsname        . NEW-LINE.
-    WRITE lwa_attributes-cmpname        . NEW-LINE.
+      WRITE lwa_attributes-cmpname        . NEW-LINE.
 *      WRITE lwa_attributes-version        . NEW-LINE.
 *      WRITE lwa_attributes-langu          . NEW-LINE.
 *      WRITE lwa_attributes-descript       . NEW-LINE.
@@ -3758,17 +4113,35 @@ endmethod.</source>
 *      WRITE lwa_attributes-r3release      . NEW-LINE.
 *      WRITE lwa_attributes-typesrc_leng   . NEW-LINE.
 *      WRITE lwa_attributes-typesrc        . NEW-LINE.
-  ENDLOOP.
+    ENDLOOP.
 
-  DATA lwa_method TYPE seoo_method_r.
-  WRITE: &apos;Methods&apos; COLOR 3. NEW-LINE.
-  LOOP AT me-&gt;methods INTO lwa_method.
-    WRITE lwa_method-cmpname. NEW-LINE.
-  ENDLOOP.
-  ULINE.
+    DATA lwa_method TYPE seoo_method_r.
+    WRITE: &apos;Methods&apos; COLOR 3. NEW-LINE.
+    LOOP AT me-&gt;methods INTO lwa_method.
+      WRITE lwa_method-cmpname. NEW-LINE.
+    ENDLOOP.
+    ULINE.
 
-endmethod.</source>
+  ENDMETHOD.                    &quot;ZIF_WB_OBJECT~WRITE</source>
   </interfaceMethod>
+  <method CLSNAME="ZCL_WB_CLASS" CMPNAME="GET_DIRECT_IMPLEMENTATIONS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_CLASS" CMPNAME="GET_DIRECT_IMPLEMENTATIONS" SCONAME="RE_T_DIRECT_IMPLEMENTATIONS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="SEO_CLASS_NAMES"/>
+   <source>METHOD get_direct_implementations.
+    FIELD-SYMBOLS &lt;implemented_interface&gt; TYPE seor_implementing_r.
+    DATA lwa_direct_implementation TYPE seoclass.
+
+    LOOP AT me-&gt;implementings ASSIGNING &lt;implemented_interface&gt;.
+      lwa_direct_implementation = &lt;implemented_interface&gt;-refclsname.
+      APPEND lwa_direct_implementation TO re_t_direct_implementations.
+    ENDLOOP.
+
+  ENDMETHOD.                    &quot;get_direct_implementations</source>
+  </method>
+  <method CLSNAME="ZCL_WB_CLASS" CMPNAME="LOAD_SUBCLASSES" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD load_subclasses.
+
+  ENDMETHOD.                    &quot;load_subclasses</source>
+  </method>
  </CLAS>
  <INTF CLSNAME="ZIF_WB_OBJECT" VERSION="1" LANGU="E" DESCRIPT="Workbench Object" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
   <method CLSNAME="ZIF_WB_OBJECT" CMPNAME="LOAD" VERSION="1" LANGU="E" DESCRIPT="Load wb objects details" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" MTDNEWEXC="X" BCMTDCAT="00" BCMTDSYN="0">
@@ -3776,27 +4149,6 @@ endmethod.</source>
   </method>
   <method CLSNAME="ZIF_WB_OBJECT" CMPNAME="TO_STRING" VERSION="1" LANGU="E" DESCRIPT="Get string representation of object" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0"/>
   <method CLSNAME="ZIF_WB_OBJECT" CMPNAME="WRITE" VERSION="1" LANGU="E" DESCRIPT="Write representation of object" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0"/>
- </INTF>
- <INTF CLSNAME="ZIF_WB_SEARCH_CRITERIA" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="6 " SRCCOLUMN1="4 " SRCROW2="6 " SRCCOLUMN2="49 " TYPESRC_LENG="48 " TYPESRC="ty_ra_packages    TYPE RANGE OF tdevc-devclass
-"/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_REPORTS" VERSION="1" LANGU="E" DESCRIPT="TY_RA_REPORTS" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="8 " SRCCOLUMN1="4 " SRCROW2="8 " SRCCOLUMN2="51 " TYPESRC_LENG="50 " TYPESRC="ty_ra_reports     TYPE RANGE OF reposrc-progname
-"/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_CLASSES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="4 " SRCROW2="10 " SRCCOLUMN2="51 " TYPESRC_LENG="50 " TYPESRC="ty_ra_classes     TYPE RANGE OF seoclass-clsname
-"/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="12 " SRCCOLUMN1="4 " SRCROW2="12 " SRCCOLUMN2="51 " TYPESRC_LENG="50 " TYPESRC="ty_ra_interfaces  TYPE RANGE OF seoclass-clsname
-"/>
-  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_CLASSES" VERSION="1" LANGU="E" DESCRIPT="R_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_CLASSES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="R_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_INTERFACES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="R_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_PACKAGES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_REPORTS" VERSION="1" LANGU="E" DESCRIPT="R_REPORTS" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_REPORTS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <method CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" VERSION="1" LANGU="E" DESCRIPT="FACTORY" EXPOSURE="2" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="IM_PACKAGES" CMPTYPE="1" MTDTYPE="0" EDITORDER="9 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_PACKAGES" PAROPTIONL="X"/>
-   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_REPORTS" VERSION="1" LANGU="E" DESCRIPT="IM_REPORTS" CMPTYPE="1" MTDTYPE="0" EDITORDER="10 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_REPORTS" PAROPTIONL="X"/>
-   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_CLASSES" VERSION="1" LANGU="E" DESCRIPT="IM_CLASSES" CMPTYPE="1" MTDTYPE="0" EDITORDER="11 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_CLASSES" PAROPTIONL="X"/>
-   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="IM_INTERFACES" CMPTYPE="1" MTDTYPE="0" EDITORDER="12 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_INTERFACES" PAROPTIONL="X"/>
-   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="RE_SEARCH_CRITERIA" VERSION="1" LANGU="E" DESCRIPT="RE_SEARCH_CRITERIA" CMPTYPE="1" MTDTYPE="0" EDITORDER="13 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZIF_WB_SEARCH_CRITERIA"/>
-  </method>
  </INTF>
  <PROG NAME="ZIN_WB_SCANNER_OBJECTS" VARCL="X" DBAPL="S" DBNA="D$" SUBC="I" APPL="S" LEVL="702" RMAND="000" RLOAD="D" FIXPT="X" LDBNAME="D$S">
   <textPool>
@@ -4201,8 +4553,11 @@ ENDCLASS.</source>
 *&amp; Report  ZWB_OBJECTS_DEMO1
 *&amp;
 *&amp;---------------------------------------------------------------------*
-*&amp;
-*&amp;
+*&amp; This report shows how some WB objects can be loaded into memory
+*&amp; Here, it&apos;s possible to load
+*&amp; 1) A global class
+*&amp; 2) A global interface
+*&amp; 3) All local classes and interfaces from a program/include
 *&amp;---------------------------------------------------------------------*
 
 REPORT  zwb_objects_demo1.
@@ -4211,21 +4566,28 @@ PARAMETERS p_class TYPE seoclass-clsname.
 PARAMETERS p_inter TYPE seoclass-clsname.
 PARAMETERS p_repor TYPE reposrc-progname.
 
+AT SELECTION-SCREEN.
+
+  IF &quot; If all is filled or nothing is filled, show message
+     (  p_class IS NOT INITIAL AND
+        p_inter IS NOT INITIAL AND
+        p_repor IS NOT INITIAL ) OR
+
+     (  p_class IS INITIAL AND
+        p_inter IS INITIAL AND
+        p_repor IS INITIAL )
+        .
+    MESSAGE &apos;Fill a class or an interface or a report name&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos;.
+  ENDIF.
+
 
 START-OF-SELECTION.
 
   DATA o_class TYPE REF TO zcl_wb_class.
 
-  IF p_class IS NOT INITIAL AND
-    p_inter IS NOT INITIAL AND
-    p_repor IS NOT INITIAL.
-    MESSAGE &apos;Fill a class or an interface or a report name&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos;.
-    STOP.
-  ENDIF.
-
-
 * Global Class
   IF p_class IS NOT INITIAL.
+
     DATA o_global_class TYPE REF TO zcl_wb_class_global.
     DATA wa_seoclskey TYPE seoclskey.
 
@@ -4246,18 +4608,29 @@ START-OF-SELECTION.
 
     TRY .
         o_global_class-&gt;zif_wb_object~load( ).
-      CATCH zcx_wb_objects.    &quot; WB Objects generic exception
 
+      CATCH zcx_wb_class_dont_exist.
+        MESSAGE &apos;This class do not exist&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos;.
+        STOP.
+      CATCH zcx_wb_is_interface.
+        MESSAGE &apos;This value informed is actually an interface&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos;.
+        STOP.
+      CATCH zcx_wb_class_is_model_only.
+        MESSAGE &apos;This class is only a model&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos;.
+        STOP.
+      CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+        MESSAGE &apos;Unknow error when loading the global class&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos; .
+        STOP.
     ENDTRY.
 
-    o_global_class-&gt;to_string( ).
+    o_global_class-&gt;zif_wb_object~to_string( ).
     STOP.
-
   ENDIF.
 
 
 * Global Interface
   IF p_inter IS NOT INITIAL.
+
     DATA o_global_interface TYPE REF TO zcl_wb_interface_global.
     DATA wa_intkey TYPE seoclskey.
 
@@ -4275,122 +4648,72 @@ START-OF-SELECTION.
 *       im_ignore_switches      = &apos;X&apos;
       .
 
-
     TRY .
         o_global_interface-&gt;zif_wb_object~load( ).
+      CATCH zcx_wb_interface_dont_exist.
+        MESSAGE &apos;This interface do not exist&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos;.
+        STOP.
+      CATCH zcx_wb_is_interface.
+        MESSAGE &apos;This value informed is actually a class&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos;.
+        STOP.
+      CATCH zcx_wb_class_is_model_only.
+        MESSAGE &apos;This interface is only a model&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos;.
+        STOP.
       CATCH zcx_wb_objects.    &quot; WB Objects generic exception
-
+        MESSAGE &apos;Unknow error when loading the global interface&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos; .
+        STOP.
     ENDTRY.
 
-    o_global_interface-&gt;to_string( ).
+    o_global_interface-&gt;zif_wb_object~to_string( ).
     STOP.
   ENDIF.
 
 
-* Local classes and interfaces
+* Program/Include
   IF p_repor IS NOT INITIAL.
 
     DATA itab_local_class TYPE ztt_wb_class_local.
     DATA o_local_class TYPE REF TO zcl_wb_class_local.
-    itab_local_class = zcl_wb_class_local=&gt;load_all_classes( im_program = p_repor ).
+
+* Local classes
+    TRY .
+        itab_local_class = zcl_wb_class_local=&gt;load_all_classes( im_program = p_repor ).
+      CATCH zcx_wb_report_dont_exist.
+        MESSAGE &apos;This program/include do not exist&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos; .
+        STOP.
+      CATCH zcx_wb_report_without_class.
+        WRITE: &apos;There is no local classes&apos;.
+        NEW-LINE.
+    ENDTRY.
 
     LOOP AT itab_local_class INTO o_local_class.
-      o_local_class-&gt;to_string( ).
+      o_local_class-&gt;zif_wb_object~to_string( ).
     ENDLOOP.
 
+
+
+* Local interfaces
     DATA itab_local_interface TYPE ztt_wb_interface_local.
     DATA o_local_interface TYPE REF TO zcl_wb_interface_local.
-    itab_local_interface = zcl_wb_interface_local=&gt;load_all_interfaces( im_program = p_repor ).
+
+    TRY .
+        itab_local_interface = zcl_wb_interface_local=&gt;load_all_interfaces( im_program = p_repor ).
+      CATCH zcx_wb_report_dont_exist.
+        MESSAGE &apos;This program/include do not exist&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos; .
+        STOP.
+      CATCH zcx_wb_report_without_inter.
+        WRITE: &apos;There is no local interfaces&apos;.
+        NEW-LINE.
+    ENDTRY.
 
     LOOP AT itab_local_interface INTO o_local_interface.
-      o_local_interface-&gt;to_string( ).
+      o_local_interface-&gt;zif_wb_object~to_string( ).
     ENDLOOP.
 
     STOP.
   ENDIF.</source>
  </PROG>
- <PROG NAME="ZYUML_WB_COLLECTIONS" VARCL="X" SUBC="I" RMAND="001" RLOAD="E" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="Include ZYUML_WB_COLLECTIONS" LENGTH="28 "/>
-   </language>
-  </textPool>
-  <source>****----------------------------------------------------------------------*
-****       INTERFACE lif_wb_iterator
-****----------------------------------------------------------------------*
-****
-****----------------------------------------------------------------------*
-***INTERFACE lif_wb_iterator.
-***
-***ENDINTERFACE.                    &quot;lif_wb_iterator
-***
-****----------------------------------------------------------------------*
-****       INTERFACE lif_wb_collection
-****----------------------------------------------------------------------*
-****
-****----------------------------------------------------------------------*
-***INTERFACE lif_wb_collection.
-***
-****  METHODS add.
-****  METHODS remove.
-****  METHODS clear.
-****  METHODS is_empty RETURNING value(re_is_empty) TYPE abap_bool.
-****  METHODS get_iterator.
-****  METHODS size.
-***
-***ENDINTERFACE.                    &quot;lif_wb_collection
-***
-****---------------- ------------------------------------------------------*
-****       INTERFACE lif_wb_object_set
-****----------------------------------------------------------------------*
-**** This interface represents a set of WB objects.
-**** There might be different classes that somehow group together one
-**** or more kind of WB objects. All those classes might have something
-**** in common which in this case is this interface.
-****----------------------------------------------------------------------*
-***INTERFACE lif_wb_object_set.
-***  &quot; TODO: implement some iterable / appendable
-***  INTERFACES lif_wb_collection.
-***  METHODS list_object_set.
-***ENDINTERFACE.                    &quot;lif_wb_object_set
-***
-***
-****----------------------------------------------------------------------*
-****       INTERFACE lif_wb_object_set_itab
-****----------------------------------------------------------------------*
-**** This interface groups together many WB objects in a single internal
-**** table. As a consequence this itab is generic in terms of which
-**** WB object it stores.
-****----------------------------------------------------------------------*
-***INTERFACE lif_wb_object_set_itab.
-***  INTERFACES lif_wb_object_set.
-***  DATA t_wb_objects TYPE STANDARD TABLE OF REF TO zif_wb_object.
-***ENDINTERFACE.                    &quot;lif_wb_object_set
-***
-***
-****----------------------------------------------------------------------*
-****       CLASS lcl_wb_object_set_itab DEFINITION
-****----------------------------------------------------------------------*
-**** This class represents a set of WB objects in the form of an internal
-**** table
-****----------------------------------------------------------------------*
-***CLASS lcl_wb_object_set_itab DEFINITION.
-***  PUBLIC SECTION.
-***    INTERFACES lif_wb_object_set_itab.
-***ENDCLASS.                    &quot;lcl_wb_object_set_itab DEFINITION
-***
-****----------------------------------------------------------------------*
-****       CLASS lcl_wb_object_set_itab IMPLEMENTATION
-****----------------------------------------------------------------------*
-****
-****----------------------------------------------------------------------*
-***CLASS lcl_wb_object_set_itab IMPLEMENTATION.
-***  METHOD lif_wb_object_set~list_object_set.
-***  ENDMETHOD.                    &quot;lif_wb_object_set~list_object_set
-***
-***ENDCLASS.                    &quot;lcl_wb_object_set_itab IMPLEMENTATION</source>
- </PROG>
- <PROG NAME="Z_WB_SCANNER_OBJECTS_TEST" VARCL="X" SUBC="1" RMAND="800" RLOAD="E" FIXPT="X" UCCHECK="X">
+ <PROG NAME="ZWB_SCANNER_OBJECTS_TEST" VARCL="X" SUBC="1" RMAND="800" RLOAD="E" FIXPT="X" UCCHECK="X">
   <textPool>
    <language SPRAS="E">
     <textElement ID="R" ENTRY="Program Z_WB_SCANNER_OBJECTS_TEST" LENGTH="33 "/>
@@ -4404,7 +4727,7 @@ START-OF-SELECTION.
 *&amp;
 *&amp;---------------------------------------------------------------------*
 
-REPORT  z_wb_scanner_objects_test.
+REPORT  zwb_scanner_objects_test.
 
 PARAMETERS p_incl TYPE programm DEFAULT &apos;ZWB_LOCAL_CLASS_EXAMPLE&apos;.
 
@@ -4424,577 +4747,4 @@ START-OF-SELECTION.
  </PROG>
  <TTYP TYPENAME="ZTT_WB_CLASS_LOCAL" DDLANGUAGE="E" ROWTYPE="ZCL_WB_CLASS_LOCAL" ROWKIND="R" DATATYPE="REF" LENG="000000" DECIMALS="000000" ACCESSMODE="T" KEYDEF="D" KEYKIND="N" KEYFDCOUNT="0000" DDTEXT="Table of WB local classes" TYPELEN="000008" CTLENG="000000" CTDECIMALS="000000" REFTYPE="C" OCCURS="00000"/>
  <TTYP TYPENAME="ZTT_WB_INTERFACE_LOCAL" DDLANGUAGE="E" ROWTYPE="ZCL_WB_INTERFACE_LOCAL" ROWKIND="R" DATATYPE="REF" LENG="000000" DECIMALS="000000" ACCESSMODE="T" KEYDEF="D" KEYKIND="N" KEYFDCOUNT="0000" DDTEXT="Table of WB local interfaces" TYPELEN="000008" CTLENG="000000" CTDECIMALS="000000" REFTYPE="C" OCCURS="00000"/>
- <CLAS CLSNAME="ZCL_WB_SET_ITAB" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
-  <implementing CLSNAME="ZCL_WB_SET_ITAB" REFCLSNAME="ZIF_WB_SET_ITAB" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
-  <localImplementation>*&quot;* use this source file for the definition and implementation of
-*&quot;* local helper classes, interface definitions and type
-*&quot;* declarations</localImplementation>
-  <localTypes>*&quot;* use this source file for any type of declarations (class
-*&quot;* definitions, interfaces or type declarations) you need for
-*&quot;* components in the private section</localTypes>
-  <localMacros>*&quot;* use this source file for any macro definitions you need
-*&quot;* in the implementation part of the class</localMacros>
-  <interfaceMethod CLSNAME="ZCL_WB_SET_ITAB" CPDNAME="ZIF_WB_SET~LIST_OBJECT_SET">
-   <source>method ZIF_WB_SET~LIST_OBJECT_SET.
-
-
-endmethod.</source>
-  </interfaceMethod>
- </CLAS>
- <INTF CLSNAME="ZIF_WB_COLLECTION" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X"/>
- <INTF CLSNAME="ZIF_WB_ITERATOR" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X"/>
- <INTF CLSNAME="ZIF_WB_SET" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
-  <include CLSNAME="ZIF_WB_SET" REFCLSNAME="ZIF_WB_COLLECTION" VERSION="1" STATE="1"/>
-  <method CLSNAME="ZIF_WB_SET" CMPNAME="LIST_OBJECT_SET" VERSION="1" LANGU="E" DESCRIPT="LIST_OBJECT_SET" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0"/>
- </INTF>
- <INTF CLSNAME="ZIF_WB_SET_ITAB" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
-  <include CLSNAME="ZIF_WB_SET_ITAB" REFCLSNAME="ZIF_WB_COLLECTION" VERSION="1" STATE="1"/>
-  <include CLSNAME="ZIF_WB_SET_ITAB" REFCLSNAME="ZIF_WB_SET" VERSION="1" STATE="1"/>
-  <attribute CLSNAME="ZIF_WB_SET_ITAB" CMPNAME="T_WB_OBJECTS" VERSION="1" LANGU="E" DESCRIPT="T_WB_OBJECTS" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="9 " SRCCOLUMN1="4 " SRCROW2="9 " SRCCOLUMN2="59 " TYPESRC_LENG="58 " TYPESRC="t_wb_objects TYPE STANDARD TABLE OF REF TO zif_wb_object
-"/>
- </INTF>
- <CLAS CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_MASS_LOADER_OO_SEARCHER" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
-  <implementing CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" REFCLSNAME="ZIF_WB_MASS_LOADER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
-  <localImplementation>*&quot;* use this source file for the definition and implementation of
-*&quot;* local helper classes, interface definitions and type
-*&quot;* declarations</localImplementation>
-  <localTypes>*&quot;* use this source file for any type of declarations (class
-*&quot;* definitions, interfaces or type declarations) you need for
-*&quot;* components in the private section</localTypes>
-  <localMacros>*&quot;* use this source file for any macro definitions you need
-*&quot;* in the implementation part of the class</localMacros>
-  <attribute CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="O_WB_OO_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="O_WB_OO_SEARCHER" EXPOSURE="1" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_WB_SEARCHER_OO" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <interfaceMethod CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CPDNAME="ZIF_WB_MASS_LOADER~MASS_LOAD">
-   <source>METHOD zif_wb_mass_loader~mass_load.
-
-
-    CREATE OBJECT re_wb_objects_set
-      TYPE zcl_wb_set_itab.
-
-    me-&gt;load_package_contents( CHANGING ch_o_wb_object_set = re_wb_objects_set ).
-    me-&gt;load_programs( CHANGING ch_o_wb_object_set = re_wb_objects_set ).
-    me-&gt;load_classes( CHANGING ch_o_wb_object_set = re_wb_objects_set ).
-    me-&gt;load_interfaces( CHANGING ch_o_wb_object_set = re_wb_objects_set ).
-
-
-  ENDMETHOD.                    &quot;ZIF_WB_MASS_LOADER~MASS_LOAD</source>
-  </interfaceMethod>
-  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="CONSTRUCTOR" SCONAME="IM_O_WB_OO_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="IM_O_WB_OO_SEARCHER" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZCL_WB_SEARCHER_OO"/>
-   <source>METHOD constructor.
-
-    me-&gt;o_wb_oo_searcher = im_o_wb_oo_searcher.
-
-  ENDMETHOD.                    &quot;CONSTRUCTOR</source>
-  </method>
-  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_CLASSES" VERSION="1" LANGU="E" DESCRIPT="LOAD_CLASSES" EXPOSURE="1" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_CLASSES" SCONAME="CH_O_WB_OBJECT_SET" VERSION="1" LANGU="E" DESCRIPT="CH_O_WB_OBJECT_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
-   <source>METHOD load_classes.
-
-
-    DATA lwa_class TYPE zcl_wb_searcher=&gt;ty_class.
-    DATA lo_new_class TYPE REF TO zcl_wb_class_global.
-    DATA lwa_seoclskey TYPE seoclskey.
-    LOOP AT me-&gt;o_wb_oo_searcher-&gt;t_classes INTO lwa_class. &quot; Transform itab into parameter because this method can be reused when loading a package
-
-      lwa_seoclskey-clsname = lwa_class-clsname.
-
-      CREATE OBJECT lo_new_class
-        EXPORTING
-          im_clskey                    = lwa_seoclskey
-*         im_version                   = SEOC_VERSION_INACTIVE
-*         im_state                     = &apos;1&apos;
-*         im_with_descriptions         = SEOX_TRUE
-*         im_resolve_eventhandler_info = SEOX_FALSE
-*         im_with_master_language      = SEOX_FALSE
-*         im_with_enhancements         = SEOX_FALSE
-*         im_read_active_enha          = SEOX_FALSE
-*         im_enha_action               = SEOX_FALSE
-*         im_ignore_switches           = &apos;X&apos;
-        .
-
-      TRY .
-          lo_new_class-&gt;zif_wb_object~load( ).
-        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
-          RAISE EXCEPTION TYPE zcx_wb_objects.
-      ENDTRY.
-
-      APPEND lo_new_class TO ch_o_wb_object_set-&gt;t_wb_objects.
-    ENDLOOP.
-
-
-  ENDMETHOD.                    &quot;load_classes</source>
-  </method>
-  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="LOAD_INTERFACES" EXPOSURE="1" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_INTERFACES" SCONAME="CH_O_WB_OBJECT_SET" VERSION="1" LANGU="E" DESCRIPT="CH_O_WB_OBJECT_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
-   <source>METHOD load_interfaces.
-
-
-    DATA lwa_interface TYPE zcl_wb_searcher=&gt;ty_interface.
-    DATA lo_new_interface TYPE REF TO zcl_wb_interface_global.
-    DATA lwa_seoclskey TYPE seoclskey.
-
-    LOOP AT me-&gt;o_wb_oo_searcher-&gt;t_interfaces INTO lwa_interface. &quot; Transform itab into parameter because this method can be reused when loading a package
-
-      lwa_seoclskey-clsname = lwa_interface-intname.
-      CREATE OBJECT lo_new_interface
-        EXPORTING
-          im_intkey               = lwa_seoclskey
-*         im_version              = SEOC_VERSION_INACTIVE
-*         im_state                = &apos;1&apos;
-*         im_with_master_language = SEOX_FALSE
-*         im_with_enhancements    = SEOX_FALSE
-*         im_read_active_enha     = SEOX_FALSE
-*         im_enha_action          = SEOX_FALSE
-*         im_ignore_switches      = &apos;X&apos;
-        .
-
-      TRY .
-          lo_new_interface-&gt;zif_wb_object~load( ).
-        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
-
-      ENDTRY.
-
-      APPEND lo_new_interface TO ch_o_wb_object_set-&gt;t_wb_objects.
-    ENDLOOP.
-
-
-  ENDMETHOD.                    &quot;load_interfaces</source>
-  </method>
-  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_PACKAGE_CONTENTS" VERSION="1" LANGU="E" DESCRIPT="LOAD_PACKAGE_CONTENTS" EXPOSURE="1" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_PACKAGE_CONTENTS" SCONAME="CH_O_WB_OBJECT_SET" VERSION="1" LANGU="E" DESCRIPT="CH_O_WB_OBJECT_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
-   <source>METHOD load_package_contents.
-
-* Classes
-*    DATA lwa_package TYPE zcl_wb_searcher=&gt;ty_package.
-
-    TYPES: BEGIN OF lty_tadir,
-      obj_name TYPE tadir-obj_name,
-      END OF lty_tadir,
-      ltt_tadir TYPE STANDARD TABLE OF lty_tadir WITH KEY obj_name.
-    DATA lt_tadir TYPE ltt_tadir.
-
-    IF me-&gt;o_wb_oo_searcher-&gt;t_packages IS NOT INITIAL.
-
-      SELECT
-        obj_name
-      FROM
-        tadir
-      INTO TABLE
-        lt_tadir
-      FOR ALL ENTRIES IN
-        me-&gt;o_wb_oo_searcher-&gt;t_packages
-      WHERE
-        pgmid = &apos;R3TR&apos; AND
-        object IN (&apos;CLAS&apos;,&apos;INTF&apos;) AND
-        devclass = me-&gt;o_wb_oo_searcher-&gt;t_packages-devclass.
-
-    ENDIF.
-
-    IF sy-subrc IS INITIAL .
-
-      DATA lwa_tadir TYPE lty_tadir.
-      LOOP AT lt_tadir INTO lwa_tadir.
-
-
-
-      ENDLOOP.
-    ENDIF.
-
-*    LOOP AT me-&gt;o_wb_oo_searcher-&gt;t_packages INTO lwa_package.
-*
-*    ENDLOOP.
-
-  ENDMETHOD.                    &quot;LOAD_PACKAGE_CONTENTS</source>
-  </method>
-  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="LOAD_PROGRAMS" EXPOSURE="1" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_PROGRAMS" SCONAME="CH_O_WB_OBJECT_SET" VERSION="1" LANGU="E" DESCRIPT="CH_O_WB_OBJECT_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
-   <source>METHOD load_programs.
-
-
-*    DATA lwa_program TYPE zcl_wb_searcher=&gt;ty_program.
-*
-*    LOOP AT me-&gt;o_wb_oo_searcher-&gt;t_programs INTO lwa_program.
-*
-*    ENDLOOP.
-
-
-  ENDMETHOD.                    &quot;LOAD_PROGRAMS</source>
-  </method>
- </CLAS>
- <CLAS CLSNAME="ZCL_WB_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_SEARCHER" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_PACKAGE" VERSION="1" LANGU="E" DESCRIPT="TY_PACKAGE" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="4 " SRCROW2="13 " SRCCOLUMN2="22 " TYPESRC_LENG="126 " TYPESRC="BEGIN OF ty_package,
-          devclass TYPE tdevc-devclass,
-          text    TYPE tdevct-ctext,
-      END OF ty_package
-"/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="TT_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="15 " SRCCOLUMN1="4 " SRCROW2="15 " SRCCOLUMN2="100 " TYPESRC_LENG="99 " TYPESRC="tt_packages TYPE STANDARD TABLE OF ty_package WITH UNIQUE SORTED KEY devclass COMPONENTS devclass
-"/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_PROGRAM" VERSION="1" LANGU="E" DESCRIPT="TY_PROGRAM" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="17 " SRCCOLUMN1="4 " SRCROW2="20 " SRCCOLUMN2="22 " TYPESRC_LENG="130 " TYPESRC="BEGIN OF ty_program,
-          progname  TYPE reposrc-progname,
-          text      TYPE trdirt-text,
-      END OF ty_program
-"/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="TT_PROGRAMS" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="4 " SRCROW2="22 " SRCCOLUMN2="100 " TYPESRC_LENG="99 " TYPESRC="tt_programs TYPE STANDARD TABLE OF ty_program WITH UNIQUE SORTED KEY progname COMPONENTS progname
-"/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_CLASS" VERSION="1" LANGU="E" DESCRIPT="TY_CLASS" EXPOSURE="2" STATE="1" EDITORDER="5 " TYPTYPE="4" SRCROW1="24 " SRCCOLUMN1="4 " SRCROW2="27 " SRCCOLUMN2="20 " TYPESRC_LENG="122 " TYPESRC="BEGIN OF ty_class,
-      clsname TYPE seoclass-clsname,
-      text    TYPE seoclasstx-descript,
-      END OF ty_class
-"/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_CLASSES" VERSION="1" LANGU="E" DESCRIPT="TT_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="6 " TYPTYPE="4" SRCROW1="29 " SRCCOLUMN1="4 " SRCROW2="29 " SRCCOLUMN2="95 " TYPESRC_LENG="94 " TYPESRC="tt_classes TYPE STANDARD TABLE OF ty_class WITH UNIQUE SORTED KEY clsname COMPONENTS clsname
-"/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_INTERFACE" VERSION="1" LANGU="E" DESCRIPT="TY_INTERFACE" EXPOSURE="2" STATE="1" EDITORDER="7 " TYPTYPE="4" SRCROW1="31 " SRCCOLUMN1="4 " SRCROW2="34 " SRCCOLUMN2="24 " TYPESRC_LENG="130 " TYPESRC="BEGIN OF ty_interface,
-      intname TYPE seoclass-clsname,
-      text    TYPE seoclasstx-descript,
-      END OF ty_interface
-"/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="TT_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="8 " TYPTYPE="4" SRCROW1="36 " SRCCOLUMN1="4 " SRCROW2="36 " SRCCOLUMN2="102 " TYPESRC_LENG="101 " TYPESRC="tt_interfaces TYPE STANDARD TABLE OF ty_interface WITH UNIQUE SORTED KEY intname COMPONENTS intname
-"/>
-  <implementing CLSNAME="ZCL_WB_SEARCHER" REFCLSNAME="ZIF_WB_SEARCHER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
-  <localImplementation>*&quot;* use this source file for the definition and implementation of
-*&quot;* local helper classes, interface definitions and type
-*&quot;* declarations</localImplementation>
-  <localTypes>*&quot;* use this source file for any type of declarations (class
-*&quot;* definitions, interfaces or type declarations) you need for
-*&quot;* components in the private section</localTypes>
-  <localMacros>*&quot;* use this source file for any macro definitions you need
-*&quot;* in the implementation part of the class</localMacros>
-  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="O_WB_SEARCH_CRITERIA" VERSION="1" LANGU="E" DESCRIPT="O_WB_SEARCH_CRITERIA" EXPOSURE="1" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZIF_WB_SEARCH_CRITERIA" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_CLASSES" VERSION="1" LANGU="E" DESCRIPT="T_CLASSES" EXPOSURE="0" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_CLASSES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="T_INTERFACES" EXPOSURE="0" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_INTERFACES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="T_PACKAGES" EXPOSURE="0" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_PACKAGES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="T_PROGRAMS" EXPOSURE="0" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_PROGRAMS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <interfaceMethod CLSNAME="ZCL_WB_SEARCHER" CPDNAME="ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS">
-   <source>method ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS.
-
-    me-&gt;o_wb_search_criteria = im_wb_search_criteria.
-
-    me-&gt;search_packages( CHANGING ch_t_packages = me-&gt;t_packages ).
-    me-&gt;search_programs( CHANGING ch_t_programs = me-&gt;t_programs ).
-    me-&gt;search_classes( CHANGING ch_t_classes = me-&gt;t_classes ).
-    me-&gt;search_interfaces( CHANGING ch_t_interfaces = me-&gt;t_interfaces ).
-    me-&gt;search_function_groups( ).
-    me-&gt;search_function_modules( ).
-    me-&gt;search_type_pools( ).
-    me-&gt;search_tables( ).
-    me-&gt;search_views( ).
-    me-&gt;search_domains( ).
-    me-&gt;search_data_elements( ).
-    me-&gt;search_structures( ).
-    me-&gt;search_table_types( ).
-    me-&gt;search_lock_objects( ).
-    me-&gt;search_search_helps( ).
-
-
-endmethod.</source>
-  </interfaceMethod>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="21 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method CONSTRUCTOR.
-
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_CLASSES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_CLASSES" EXPOSURE="1" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_CLASSES" SCONAME="CH_T_CLASSES" VERSION="1" LANGU="E" DESCRIPT="CH_T_CLASSES" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_CLASSES"/>
-   <source>method SEARCH_CLASSES.
-
-
-    IF me-&gt;o_wb_search_criteria-&gt;r_classes IS NOT INITIAL.
-
-      SELECT
-          class~clsname
-          ctext~descript
-        FROM
-          seoclass AS class JOIN
-          seoclasstx AS ctext
-        ON
-          class~clsname = ctext~clsname
-        INTO TABLE
-          ch_t_classes
-        WHERE
-          class~clsname IN me-&gt;o_wb_search_criteria-&gt;r_classes AND
-          class~clstype = &apos;0&apos; AND &quot; Classes
-          langu   = sy-langu.
-
-    ENDIF.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_DATA_ELEMENTS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_DATA_ELEMENTS" EXPOSURE="1" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_DATA_ELEMENTS.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_DOMAINS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_DOMAINS" EXPOSURE="1" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_DOMAINS.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_FUNCTION_GROUPS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_FUNCTION_GROUPS" EXPOSURE="1" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_FUNCTION_GROUPS.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_FUNCTION_MODULES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_FUNCTION_MODULES" EXPOSURE="1" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_FUNCTION_MODULES.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_INTERFACES" EXPOSURE="1" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_INTERFACES" SCONAME="CH_T_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="CH_T_INTERFACES" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_INTERFACES"/>
-   <source>method SEARCH_INTERFACES.
-
-
-    IF me-&gt;o_wb_search_criteria-&gt;r_interfaces IS NOT INITIAL.
-
-      SELECT
-          inter~clsname
-          ctext~descript
-        FROM
-          seoclass AS inter JOIN
-          seoclasstx AS ctext
-        ON
-          inter~clsname = ctext~clsname
-        INTO TABLE
-          ch_t_interfaces
-        WHERE
-          inter~clsname IN me-&gt;o_wb_search_criteria-&gt;r_interfaces AND
-          inter~clstype = &apos;1&apos; AND &quot; Interfaces
-          langu   = sy-langu.
-
-    ENDIF.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_LOCK_OBJECTS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_LOCK_OBJECTS" EXPOSURE="1" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_LOCK_OBJECTS.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_PACKAGES" EXPOSURE="1" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_PACKAGES" SCONAME="CH_T_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="CH_T_PACKAGES" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_PACKAGES"/>
-   <source>method SEARCH_PACKAGES.
-
-
-    IF me-&gt;o_wb_search_criteria-&gt;r_packages IS NOT INITIAL.
-
-      SELECT
-          devclass
-          ctext
-        FROM
-          tdevct
-        INTO TABLE
-          ch_t_packages
-        WHERE
-          devclass IN me-&gt;o_wb_search_criteria-&gt;r_packages AND
-          spras = sy-langu.
-
-    ENDIF.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_PROGRAMS" EXPOSURE="1" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_PROGRAMS" SCONAME="CH_T_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="CH_T_PROGRAMS" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_PROGRAMS"/>
-   <source>method SEARCH_PROGRAMS.
-
-
-    IF me-&gt;o_wb_search_criteria-&gt;r_reports IS NOT INITIAL.
-
-      SELECT
-        progname
-        text
-        FROM
-          reposrc AS repo JOIN
-          trdirt  AS rtext
-        ON
-          repo~progname = rtext~name
-        INTO TABLE
-          ch_t_programs
-        WHERE
-          progname IN me-&gt;o_wb_search_criteria-&gt;r_reports AND
-          r3state = &apos;A&apos; AND &quot; Active programs/includes
-          sprsl = sy-langu.
-
-    ENDIF.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_SEARCH_HELPS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_SEARCH_HELPS" EXPOSURE="1" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_SEARCH_HELPS.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_STRUCTURES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_STRUCTURES" EXPOSURE="1" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_STRUCTURES.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TABLES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_TABLES" EXPOSURE="1" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_TABLES.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TABLE_TYPES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_TABLE_TYPES" EXPOSURE="1" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_TABLE_TYPES.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TYPE_POOLS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_TYPE_POOLS" EXPOSURE="1" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_TYPE_POOLS.
-
-
-endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_VIEWS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_VIEWS" EXPOSURE="1" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method SEARCH_VIEWS.
-
-
-endmethod.</source>
-  </method>
- </CLAS>
- <CLAS CLSNAME="ZCL_WB_SEARCHER_OO" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_SEARCHER_OO" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCL_WB_SEARCHER">
-  <localImplementation>*&quot;* use this source file for the definition and implementation of
-*&quot;* local helper classes, interface definitions and type
-*&quot;* declarations</localImplementation>
-  <localTypes>*&quot;* use this source file for any type of declarations (class
-*&quot;* definitions, interfaces or type declarations) you need for
-*&quot;* components in the private section</localTypes>
-  <localMacros>*&quot;* use this source file for any macro definitions you need
-*&quot;* in the implementation part of the class</localMacros>
-  <attribute CLSNAME="ZCL_WB_SEARCHER_OO" CMPNAME="T_CLASSES" VERSION="1" LANGU="E" DESCRIPT="T_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ZCL_WB_SEARCHER=&gt;TT_CLASSES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_WB_SEARCHER_OO" CMPNAME="T_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="T_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ZCL_WB_SEARCHER=&gt;TT_INTERFACES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_WB_SEARCHER_OO" CMPNAME="T_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="T_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ZCL_WB_SEARCHER=&gt;TT_PACKAGES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_WB_SEARCHER_OO" CMPNAME="T_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="T_PROGRAMS" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ZCL_WB_SEARCHER=&gt;TT_PROGRAMS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <inheritance CLSNAME="ZCL_WB_SEARCHER_OO" REFCLSNAME="ZCL_WB_SEARCHER" VERSION="1" STATE="1">
-   <redefinition CLSNAME="ZCL_WB_SEARCHER_OO" REFCLSNAME="ZCL_WB_SEARCHER" VERSION="1" MTDNAME="ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS" EXPOSURE="0"/>
-  </inheritance>
-  <interfaceMethod CLSNAME="ZCL_WB_SEARCHER_OO" CPDNAME="ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS">
-   <source>method ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS.
-
-    me-&gt;o_wb_search_criteria = im_wb_search_criteria.
-
-    me-&gt;search_packages( CHANGING ch_t_packages = me-&gt;t_packages ).
-    me-&gt;search_programs( CHANGING ch_t_programs = me-&gt;t_programs ).
-    me-&gt;search_classes( CHANGING ch_t_classes = me-&gt;t_classes ).
-    me-&gt;search_interfaces( CHANGING ch_t_interfaces = me-&gt;t_interfaces ).
-
-
-endmethod.</source>
-  </interfaceMethod>
- </CLAS>
- <CLAS CLSNAME="ZCL_WB_SEARCHER_STUB" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_SEARCHER_STUB" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
-  <implementing CLSNAME="ZCL_WB_SEARCHER_STUB" REFCLSNAME="ZIF_WB_SEARCHER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
-  <localImplementation>*&quot;* use this source file for the definition and implementation of
-*&quot;* local helper classes, interface definitions and type
-*&quot;* declarations</localImplementation>
-  <localTypes>*&quot;* use this source file for any type of declarations (class
-*&quot;* definitions, interfaces or type declarations) you need for
-*&quot;* components in the private section</localTypes>
-  <localMacros>*&quot;* use this source file for any macro definitions you need
-*&quot;* in the implementation part of the class</localMacros>
-  <interfaceMethod CLSNAME="ZCL_WB_SEARCHER_STUB" CPDNAME="ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS">
-   <source>method ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS.
-
-
-endmethod.</source>
-  </interfaceMethod>
-  <method CLSNAME="ZCL_WB_SEARCHER_STUB" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method CONSTRUCTOR.
-
-
-
-endmethod.</source>
-  </method>
- </CLAS>
- <CLAS CLSNAME="ZCL_WB_SEARCHER_TEST" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_SEARCHER_TEST" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="12 " RISK_LEVEL="11 ">
-  <localImplementation>*&quot;* use this source file for the definition and implementation of
-*&quot;* local helper classes, interface definitions and type
-*&quot;* declarations</localImplementation>
-  <localTypes>*&quot;* use this source file for any type of declarations (class
-*&quot;* definitions, interfaces or type declarations) you need for
-*&quot;* components in the private section</localTypes>
-  <localMacros>*&quot;* use this source file for any macro definitions you need
-*&quot;* in the implementation part of the class</localMacros>
-  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
- </CLAS>
- <INTF CLSNAME="ZIF_WB_MASS_LOADER" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
-  <method CLSNAME="ZIF_WB_MASS_LOADER" CMPNAME="MASS_LOAD" VERSION="1" LANGU="E" DESCRIPT="MASS_LOAD" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZIF_WB_MASS_LOADER" CMPNAME="MASS_LOAD" SCONAME="RE_WB_OBJECTS_SET" VERSION="1" LANGU="E" DESCRIPT="RE_WB_OBJECTS_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
-  </method>
- </INTF>
- <INTF CLSNAME="ZIF_WB_SEARCHER" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
-  <method CLSNAME="ZIF_WB_SEARCHER" CMPNAME="SEARCH_WB_OBJECTS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_WB_OBJECTS" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZIF_WB_SEARCHER" CMPNAME="SEARCH_WB_OBJECTS" SCONAME="IM_WB_SEARCH_CRITERIA" VERSION="1" LANGU="E" DESCRIPT="IM_WB_SEARCH_CRITERIA" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SEARCH_CRITERIA"/>
-  </method>
- </INTF>
- <INTF CLSNAME="ZIF_WB_FAKE_INTERFACE" VERSION="1" LANGU="E" DESCRIPT="Fake Interface" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X"/>
- <PROG NAME="ZI_WB_FAKE_CLASS_LOCAL" VARCL="X" SUBC="I" APPL="S" RMAND="001" RLOAD="E" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="Include ZI_WB_FAKE_CLASS_LOCAL" LENGTH="30 "/>
-   </language>
-  </textPool>
-  <source>*----------------------------------------------------------------------*
-*       CLASS lcl_a DEFINITION
-*----------------------------------------------------------------------*
-*
-*----------------------------------------------------------------------*
-CLASS lcl_a DEFINITION.
-
-ENDCLASS.                    &quot;lcl_a DEFINITION
-
-*----------------------------------------------------------------------*
-*       CLASS lcl_a IMPLEMENTATION
-*----------------------------------------------------------------------*
-*
-*----------------------------------------------------------------------*
-CLASS lcl_a IMPLEMENTATION.
-
-ENDCLASS.                    &quot;lcl_a IMPLEMENTATION
-
-*----------------------------------------------------------------------*
-*       CLASS lcl_b DEFINITION
-*----------------------------------------------------------------------*
-*
-*----------------------------------------------------------------------*
-CLASS lcl_b DEFINITION.
-
-ENDCLASS.                    &quot;lcl_b DEFINITION
-
-*----------------------------------------------------------------------*
-*       CLASS lcl_b IMPLEMENTATION
-*----------------------------------------------------------------------*
-*
-*----------------------------------------------------------------------*
-CLASS lcl_b IMPLEMENTATION.
-
-ENDCLASS.                    &quot;lcl_b IMPLEMENTATION</source>
- </PROG>
- <PROG NAME="ZI_WB_FAKE_NO_CLASSES" VARCL="X" SUBC="I" APPL="S" RMAND="001" RLOAD="E" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="Include ZI_WB_FAKE_NO_CLASSES" LENGTH="29 "/>
-   </language>
-  </textPool>
-  <source>* This include can&apos;t contain a local class
-
-INTERFACE ZI_WB_FAKE_NO_CLASSES.
-
-ENDINTERFACE.</source>
- </PROG>
 </nugget>

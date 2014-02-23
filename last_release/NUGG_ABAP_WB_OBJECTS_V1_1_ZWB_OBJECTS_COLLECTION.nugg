@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ABAP_WB_OBJECTS_V1_1_ZWB_OBJECTS_COLLECTION">
+ <CLAS CLSNAME="ZCL_WB_SET_ITAB" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="ZCL_WB_SET_ITAB" REFCLSNAME="ZIF_WB_SET_ITAB" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <interfaceMethod CLSNAME="ZCL_WB_SET_ITAB" CPDNAME="ZIF_WB_SET~LIST_OBJECT_SET">
+   <source>method ZIF_WB_SET~LIST_OBJECT_SET.
+
+
+endmethod.</source>
+  </interfaceMethod>
+ </CLAS>
+ <INTF CLSNAME="ZIF_WB_COLLECTION" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X"/>
+ <INTF CLSNAME="ZIF_WB_ITERATOR" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X"/>
+ <INTF CLSNAME="ZIF_WB_SET" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <include CLSNAME="ZIF_WB_SET" REFCLSNAME="ZIF_WB_COLLECTION" VERSION="1" STATE="1"/>
+  <method CLSNAME="ZIF_WB_SET" CMPNAME="LIST_OBJECT_SET" VERSION="1" LANGU="E" DESCRIPT="LIST_OBJECT_SET" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0"/>
+ </INTF>
+ <INTF CLSNAME="ZIF_WB_SET_ITAB" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <include CLSNAME="ZIF_WB_SET_ITAB" REFCLSNAME="ZIF_WB_COLLECTION" VERSION="1" STATE="1"/>
+  <include CLSNAME="ZIF_WB_SET_ITAB" REFCLSNAME="ZIF_WB_SET" VERSION="1" STATE="1"/>
+  <attribute CLSNAME="ZIF_WB_SET_ITAB" CMPNAME="T_WB_OBJECTS" VERSION="1" LANGU="E" DESCRIPT="T_WB_OBJECTS" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="9 " SRCCOLUMN1="4 " SRCROW2="9 " SRCCOLUMN2="59 " TYPESRC_LENG="58 " TYPESRC="t_wb_objects TYPE STANDARD TABLE OF REF TO zif_wb_object
+"/>
+ </INTF>
+</nugget>

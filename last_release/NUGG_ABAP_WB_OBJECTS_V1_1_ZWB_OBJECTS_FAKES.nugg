@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ABAP_WB_OBJECTS_V1_1_ZWB_OBJECTS_FAKES">
+ <CLAS CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" VERSION="1" LANGU="E" DESCRIPT="Stub creator for ZWB_OBJECTS_GLOBAL" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <typeUsage CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" TYPEGROUP="SEOO" VERSION="1" TPUTYPE="0" EXPLICIT="X" IMPLICIT="X"/>
+  <forwardDeclaration>SEOO</forwardDeclaration>
+  <attribute CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="C_CLASS_NAME" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;ZCL&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SEOCLSNAME" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="ADD_ATTRIBUTES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="ADD_ATTRIBUTES" SCONAME="IM_WB_GLOBAL_CLASS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZCL_WB_CLASS_GLOBAL"/>
+   <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="ADD_ATTRIBUTES" SCONAME="IM_NUMBER_OF_ATTRIBUTES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="I"/>
+   <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="ADD_ATTRIBUTES" SCONAME="RE_WB_CLASS_GLOBAL" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_WB_CLASS_GLOBAL"/>
+   <source>METHOD add_attributes.
+    DO im_number_of_attributes TIMES.
+
+      re_wb_class_global = add_attribute_level_visibility(
+          im_wb_global_class = im_wb_global_class
+          im_level           = 0
+          im_visibility      = 2 ).
+
+    ENDDO.
+
+  ENDMETHOD.                    &quot;add_attributes</source>
+  </method>
+  <method CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="ADD_ATTRIBUTE_LEVEL_VISIBILITY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="ADD_ATTRIBUTE_LEVEL_VISIBILITY" SCONAME="IM_WB_GLOBAL_CLASS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZCL_WB_CLASS_GLOBAL"/>
+   <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="ADD_ATTRIBUTE_LEVEL_VISIBILITY" SCONAME="IM_LEVEL" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOATTDECL"/>
+   <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="ADD_ATTRIBUTE_LEVEL_VISIBILITY" SCONAME="IM_VISIBILITY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SEOEXPOSE"/>
+   <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="ADD_ATTRIBUTE_LEVEL_VISIBILITY" SCONAME="RE_WB_CLASS_GLOBAL" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_WB_CLASS_GLOBAL"/>
+   <source>METHOD add_attribute_level_visibility.
+    DATA lwa_attribute TYPE vseoattrib.
+
+    re_wb_class_global = im_wb_global_class.
+
+    lwa_attribute-clsname = c_class_name.
+    lwa_attribute-cmpname = &apos;MET&apos;.
+    lwa_attribute-attdecltyp = im_level.
+    lwa_attribute-exposure = im_visibility.
+
+    APPEND lwa_attribute TO re_wb_class_global-&gt;attributes.
+
+  ENDMETHOD.                    &quot;add_attribute_level_visibility</source>
+  </method>
+  <method CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="FACTORY_WB_CLASS_GLOBAL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_CLASS_GLOBAL_STUB" CMPNAME="FACTORY_WB_CLASS_GLOBAL" SCONAME="RE_WB_CLASS_GLOBAL" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_WB_CLASS_GLOBAL"/>
+   <source>METHOD factory_wb_class_global.
+
+    DATA lwa_clskey TYPE seoclskey.
+    lwa_clskey-clsname = c_class_name.
+
+    CREATE OBJECT re_wb_class_global
+      EXPORTING
+        im_clskey                    = lwa_clskey
+*       im_version                   = SEOC_VERSION_INACTIVE
+*       im_state                     = &apos;1&apos;
+*       im_with_descriptions         = SEOX_TRUE
+*       im_resolve_eventhandler_info = SEOX_FALSE
+*       im_with_master_language      = SEOX_FALSE
+*       im_with_enhancements         = SEOX_FALSE
+*       im_read_active_enha          = SEOX_FALSE
+*       im_enha_action               = SEOX_FALSE
+*       im_ignore_switches           = &apos;X&apos;
+      .
+
+      re_wb_class_global-&gt;clskey-clsname = c_class_name.
+  ENDMETHOD.                    &quot;factory_wb_class_global</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_WB_FAKE_SUBCLASS1" VERSION="1" LANGU="E" DESCRIPT="A fake subclass used for testing" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCL_WB_FAKE_SUPERCLASS">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <inheritance CLSNAME="ZCL_WB_FAKE_SUBCLASS1" REFCLSNAME="ZCL_WB_FAKE_SUPERCLASS" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_WB_FAKE_SUBCLASS1_A" VERSION="1" LANGU="E" DESCRIPT="A fake subclass of a subclass used for testing" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCL_WB_FAKE_SUBCLASS1">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <inheritance CLSNAME="ZCL_WB_FAKE_SUBCLASS1_A" REFCLSNAME="ZCL_WB_FAKE_SUBCLASS1" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_WB_FAKE_SUBCLASS2" VERSION="1" LANGU="E" DESCRIPT="A fake subclass used for testing" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCL_WB_FAKE_SUPERCLASS">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <inheritance CLSNAME="ZCL_WB_FAKE_SUBCLASS2" REFCLSNAME="ZCL_WB_FAKE_SUPERCLASS" VERSION="1" STATE="1"/>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_WB_FAKE_SUPERCLASS" VERSION="1" LANGU="E" DESCRIPT="A Fake superclass used for testing" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+ </CLAS>
+ <INTF CLSNAME="ZIF_WB_FAKE_INTERFACE" VERSION="1" LANGU="E" DESCRIPT="Fake Interface" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X"/>
+ <INTF CLSNAME="ZIF_WB_FAKE_SUB_INTERFACE1" VERSION="1" LANGU="E" DESCRIPT="A Interface which implements a super interface" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <include CLSNAME="ZIF_WB_FAKE_SUB_INTERFACE1" REFCLSNAME="ZIF_WB_FAKE_SUPERINTERFACE" VERSION="1" STATE="1"/>
+  <method CLSNAME="ZIF_WB_FAKE_SUB_INTERFACE1" CMPNAME="MET_SUB_INTERFACE1" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0"/>
+ </INTF>
+ <INTF CLSNAME="ZIF_WB_FAKE_SUB_INTERFACE2" VERSION="1" LANGU="E" DESCRIPT="Another interface which implements a superinterface" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <include CLSNAME="ZIF_WB_FAKE_SUB_INTERFACE2" REFCLSNAME="ZIF_WB_FAKE_SUPERINTERFACE" VERSION="1" STATE="1"/>
+  <method CLSNAME="ZIF_WB_FAKE_SUB_INTERFACE2" CMPNAME="MET_SUB_INTERFACE2" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0"/>
+ </INTF>
+ <INTF CLSNAME="ZIF_WB_FAKE_SUB_SUB_INTERFACE" VERSION="1" LANGU="E" DESCRIPT="An interface which interface a sub interface" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <include CLSNAME="ZIF_WB_FAKE_SUB_SUB_INTERFACE" REFCLSNAME="ZIF_WB_FAKE_SUB_INTERFACE1" VERSION="1" STATE="1"/>
+  <include CLSNAME="ZIF_WB_FAKE_SUB_SUB_INTERFACE" REFCLSNAME="ZIF_WB_FAKE_SUPERINTERFACE" VERSION="1" STATE="1"/>
+  <method CLSNAME="ZIF_WB_FAKE_SUB_SUB_INTERFACE" CMPNAME="MET_SUB_SUB_INTERFACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0"/>
+ </INTF>
+ <INTF CLSNAME="ZIF_WB_FAKE_SUPERINTERFACE" VERSION="1" LANGU="E" DESCRIPT="Interface which another interface(s) can implement" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <method CLSNAME="ZIF_WB_FAKE_SUPERINTERFACE" CMPNAME="MET_SUPERINTERFACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0"/>
+ </INTF>
+ <PROG NAME="ZI_WB_FAKE_CLASS_LOCAL" VARCL="X" SUBC="I" APPL="S" RMAND="001" RLOAD="E" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="Include ZI_WB_FAKE_CLASS_LOCAL" LENGTH="30 "/>
+   </language>
+  </textPool>
+  <source>*----------------------------------------------------------------------*
+*       CLASS lcl_a DEFINITION
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+CLASS lcl_a DEFINITION.
+
+ENDCLASS.                    &quot;lcl_a DEFINITION
+
+*----------------------------------------------------------------------*
+*       CLASS lcl_a IMPLEMENTATION
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+CLASS lcl_a IMPLEMENTATION.
+
+ENDCLASS.                    &quot;lcl_a IMPLEMENTATION
+
+*----------------------------------------------------------------------*
+*       CLASS lcl_b DEFINITION
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+CLASS lcl_b DEFINITION.
+
+ENDCLASS.                    &quot;lcl_b DEFINITION
+
+*----------------------------------------------------------------------*
+*       CLASS lcl_b IMPLEMENTATION
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+CLASS lcl_b IMPLEMENTATION.
+
+ENDCLASS.                    &quot;lcl_b IMPLEMENTATION</source>
+ </PROG>
+ <PROG NAME="ZI_WB_FAKE_NO_CLASSES" VARCL="X" SUBC="I" APPL="S" RMAND="001" RLOAD="E" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="Include ZI_WB_FAKE_NO_CLASSES" LENGTH="29 "/>
+   </language>
+  </textPool>
+  <source>* This include can&apos;t contain a local class
+
+INTERFACE ZI_WB_FAKE_NO_CLASSES.
+
+ENDINTERFACE.</source>
+ </PROG>
+</nugget>
