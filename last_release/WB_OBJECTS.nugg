@@ -5896,4 +5896,64 @@ START-OF-SELECTION.
 
   ENDLOOP.</source>
  </PROG>
+ <PROG NAME="ZWB_OBJECTS_DEMO6" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="WB Collections" LENGTH="14 "/>
+   </language>
+  </textPool>
+  <source>REPORT  zwb_objects_demo6.
+
+DATA r_wb_objects TYPE REF TO zcl_wb_set_itab.
+
+CREATE OBJECT r_wb_objects.
+
+DATA r_class TYPE REF TO zcl_wb_class_global.
+DATA wa_clskey TYPE seoclskey.
+
+wa_clskey-clsname = &apos;CL_GUI_ALV_GRID&apos;.
+CREATE OBJECT r_class
+  EXPORTING
+    im_clskey                    = wa_clskey
+*   im_version                   = SEOC_VERSION_INACTIVE
+*   im_state                     = &apos;1&apos;
+*   im_with_descriptions         = SEOX_TRUE
+*   im_resolve_eventhandler_info = SEOX_FALSE
+*   im_with_master_language      = SEOX_FALSE
+*   im_with_enhancements         = SEOX_FALSE
+*   im_read_active_enha          = SEOX_FALSE
+*   im_enha_action               = SEOX_FALSE
+*   im_ignore_switches           = &apos;X&apos;
+  .
+
+APPEND r_class TO r_wb_objects-&gt;zif_wb_set_itab~t_wb_objects.
+
+DATA r_interface TYPE REF TO zcl_wb_interface_global.
+
+wa_clskey-clsname = &apos;IF_DRAGDROP&apos;.
+CREATE OBJECT r_interface
+  EXPORTING
+    im_intkey               = wa_clskey
+*   im_version              = SEOC_VERSION_INACTIVE
+*   im_state                = &apos;1&apos;
+*   im_with_master_language = SEOX_FALSE
+*   im_with_enhancements    = SEOX_FALSE
+*   im_read_active_enha     = SEOX_FALSE
+*   im_enha_action          = SEOX_FALSE
+*   im_ignore_switches      = &apos;X&apos;
+  .
+
+APPEND r_interface TO r_wb_objects-&gt;zif_wb_set_itab~t_wb_objects.
+
+DATA r_wb_object TYPE REF TO zif_wb_object.
+DATA v_to_string TYPE string.
+LOOP AT r_wb_objects-&gt;zif_wb_set_itab~t_wb_objects INTO r_wb_object.
+  TRY.
+      r_wb_object-&gt;load( ).
+    CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+  ENDTRY.
+  v_to_string = r_wb_object-&gt;to_string( ).
+  WRITE v_to_string. NEW-LINE.
+ENDLOOP.</source>
+ </PROG>
 </nugget>
