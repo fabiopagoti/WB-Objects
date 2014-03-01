@@ -1,0 +1,1461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="WB_OBJECTS_TOOLS">
+ <CLAS CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_MASS_LOADER_OO_SEARCHER" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" REFCLSNAME="ZIF_WB_MASS_LOADER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="O_WB_OO_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="O_WB_OO_SEARCHER" EXPOSURE="1" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_WB_SEARCHER_OO" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <interfaceMethod CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CPDNAME="ZIF_WB_MASS_LOADER~MASS_LOAD">
+   <source>METHOD zif_wb_mass_loader~mass_load.
+
+
+    CREATE OBJECT re_wb_objects_set
+      TYPE zcl_wb_set_itab.
+
+    me-&gt;load_package_contents( CHANGING ch_o_wb_object_set = re_wb_objects_set ).
+    me-&gt;load_programs( CHANGING ch_o_wb_object_set = re_wb_objects_set ).
+    me-&gt;load_classes( CHANGING ch_o_wb_object_set = re_wb_objects_set ).
+    me-&gt;load_interfaces( CHANGING ch_o_wb_object_set = re_wb_objects_set ).
+
+
+  ENDMETHOD.                    &quot;ZIF_WB_MASS_LOADER~MASS_LOAD</source>
+  </interfaceMethod>
+  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="CONSTRUCTOR" VERSION="0" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="CONSTRUCTOR" SCONAME="IM_O_WB_OO_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="IM_O_WB_OO_SEARCHER" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZCL_WB_SEARCHER_OO"/>
+   <source>METHOD constructor.
+
+    me-&gt;o_wb_oo_searcher = im_o_wb_oo_searcher.
+
+  ENDMETHOD.                    &quot;CONSTRUCTOR</source>
+  </method>
+  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_CLASSES" VERSION="1" LANGU="E" DESCRIPT="LOAD_CLASSES" EXPOSURE="1" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_CLASSES" SCONAME="CH_O_WB_OBJECT_SET" VERSION="1" LANGU="E" DESCRIPT="CH_O_WB_OBJECT_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
+   <source>METHOD load_classes.
+
+
+    DATA lwa_class TYPE zcl_wb_searcher=&gt;ty_class.
+    DATA lo_new_class TYPE REF TO zcl_wb_class_global.
+    DATA lwa_seoclskey TYPE seoclskey.
+    LOOP AT me-&gt;o_wb_oo_searcher-&gt;t_classes INTO lwa_class. &quot; Transform itab into parameter because this method can be reused when loading a package
+
+      lwa_seoclskey-clsname = lwa_class-clsname.
+
+      CREATE OBJECT lo_new_class
+        EXPORTING
+          im_clskey                    = lwa_seoclskey
+*         im_version                   = SEOC_VERSION_INACTIVE
+*         im_state                     = &apos;1&apos;
+*         im_with_descriptions         = SEOX_TRUE
+*         im_resolve_eventhandler_info = SEOX_FALSE
+*         im_with_master_language      = SEOX_FALSE
+*         im_with_enhancements         = SEOX_FALSE
+*         im_read_active_enha          = SEOX_FALSE
+*         im_enha_action               = SEOX_FALSE
+*         im_ignore_switches           = &apos;X&apos;
+        .
+
+      TRY .
+          lo_new_class-&gt;zif_wb_object~load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+          RAISE EXCEPTION TYPE zcx_wb_objects.
+      ENDTRY.
+
+      APPEND lo_new_class TO ch_o_wb_object_set-&gt;t_wb_objects.
+    ENDLOOP.
+
+
+  ENDMETHOD.                    &quot;load_classes</source>
+  </method>
+  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="LOAD_INTERFACES" EXPOSURE="1" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_INTERFACES" SCONAME="CH_O_WB_OBJECT_SET" VERSION="1" LANGU="E" DESCRIPT="CH_O_WB_OBJECT_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
+   <source>METHOD load_interfaces.
+
+
+    DATA lwa_interface TYPE zcl_wb_searcher=&gt;ty_interface.
+    DATA lo_new_interface TYPE REF TO zcl_wb_interface_global.
+    DATA lwa_seoclskey TYPE seoclskey.
+
+    LOOP AT me-&gt;o_wb_oo_searcher-&gt;t_interfaces INTO lwa_interface. &quot; Transform itab into parameter because this method can be reused when loading a package
+
+      lwa_seoclskey-clsname = lwa_interface-intname.
+      CREATE OBJECT lo_new_interface
+        EXPORTING
+          im_intkey               = lwa_seoclskey
+*         im_version              = SEOC_VERSION_INACTIVE
+*         im_state                = &apos;1&apos;
+*         im_with_master_language = SEOX_FALSE
+*         im_with_enhancements    = SEOX_FALSE
+*         im_read_active_enha     = SEOX_FALSE
+*         im_enha_action          = SEOX_FALSE
+*         im_ignore_switches      = &apos;X&apos;
+        .
+
+      TRY .
+          lo_new_interface-&gt;zif_wb_object~load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+
+      ENDTRY.
+
+      APPEND lo_new_interface TO ch_o_wb_object_set-&gt;t_wb_objects.
+    ENDLOOP.
+
+
+  ENDMETHOD.                    &quot;load_interfaces</source>
+  </method>
+  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_PACKAGE_CONTENTS" VERSION="1" LANGU="E" DESCRIPT="LOAD_PACKAGE_CONTENTS" EXPOSURE="1" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_PACKAGE_CONTENTS" SCONAME="CH_O_WB_OBJECT_SET" VERSION="1" LANGU="E" DESCRIPT="CH_O_WB_OBJECT_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
+   <source>METHOD load_package_contents.
+
+* Classes
+*    DATA lwa_package TYPE zcl_wb_searcher=&gt;ty_package.
+
+    TYPES: BEGIN OF lty_tadir,
+      obj_name TYPE tadir-obj_name,
+      END OF lty_tadir,
+      ltt_tadir TYPE STANDARD TABLE OF lty_tadir WITH KEY obj_name.
+    DATA lt_tadir TYPE ltt_tadir.
+
+    IF me-&gt;o_wb_oo_searcher-&gt;t_packages IS NOT INITIAL.
+
+      SELECT
+        obj_name
+      FROM
+        tadir
+      INTO TABLE
+        lt_tadir
+      FOR ALL ENTRIES IN
+        me-&gt;o_wb_oo_searcher-&gt;t_packages
+      WHERE
+        pgmid = &apos;R3TR&apos; AND
+        object IN (&apos;CLAS&apos;,&apos;INTF&apos;) AND
+        devclass = me-&gt;o_wb_oo_searcher-&gt;t_packages-devclass.
+
+    ENDIF.
+
+    IF sy-subrc IS INITIAL .
+
+      DATA lwa_tadir TYPE lty_tadir.
+      LOOP AT lt_tadir INTO lwa_tadir.
+
+
+
+      ENDLOOP.
+    ENDIF.
+
+*    LOOP AT me-&gt;o_wb_oo_searcher-&gt;t_packages INTO lwa_package.
+*
+*    ENDLOOP.
+
+  ENDMETHOD.                    &quot;LOAD_PACKAGE_CONTENTS</source>
+  </method>
+  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="LOAD_PROGRAMS" EXPOSURE="1" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="LOAD_PROGRAMS" SCONAME="CH_O_WB_OBJECT_SET" VERSION="1" LANGU="E" DESCRIPT="CH_O_WB_OBJECT_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
+   <source>METHOD load_programs.
+
+
+*    DATA lwa_program TYPE zcl_wb_searcher=&gt;ty_program.
+*
+*    LOOP AT me-&gt;o_wb_oo_searcher-&gt;t_programs INTO lwa_program.
+*
+*    ENDLOOP.
+
+
+  ENDMETHOD.                    &quot;LOAD_PROGRAMS</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_WB_MASS_LOADER_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="Mass loader based on generic searcher" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="ZCL_WB_MASS_LOADER_SEARCHER" REFCLSNAME="ZIF_WB_MASS_LOADER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <attribute CLSNAME="ZCL_WB_MASS_LOADER_SEARCHER" CMPNAME="R_WB_SEARCHER" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZIF_WB_SEARCHER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <interfaceMethod CLSNAME="ZCL_WB_MASS_LOADER_SEARCHER" CPDNAME="ZIF_WB_MASS_LOADER~MASS_LOAD">
+   <source>METHOD zif_wb_mass_loader~mass_load.
+* I have no doubt that this method will need a good refactoring later.
+* However to do that I would wait to have some collection classes more powerful.
+* Maybe it would a good idea to have many &quot;mass load&quot; (local?) classes, one for each WB object type
+
+* Searcher casting
+    DATA lr_searcher TYPE REF TO zcl_wb_searcher.
+    lr_searcher ?= me-&gt;r_wb_searcher.
+
+* Collection casting
+    DATA lr_object_set TYPE REF TO zcl_wb_set_itab.
+    CREATE OBJECT re_wb_objects_set TYPE zcl_wb_set_itab.
+    lr_object_set ?= re_wb_objects_set.
+
+* WB Object
+    DATA lr_new_wb_object TYPE REF TO zif_wb_object.
+
+
+* Load packages
+    DATA lwa_package TYPE zcl_wb_searcher=&gt;ty_package.
+    LOOP AT lr_searcher-&gt;t_packages INTO lwa_package.
+
+*    data lr_package type ref to zcl_wb_package.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE
+        zcl_wb_package
+        EXPORTING
+          im_devclass = lwa_package-devclass
+*         im_langu    =
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+
+
+
+* Load global classes
+    DATA lwa_class TYPE zcl_wb_searcher=&gt;ty_class.
+    LOOP AT lr_searcher-&gt;t_classes INTO lwa_class.
+
+      DATA lwa_clskey TYPE seoclskey.
+      lwa_clskey-clsname = lwa_class-clsname.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE
+        zcl_wb_class_global
+        EXPORTING
+          im_clskey                    = lwa_clskey
+*         im_version                   = SEOC_VERSION_INACTIVE
+*         im_state                     = &apos;1&apos;
+*         im_with_descriptions         = SEOX_TRUE
+*         im_resolve_eventhandler_info = SEOX_FALSE
+*         im_with_master_language      = SEOX_FALSE
+*         im_with_enhancements         = SEOX_FALSE
+*         im_read_active_enha          = SEOX_FALSE
+*         im_enha_action               = SEOX_FALSE
+*         im_ignore_switches           = &apos;X&apos;
+        .
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+
+* Load global interfaces
+    DATA lwa_interface TYPE zcl_wb_searcher=&gt;ty_interface.
+    LOOP AT lr_searcher-&gt;t_interfaces INTO lwa_interface.
+
+      DATA lwa_intkey TYPE seoclskey.
+      lwa_intkey-clsname = lwa_interface-intname.
+
+*        data lr_interface type ref to zcl_wb_interface_global.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE
+        zcl_wb_interface_global
+        EXPORTING
+          im_intkey               = lwa_intkey
+*         im_version              = SEOC_VERSION_INACTIVE
+*         im_state                = &apos;1&apos;
+*         im_with_master_language = SEOX_FALSE
+*         im_with_enhancements    = SEOX_FALSE
+*         im_read_active_enha     = SEOX_FALSE
+*         im_enha_action          = SEOX_FALSE
+*         im_ignore_switches      = &apos;X&apos;
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+* Load local classes and  interfaces
+    DATA lwa_local_class_interface TYPE zcl_wb_searcher=&gt;ty_local_class_interface.
+    LOOP AT lr_searcher-&gt;t_local_classes_interfaces INTO lwa_local_class_interface.
+
+* Local classes
+      DATA itab_local_class TYPE ztt_wb_class_local.
+      DATA o_local_class TYPE REF TO zcl_wb_class_local.
+
+      TRY .
+          itab_local_class = zcl_wb_class_local=&gt;load_all_classes( im_program = lwa_local_class_interface-progname ).
+        CATCH zcx_wb_report_dont_exist.
+        CATCH zcx_wb_report_without_class.
+
+      ENDTRY.
+
+
+      LOOP AT itab_local_class INTO o_local_class.
+        lr_new_wb_object = o_local_class.
+        TRY.
+            lr_new_wb_object-&gt;load( ).
+          CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+        ENDTRY.
+
+        APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+      ENDLOOP.
+
+
+* Local interfaces
+      DATA itab_local_interface TYPE ztt_wb_interface_local.
+      DATA o_local_interface TYPE REF TO zcl_wb_interface_local.
+
+      TRY .
+          itab_local_interface = zcl_wb_interface_local=&gt;load_all_interfaces( im_program = lwa_local_class_interface-progname ).
+        CATCH zcx_wb_report_without_inter.
+        CATCH zcx_wb_report_dont_exist.
+      ENDTRY.
+
+
+      LOOP AT itab_local_interface INTO o_local_interface.
+        lr_new_wb_object = o_local_interface.
+        TRY.
+            lr_new_wb_object-&gt;load( ).
+          CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+        ENDTRY.
+
+        APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+      ENDLOOP.
+
+    ENDLOOP.
+
+
+
+* Load domains
+    DATA lwa_domain TYPE zcl_wb_searcher=&gt;ty_domain.
+    LOOP AT lr_searcher-&gt;t_domains INTO lwa_domain.
+
+*      DATA lr_domain TYPE REF TO zcl_wb_domain.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE zcl_wb_domain
+        EXPORTING
+          im_name  = lwa_domain-domname
+*         im_state =
+*         im_langu =
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+
+* Load data elements
+    DATA lwa_data_element TYPE zcl_wb_searcher=&gt;ty_data_element.
+    LOOP AT lr_searcher-&gt;t_data_elements INTO lwa_data_element.
+
+*      DATA lr_data_element TYPE REF TO zcl_wb_data_element.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE zcl_wb_data_element
+        EXPORTING
+          im_name  = lwa_data_element-dtel_name
+*         im_state =
+*         im_langu =
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+
+
+* Load struture
+    DATA lwa_structure TYPE zcl_wb_searcher=&gt;ty_dd02l.
+    LOOP AT lr_searcher-&gt;t_structures INTO lwa_structure.
+
+*      DATA lr_table TYPE REF TO zcl_wb_table.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE zcl_wb_table
+        EXPORTING
+          im_name  = lwa_structure-name
+*         im_state =
+*         im_langu =
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+* Load append struture
+    DATA lwa_structure_append TYPE zcl_wb_searcher=&gt;ty_dd02l.
+    LOOP AT lr_searcher-&gt;t_structures_append INTO lwa_structure_append.
+
+*      DATA lr_table TYPE REF TO zcl_wb_table.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE zcl_wb_table
+        EXPORTING
+          im_name  = lwa_structure_append-name
+*         im_state =
+*         im_langu =
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+* Load table type
+    DATA lwa_table_type TYPE zcl_wb_searcher=&gt;ty_table_type.
+    LOOP AT lr_searcher-&gt;t_table_types INTO lwa_table_type.
+
+*      DATA lr_table_type TYPE REF TO zcl_wb_table_type.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE zcl_wb_table_type
+        EXPORTING
+          im_name  = lwa_table_type-typename
+*         im_state =
+*         im_langu =
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+* Load tables
+    DATA lwa_table TYPE zcl_wb_searcher=&gt;ty_dd02l.
+    LOOP AT lr_searcher-&gt;t_tables INTO lwa_table.
+
+*      DATA lr_table TYPE REF TO zcl_wb_table.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE zcl_wb_table
+        EXPORTING
+          im_name  = lwa_table-name
+*         im_state =
+*         im_langu =
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+* Load cluster tables
+    DATA lwa_table_cluster TYPE zcl_wb_searcher=&gt;ty_dd02l.
+    LOOP AT lr_searcher-&gt;t_tables_cluster INTO lwa_table_cluster.
+
+*      DATA lr_table TYPE REF TO zcl_wb_table.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE zcl_wb_table
+        EXPORTING
+          im_name  = lwa_table_cluster-name
+*         im_state =
+*         im_langu =
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+
+* Load cluster tables
+    DATA lwa_table_pooled TYPE zcl_wb_searcher=&gt;ty_dd02l.
+    LOOP AT lr_searcher-&gt;t_tables_pooled INTO lwa_table_pooled.
+
+*      DATA lr_table TYPE REF TO zcl_wb_table.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE zcl_wb_table
+        EXPORTING
+          im_name  = lwa_table_pooled-name
+*         im_state =
+*         im_langu =
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+
+* Load views
+    DATA lwa_view TYPE zcl_wb_searcher=&gt;ty_dd02l.
+    LOOP AT lr_searcher-&gt;t_views INTO lwa_view.
+
+*      DATA lr_view TYPE REF TO zcl_wb_view.
+
+      CREATE OBJECT lr_new_wb_object
+        TYPE zcl_wb_view
+        EXPORTING
+          im_name  = lwa_view-name
+*         im_state =
+*         im_langu =
+        .
+
+      TRY.
+          lr_new_wb_object-&gt;load( ).
+        CATCH zcx_wb_objects.    &quot; WB Objects generic exception
+      ENDTRY.
+
+      APPEND lr_new_wb_object TO lr_object_set-&gt;zif_wb_set_itab~t_wb_objects.
+
+    ENDLOOP.
+  ENDMETHOD.                    &quot;ZIF_WB_MASS_LOADER~MASS_LOAD</source>
+  </interfaceMethod>
+  <method CLSNAME="ZCL_WB_MASS_LOADER_SEARCHER" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_MASS_LOADER_SEARCHER" CMPNAME="CONSTRUCTOR" SCONAME="IM_R_WB_SEARCHER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SEARCHER"/>
+   <source>METHOD constructor.
+    me-&gt;r_wb_searcher = im_r_wb_searcher.
+  ENDMETHOD.                    &quot;constructor</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_WB_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_SEARCHER" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_PACKAGE" VERSION="1" LANGU="E" DESCRIPT="TY_PACKAGE" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="15 " SRCCOLUMN1="6 " SRCROW2="18 " SRCCOLUMN2="24 " TYPESRC_LENG="133 " TYPESRC="BEGIN OF ty_package,
+            devclass TYPE tdevc-devclass,
+*            text    TYPE tdevct-ctext,
+        END OF ty_package
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="TT_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="20 " SRCCOLUMN1="6 " SRCROW2="20 " SRCCOLUMN2="102 " TYPESRC_LENG="99 " TYPESRC="tt_packages TYPE STANDARD TABLE OF ty_package WITH UNIQUE SORTED KEY devclass COMPONENTS devclass
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_PROGRAM" VERSION="1" LANGU="E" DESCRIPT="TY_PROGRAM" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="6 " SRCROW2="25 " SRCCOLUMN2="24 " TYPESRC_LENG="137 " TYPESRC="BEGIN OF ty_program,
+            progname  TYPE reposrc-progname,
+*            text      TYPE trdirt-text,
+        END OF ty_program
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="TT_PROGRAMS" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="27 " SRCCOLUMN1="6 " SRCROW2="27 " SRCCOLUMN2="102 " TYPESRC_LENG="99 " TYPESRC="tt_programs TYPE STANDARD TABLE OF ty_program WITH UNIQUE SORTED KEY progname COMPONENTS progname
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_CLASS" VERSION="1" LANGU="E" DESCRIPT="TY_CLASS" EXPOSURE="2" STATE="1" EDITORDER="5 " TYPTYPE="4" SRCROW1="30 " SRCCOLUMN1="6 " SRCROW2="33 " SRCCOLUMN2="22 " TYPESRC_LENG="129 " TYPESRC="BEGIN OF ty_class,
+        clsname TYPE seoclass-clsname,
+*        text    TYPE seoclasstx-descript,
+        END OF ty_class
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_CLASSES" VERSION="1" LANGU="E" DESCRIPT="TT_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="6 " TYPTYPE="4" SRCROW1="35 " SRCCOLUMN1="6 " SRCROW2="35 " SRCCOLUMN2="97 " TYPESRC_LENG="94 " TYPESRC="tt_classes TYPE STANDARD TABLE OF ty_class WITH UNIQUE SORTED KEY clsname COMPONENTS clsname
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_INTERFACE" VERSION="1" LANGU="E" DESCRIPT="TY_INTERFACE" EXPOSURE="2" STATE="1" EDITORDER="7 " TYPTYPE="4" SRCROW1="37 " SRCCOLUMN1="6 " SRCROW2="40 " SRCCOLUMN2="26 " TYPESRC_LENG="137 " TYPESRC="BEGIN OF ty_interface,
+        intname TYPE seoclass-clsname,
+*        text    TYPE seoclasstx-descript,
+        END OF ty_interface
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="TT_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="8 " TYPTYPE="4" SRCROW1="42 " SRCCOLUMN1="6 " SRCROW2="42 " SRCCOLUMN2="104 " TYPESRC_LENG="101 " TYPESRC="tt_interfaces TYPE STANDARD TABLE OF ty_interface WITH UNIQUE SORTED KEY intname COMPONENTS intname
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_LOCAL_CLASS_INTERFACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " TYPTYPE="4" SRCROW1="45 " SRCCOLUMN1="6 " SRCROW2="48 " SRCCOLUMN2="38 " TYPESRC_LENG="165 " TYPESRC="BEGIN OF ty_local_class_interface,
+            progname  TYPE reposrc-progname,
+*            text      TYPE trdirt-text,
+        END OF ty_local_class_interface
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_LOCAL_CLASS_INTERFACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " TYPTYPE="4" SRCROW1="50 " SRCCOLUMN1="6 " SRCROW2="50 " SRCCOLUMN2="129 " TYPESRC_LENG="126 " TYPESRC="tt_local_class_interface TYPE STANDARD TABLE OF ty_local_class_interface WITH UNIQUE SORTED KEY progname COMPONENTS progname
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_DOMAIN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " TYPTYPE="4" SRCROW1="53 " SRCCOLUMN1="6 " SRCROW2="56 " SRCCOLUMN2="23 " TYPESRC_LENG="121 " TYPESRC="BEGIN OF ty_domain,
+        domname TYPE dd01l-domname,
+*        text    TYPE dd01t-ddtext,
+        END OF ty_domain
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_DOMAINS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " TYPTYPE="4" SRCROW1="58 " SRCCOLUMN1="6 " SRCROW2="58 " SRCCOLUMN2="98 " TYPESRC_LENG="95 " TYPESRC="tt_domains TYPE STANDARD TABLE OF ty_domain WITH UNIQUE SORTED KEY domname COMPONENTS domname
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_DATA_ELEMENT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " TYPTYPE="4" SRCROW1="61 " SRCCOLUMN1="6 " SRCROW2="64 " SRCCOLUMN2="29 " TYPESRC_LENG="136 " TYPESRC="BEGIN OF ty_data_element,
+        dtel_name TYPE dd04l-rollname,
+*        text    TYPE dd04v-ddtext,
+        END OF ty_data_element
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_DATA_ELEMENTS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " TYPTYPE="4" SRCROW1="66 " SRCCOLUMN1="6 " SRCROW2="66 " SRCCOLUMN2="114 " TYPESRC_LENG="111 " TYPESRC="tt_data_elements TYPE STANDARD TABLE OF ty_data_element WITH UNIQUE SORTED KEY dtel_name COMPONENTS dtel_name
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_TABLE_TYPE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="15 " TYPTYPE="4" SRCROW1="69 " SRCCOLUMN1="6 " SRCROW2="72 " SRCCOLUMN2="27 " TYPESRC_LENG="131 " TYPESRC="BEGIN OF ty_table_type,
+        typename TYPE dd40l-typename,
+*        text    TYPE dd40t-ddtext,
+        END OF ty_table_type
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_TABLE_TYPES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " TYPTYPE="4" SRCROW1="74 " SRCCOLUMN1="6 " SRCROW2="74 " SRCCOLUMN2="108 " TYPESRC_LENG="105 " TYPESRC="tt_table_types TYPE STANDARD TABLE OF ty_table_type WITH UNIQUE SORTED KEY typename COMPONENTS typename
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_DD02L" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="17 " TYPTYPE="4" SRCROW1="77 " SRCCOLUMN1="6 " SRCROW2="80 " SRCCOLUMN2="22 " TYPESRC_LENG="116 " TYPESRC="BEGIN OF ty_dd02l,
+        name TYPE dd02l-tabname,
+*        text    TYPE dd04v-ddtext,
+        END OF ty_dd02l
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_DD02L" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="18 " TYPTYPE="4" SRCROW1="82 " SRCCOLUMN1="6 " SRCROW2="82 " SRCCOLUMN2="89 " TYPESRC_LENG="86 " TYPESRC="tt_dd02l TYPE STANDARD TABLE OF ty_dd02l WITH UNIQUE SORTED KEY name COMPONENTS name
+"/>
+  <implementing CLSNAME="ZCL_WB_SEARCHER" REFCLSNAME="ZIF_WB_SEARCHER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_CLASSES" VERSION="1" LANGU="E" DESCRIPT="T_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_CLASSES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_DATA_ELEMENTS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_DATA_ELEMENTS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_DOMAINS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_DOMAINS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="T_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_INTERFACES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_LOCAL_CLASSES_INTERFACES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_LOCAL_CLASS_INTERFACE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="T_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_PACKAGES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="T_PROGRAMS" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_PROGRAMS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_STRUCTURES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_DD02L" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_STRUCTURES_APPEND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_DD02L" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_TABLES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_DD02L" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_TABLES_CLUSTER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_DD02L" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_TABLES_POOLED" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_DD02L" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_TABLE_TYPES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_TABLE_TYPES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_WB_SEARCHER" CMPNAME="T_VIEWS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TT_DD02L" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <interfaceMethod CLSNAME="ZCL_WB_SEARCHER" CPDNAME="ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS">
+   <source>METHOD zif_wb_searcher~search_wb_objects.
+
+    me-&gt;search_packages( CHANGING ch_t_packages = me-&gt;t_packages ).
+    me-&gt;search_programs( CHANGING ch_t_programs = me-&gt;t_programs ).
+    me-&gt;search_classes( CHANGING ch_t_classes = me-&gt;t_classes ).
+    me-&gt;search_interfaces( CHANGING ch_t_interfaces = me-&gt;t_interfaces ).
+    me-&gt;search_local_class_interface( CHANGING ch_t_local_class_interfaces = me-&gt;t_local_classes_interfaces ).
+    me-&gt;search_function_groups( ).
+    me-&gt;search_function_modules( ).
+    me-&gt;search_type_pools( ).
+    me-&gt;search_tables( CHANGING ch_t_tables = me-&gt;t_tables ).
+    me-&gt;search_tables_cluster( CHANGING ch_t_tables_cluster = me-&gt;t_tables_cluster ).
+    me-&gt;search_tables_pooled( CHANGING ch_t_tables_pooled = me-&gt;t_tables_pooled ).
+
+    me-&gt;search_views( CHANGING ch_t_views = me-&gt;t_views ).
+    me-&gt;search_domains( CHANGING ch_t_domains = me-&gt;t_domains ).
+    me-&gt;search_data_elements( CHANGING ch_t_data_elements = me-&gt;t_data_elements ).
+    me-&gt;search_structures( CHANGING ch_t_structures = me-&gt;t_structures ).
+    me-&gt;search_structures_append( CHANGING ch_t_structures_append = me-&gt;t_structures_append ).
+    me-&gt;search_table_types( CHANGING ch_t_table_types = me-&gt;t_table_types ).
+    me-&gt;search_lock_objects( ).
+    me-&gt;search_search_helps( ).
+
+  ENDMETHOD.                    &quot;ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS</source>
+  </interfaceMethod>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="CONSTRUCTOR" SCONAME="IM_R_WB_SEARCH_CRITERIA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SEARCH_CRITERIA"/>
+   <source>METHOD constructor.
+    me-&gt;zif_wb_searcher~r_wb_search_criteria = im_r_wb_search_criteria.
+  ENDMETHOD.                    &quot;CONSTRUCTOR</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_CLASSES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_CLASSES" EXPOSURE="1" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_CLASSES" SCONAME="CH_T_CLASSES" VERSION="1" LANGU="E" DESCRIPT="CH_T_CLASSES" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_CLASSES"/>
+   <source>METHOD search_classes.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_classes IS NOT INITIAL.
+
+      SELECT
+          class~clsname
+*          ctext~descript
+        FROM
+          seoclass AS class
+*           JOIN
+*          seoclasstx AS ctext
+*        ON
+*          class~clsname = ctext~clsname
+        INTO TABLE
+          ch_t_classes
+        WHERE
+          class~clsname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_classes AND
+          class~clstype = &apos;0&apos;. &quot; Classes
+*          class~clstype = &apos;0&apos; AND &quot; Classes
+*          langu   = sy-langu.
+
+    ENDIF.
+
+
+  ENDMETHOD.                    &quot;SEARCH_CLASSES</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_DATA_ELEMENTS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_DATA_ELEMENTS" EXPOSURE="1" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_DATA_ELEMENTS" SCONAME="CH_T_DATA_ELEMENTS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_DATA_ELEMENTS"/>
+   <source>METHOD search_data_elements.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_data_elements IS NOT INITIAL.
+
+      DATA lt_data_elements TYPE TABLE OF ty_data_element WITH NON-UNIQUE KEY dtel_name.
+
+
+      SELECT
+          rollname
+*          ddtext
+        FROM
+          dd04l
+        INTO TABLE
+          lt_data_elements
+        WHERE
+          rollname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_data_elements.
+*          ddlanguage = sy-langu.
+
+      IF sy-subrc IS INITIAL.
+        SORT lt_data_elements BY dtel_name.
+        DELETE ADJACENT DUPLICATES FROM lt_data_elements COMPARING dtel_name.
+        ch_t_data_elements = lt_data_elements.
+      ENDIF.
+    ENDIF.
+
+  ENDMETHOD.                    &quot;SEARCH_DATA_ELEMENTS</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_DOMAINS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_DOMAINS" EXPOSURE="1" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_DOMAINS" SCONAME="CH_T_DOMAINS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_DOMAINS"/>
+   <source>METHOD search_domains.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_domains IS NOT INITIAL.
+
+      DATA lt_domains TYPE TABLE OF ty_domain WITH NON-UNIQUE KEY domname.
+      SELECT
+          domname
+*          ddtext
+        FROM
+          dd01v
+        INTO TABLE
+          lt_domains
+        WHERE
+          domname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_domains.
+*          ddlanguage = sy-langu.
+
+      IF sy-subrc IS INITIAL.
+        SORT lt_domains BY domname.
+        DELETE ADJACENT DUPLICATES FROM lt_domains COMPARING domname.
+        ch_t_domains = lt_domains.
+      ENDIF.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;SEARCH_DOMAINS</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_FUNCTION_GROUPS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_FUNCTION_GROUPS" EXPOSURE="1" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD search_function_groups.
+
+
+  ENDMETHOD.                    &quot;SEARCH_FUNCTION_GROUPS</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_FUNCTION_MODULES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_FUNCTION_MODULES" EXPOSURE="1" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD search_function_modules.
+
+
+  ENDMETHOD.                    &quot;SEARCH_FUNCTION_MODULES</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_INTERFACES" EXPOSURE="1" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_INTERFACES" SCONAME="CH_T_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="CH_T_INTERFACES" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_INTERFACES"/>
+   <source>METHOD search_interfaces.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_interfaces IS NOT INITIAL.
+
+      SELECT
+          inter~clsname
+*          ctext~descript
+        FROM
+          seoclass AS inter
+*          JOIN
+*          seoclasstx AS ctext
+*        ON
+*          inter~clsname = ctext~clsname
+        INTO TABLE
+          ch_t_interfaces
+        WHERE
+          inter~clsname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_interfaces AND
+          inter~clstype = &apos;1&apos;. &quot; Interfaces
+*          inter~clstype = &apos;1&apos; AND &quot; Interfaces
+*          langu   = sy-langu.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;SEARCH_INTERFACES</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_LOCAL_CLASS_INTERFACE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_LOCAL_CLASS_INTERFACE" SCONAME="CH_T_LOCAL_CLASS_INTERFACES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_LOCAL_CLASS_INTERFACE"/>
+   <source>METHOD search_local_class_interface.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_local_classes_interfaces IS NOT INITIAL.
+
+      SELECT
+        obj_name
+      FROM
+        tadir
+      INTO TABLE
+        ch_t_local_class_interfaces
+      WHERE
+        pgmid = &apos;R3TR&apos; AND
+        object = &apos;PROG&apos; AND
+        obj_name IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_local_classes_interfaces.
+
+*      SELECT
+*        progname
+**        text
+*        FROM
+*          reposrc AS repo
+**          JOIN
+**          trdirt  AS rtext
+**        ON
+**          repo~progname = rtext~name
+*        INTO TABLE
+*          ch_t_local_class_interfaces
+*        WHERE
+*          progname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_local_classes_interfaces AND
+*          r3state = &apos;A&apos;. &quot; Active programs/includes
+**          r3state = &apos;A&apos; AND &quot; Active programs/includes
+**          sprsl = sy-langu.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;search_local_class_interface</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_LOCK_OBJECTS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_LOCK_OBJECTS" EXPOSURE="1" STATE="1" EDITORDER="18 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD search_lock_objects.
+
+
+  ENDMETHOD.                    &quot;SEARCH_LOCK_OBJECTS</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_PACKAGES" EXPOSURE="1" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_PACKAGES" SCONAME="CH_T_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="CH_T_PACKAGES" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_PACKAGES"/>
+   <source>METHOD search_packages.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_packages IS NOT INITIAL.
+
+      SELECT
+          devclass
+*          ctext
+        FROM
+          tdevc
+        INTO TABLE
+          ch_t_packages
+        WHERE
+          devclass IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_packages.
+*          AND spras = sy-langu.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;SEARCH_PACKAGES</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_PROGRAMS" EXPOSURE="1" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_PROGRAMS" SCONAME="CH_T_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="CH_T_PROGRAMS" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_PROGRAMS"/>
+   <source>METHOD search_programs.
+
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_reports IS NOT INITIAL.
+
+      SELECT
+        progname
+*        text
+        FROM
+          reposrc AS repo
+*          JOIN
+*          trdirt  AS rtext
+*        ON
+*          repo~progname = rtext~name
+        INTO TABLE
+          ch_t_programs
+        WHERE
+          progname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_reports AND
+          r3state = &apos;A&apos;. &quot; Active programs/includes
+*          sprsl = sy-langu.
+
+    ENDIF.
+
+
+  ENDMETHOD.                    &quot;SEARCH_PROGRAMS</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_SEARCH_HELPS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_SEARCH_HELPS" EXPOSURE="1" STATE="1" EDITORDER="19 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD search_search_helps.
+
+
+  ENDMETHOD.                    &quot;SEARCH_SEARCH_HELPS</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_STRUCTURES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_STRUCTURES" EXPOSURE="1" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_STRUCTURES" SCONAME="CH_T_STRUCTURES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_DD02L"/>
+   <source>METHOD search_structures.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_structures IS NOT INITIAL.
+
+      SELECT
+            tabname
+        FROM
+          dd02l
+        INTO TABLE
+          ch_t_structures
+        WHERE
+          tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_structures AND
+          as4local = &apos;A&apos; AND
+          tabclass = &apos;INTTAB&apos;.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;SEARCH_STRUCTURES</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_STRUCTURES_APPEND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_STRUCTURES_APPEND" SCONAME="CH_T_STRUCTURES_APPEND" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_DD02L"/>
+   <source>METHOD search_structures_append.
+
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_append_structures IS NOT INITIAL.
+
+      SELECT
+            tabname
+        FROM
+          dd02l
+        INTO TABLE
+          ch_t_structures_append
+        WHERE
+          tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_append_structures AND
+          as4local = &apos;A&apos; AND
+          tabclass = &apos;APPEND&apos;.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;SEARCH_STRUCTURES</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TABLES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_TABLES" EXPOSURE="1" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TABLES" SCONAME="CH_T_TABLES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_DD02L"/>
+   <source>METHOD search_tables.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_transparent_tables IS NOT INITIAL.
+
+      SELECT
+            tabname
+        FROM
+          dd02l
+        INTO TABLE
+          ch_t_tables
+        WHERE
+          tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_transparent_tables AND
+          as4local = &apos;A&apos; AND
+          tabclass = &apos;TRANSP&apos;.
+
+    ENDIF.
+
+
+  ENDMETHOD.                    &quot;SEARCH_TABLES</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TABLES_CLUSTER" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TABLES_CLUSTER" SCONAME="CH_T_TABLES_CLUSTER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_DD02L"/>
+   <source>METHOD search_tables_cluster.
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_cluster_tables IS NOT INITIAL.
+
+      SELECT
+            tabname
+        FROM
+          dd02l
+        INTO TABLE
+          ch_t_tables_cluster
+        WHERE
+          tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_cluster_tables AND
+          as4local = &apos;A&apos; AND
+          tabclass = &apos;CLUSTER&apos;.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;search_tables_cluster</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TABLES_POOLED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TABLES_POOLED" SCONAME="CH_T_TABLES_POOLED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_DD02L"/>
+   <source>METHOD search_tables_pooled.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_pooled_tables IS NOT INITIAL.
+
+      SELECT
+            tabname
+        FROM
+          dd02l
+        INTO TABLE
+          ch_t_tables_pooled
+        WHERE
+          tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_pooled_tables AND
+          as4local = &apos;A&apos; AND
+          tabclass = &apos;POOL&apos;.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;search_tables_pooled</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TABLE_TYPES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_TABLE_TYPES" EXPOSURE="1" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TABLE_TYPES" SCONAME="CH_T_TABLE_TYPES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_TABLE_TYPES"/>
+   <source>METHOD search_table_types.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_table_types IS NOT INITIAL.
+
+      SELECT
+         typename
+        FROM
+          dd40l
+        INTO TABLE
+          ch_t_table_types
+        WHERE
+          typename IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_table_types AND
+          as4local = &apos;A&apos;.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;SEARCH_TABLE_TYPES</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_TYPE_POOLS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_TYPE_POOLS" EXPOSURE="1" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD search_type_pools.
+
+
+  ENDMETHOD.                    &quot;SEARCH_TYPE_POOLS</source>
+  </method>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_VIEWS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_VIEWS" EXPOSURE="1" STATE="1" EDITORDER="17 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_VIEWS" SCONAME="CH_T_VIEWS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="TT_DD02L"/>
+   <source>METHOD search_views.
+
+    IF me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_views IS NOT INITIAL.
+
+      SELECT
+            tabname
+        FROM
+          dd02l
+        INTO TABLE
+          ch_t_views
+        WHERE
+          tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_views AND
+          as4local = &apos;A&apos; AND
+          tabclass = &apos;VIEW&apos;.
+
+    ENDIF.
+
+  ENDMETHOD.                    &quot;SEARCH_VIEWS</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_WB_SEARCHER_OO" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_SEARCHER_OO" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="ZCL_WB_SEARCHER">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <inheritance CLSNAME="ZCL_WB_SEARCHER_OO" REFCLSNAME="ZCL_WB_SEARCHER" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCL_WB_SEARCHER_OO" REFCLSNAME="ZCL_WB_SEARCHER" VERSION="1" MTDNAME="ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS" EXPOSURE="0"/>
+  </inheritance>
+  <interfaceMethod CLSNAME="ZCL_WB_SEARCHER_OO" CPDNAME="ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS">
+   <source>METHOD zif_wb_searcher~search_wb_objects.
+
+    me-&gt;zif_wb_searcher~r_wb_search_criteria = im_wb_search_criteria.
+
+    me-&gt;search_packages( CHANGING ch_t_packages = me-&gt;t_packages ).
+    me-&gt;search_programs( CHANGING ch_t_programs = me-&gt;t_programs ).
+    me-&gt;search_classes( CHANGING ch_t_classes = me-&gt;t_classes ).
+    me-&gt;search_interfaces( CHANGING ch_t_interfaces = me-&gt;t_interfaces ).
+
+
+  ENDMETHOD.                    &quot;ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS</source>
+  </interfaceMethod>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_WB_SEARCHER_STUB" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_SEARCHER_STUB" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="ZCL_WB_SEARCHER_STUB" REFCLSNAME="ZIF_WB_SEARCHER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <interfaceMethod CLSNAME="ZCL_WB_SEARCHER_STUB" CPDNAME="ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS">
+   <source>method ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS.
+
+
+endmethod.</source>
+  </interfaceMethod>
+  <method CLSNAME="ZCL_WB_SEARCHER_STUB" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method CONSTRUCTOR.
+
+
+
+endmethod.</source>
+  </method>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_WB_SEARCHER_TEST" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_SEARCHER_TEST" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="12 " RISK_LEVEL="11 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+ </CLAS>
+ <CLAS CLSNAME="ZCL_WB_SEARCH_CRITERIA" VERSION="1" LANGU="E" DESCRIPT="Search criteria for all WB objects" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="ZCL_WB_SEARCH_CRITERIA" REFCLSNAME="ZIF_WB_SEARCH_CRITERIA" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <interfaceMethod CLSNAME="ZCL_WB_SEARCH_CRITERIA" CPDNAME="ZIF_WB_SEARCH_CRITERIA~FACTORY">
+   <source>METHOD zif_wb_search_criteria~factory.
+
+    CREATE OBJECT re_search_criteria TYPE zcl_wb_search_criteria.
+
+    re_search_criteria-&gt;r_packages           = im_packages.
+    re_search_criteria-&gt;r_reports            = im_reports.
+    re_search_criteria-&gt;r_classes            = im_classes.
+    re_search_criteria-&gt;r_interfaces         = im_interfaces.
+    re_search_criteria-&gt;r_local_classes_interfaces = im_local_classes_interfaces.
+    re_search_criteria-&gt;r_domains            = im_domains.
+    re_search_criteria-&gt;r_data_elements      = im_data_elements.
+    re_search_criteria-&gt;r_transparent_tables = im_transparent_tables.
+    re_search_criteria-&gt;r_structures         = im_structures.
+    re_search_criteria-&gt;r_cluster_tables     = im_cluster_tables.
+    re_search_criteria-&gt;r_pooled_tables      = im_pooled_tables.
+    re_search_criteria-&gt;r_views              = im_views.
+    re_search_criteria-&gt;r_append_structures  = im_append_structures.
+    re_search_criteria-&gt;r_table_types        = im_table_types.
+
+
+  ENDMETHOD.                    &quot;zif_wb_search_criteria~FACTORY</source>
+  </interfaceMethod>
+ </CLAS>
+ <INTF CLSNAME="ZIF_WB_MASS_LOADER" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <method CLSNAME="ZIF_WB_MASS_LOADER" CMPNAME="MASS_LOAD" VERSION="0" LANGU="E" DESCRIPT="MASS_LOAD" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZIF_WB_MASS_LOADER" CMPNAME="MASS_LOAD" SCONAME="RE_WB_OBJECTS_SET" VERSION="1" LANGU="E" DESCRIPT="RE_WB_OBJECTS_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
+  </method>
+ </INTF>
+ <INTF CLSNAME="ZIF_WB_SEARCHER" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <attribute CLSNAME="ZIF_WB_SEARCHER" CMPNAME="R_WB_SEARCH_CRITERIA" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZIF_WB_SEARCH_CRITERIA" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZIF_WB_SEARCHER" CMPNAME="SEARCH_WB_OBJECTS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_WB_OBJECTS" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZIF_WB_SEARCHER" CMPNAME="SEARCH_WB_OBJECTS" SCONAME="IM_WB_SEARCH_CRITERIA" VERSION="1" LANGU="E" DESCRIPT="IM_WB_SEARCH_CRITERIA" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZIF_WB_SEARCH_CRITERIA"/>
+  </method>
+ </INTF>
+ <INTF CLSNAME="ZIF_WB_SEARCH_CRITERIA" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="8 " SRCROW2="10 " SRCCOLUMN2="67 " TYPESRC_LENG="62 " TYPESRC="ty_ra_packages                  TYPE RANGE OF tdevc-devclass
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_REPORTS" VERSION="1" LANGU="E" DESCRIPT="TY_RA_REPORTS" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="13 " SRCCOLUMN1="8 " SRCROW2="13 " SRCCOLUMN2="69 " TYPESRC_LENG="64 " TYPESRC="ty_ra_reports                   TYPE RANGE OF reposrc-progname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_CLASSES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="14 " SRCCOLUMN1="8 " SRCROW2="14 " SRCCOLUMN2="69 " TYPESRC_LENG="64 " TYPESRC="ty_ra_classes                   TYPE RANGE OF seoclass-clsname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="15 " SRCCOLUMN1="8 " SRCROW2="15 " SRCCOLUMN2="69 " TYPESRC_LENG="64 " TYPESRC="ty_ra_interfaces                TYPE RANGE OF seoclass-clsname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_LOCAL_CLASSES_INTERFACES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " TYPTYPE="4" SRCROW1="16 " SRCCOLUMN1="8 " SRCROW2="16 " SRCCOLUMN2="69 " TYPESRC_LENG="64 " TYPESRC="ty_ra_local_classes_interfaces  TYPE RANGE OF reposrc-progname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_DOMAINS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " TYPTYPE="4" SRCROW1="19 " SRCCOLUMN1="8 " SRCROW2="19 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_domains                   TYPE RANGE OF dd01l-domname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_DATA_ELEMENTS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " TYPTYPE="4" SRCROW1="20 " SRCCOLUMN1="8 " SRCROW2="20 " SRCCOLUMN2="67 " TYPESRC_LENG="62 " TYPESRC="ty_ra_data_elements             TYPE RANGE OF dd04l-rollname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_TRANSPARENT_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="8 " SRCROW2="21 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_transparent_table         TYPE RANGE OF dd02l-tabname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_STRUCTURE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="8 " SRCROW2="22 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_structure                 TYPE RANGE OF dd02l-tabname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_CLUSTER_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="8 " SRCROW2="23 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_cluster_table             TYPE RANGE OF dd02l-tabname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_POOLED_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " TYPTYPE="4" SRCROW1="24 " SRCCOLUMN1="8 " SRCROW2="24 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_pooled_table              TYPE RANGE OF dd02l-tabname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_VIEW" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " TYPTYPE="4" SRCROW1="25 " SRCCOLUMN1="8 " SRCROW2="25 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_view                      TYPE RANGE OF dd02l-tabname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_APPEND_STRUCTURE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " TYPTYPE="4" SRCROW1="26 " SRCCOLUMN1="8 " SRCROW2="26 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_append_structure          TYPE RANGE OF dd02l-tabname
+"/>
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_TABLE_TYPE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " TYPTYPE="4" SRCROW1="27 " SRCCOLUMN1="8 " SRCROW2="27 " SRCCOLUMN2="67 " TYPESRC_LENG="62 " TYPESRC="ty_ra_table_type                TYPE RANGE OF dd40l-typename
+"/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_APPEND_STRUCTURES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_APPEND_STRUCTURE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_CLASSES" VERSION="1" LANGU="E" DESCRIPT="R_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_CLASSES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_CLUSTER_TABLES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_CLUSTER_TABLE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_DATA_ELEMENTS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_DATA_ELEMENTS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_DOMAINS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_DOMAINS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="R_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_INTERFACES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_LOCAL_CLASSES_INTERFACES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_LOCAL_CLASSES_INTERFACES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="R_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_PACKAGES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_POOLED_TABLES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_POOLED_TABLE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_REPORTS" VERSION="1" LANGU="E" DESCRIPT="R_REPORTS" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_REPORTS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_STRUCTURES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_STRUCTURE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_TABLE_TYPES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_TABLE_TYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_TRANSPARENT_TABLES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_TRANSPARENT_TABLE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_VIEWS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_VIEW" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" VERSION="1" LANGU="E" DESCRIPT="FACTORY" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="IM_PACKAGES" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_PACKAGES" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_REPORTS" VERSION="1" LANGU="E" DESCRIPT="IM_REPORTS" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_REPORTS" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_CLASSES" VERSION="1" LANGU="E" DESCRIPT="IM_CLASSES" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_CLASSES" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="IM_INTERFACES" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_INTERFACES" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_LOCAL_CLASSES_INTERFACES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_LOCAL_CLASSES_INTERFACES" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_DOMAINS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="6 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_DOMAINS" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_DATA_ELEMENTS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="7 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_DATA_ELEMENTS" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_TRANSPARENT_TABLES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="8 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_TRANSPARENT_TABLE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_STRUCTURES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="9 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_STRUCTURE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_CLUSTER_TABLES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="10 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_CLUSTER_TABLE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_POOLED_TABLES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="11 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_POOLED_TABLE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_VIEWS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="12 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_VIEW" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_APPEND_STRUCTURES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="13 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_APPEND_STRUCTURE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="IM_TABLE_TYPES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="14 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="TY_RA_TABLE_TYPE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="FACTORY" SCONAME="RE_SEARCH_CRITERIA" VERSION="1" LANGU="E" DESCRIPT="RE_SEARCH_CRITERIA" CMPTYPE="1" MTDTYPE="0" EDITORDER="15 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZIF_WB_SEARCH_CRITERIA"/>
+  </method>
+ </INTF>
+ <PROG NAME="ZWB_OBJECTS_SEARCHER" VARCL="X" SUBC="1" RMAND="001" RLOAD="E" FIXPT="X" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="I" KEY="B00" ENTRY="WB Containers" LENGTH="13 "/>
+    <textElement ID="I" KEY="B01" ENTRY="ABAP Code" LENGTH="9 "/>
+    <textElement ID="I" KEY="B10" ENTRY="DDIC" LENGTH="4 "/>
+    <textElement ID="I" KEY="B20" ENTRY="Enhancements" LENGTH="12 "/>
+    <textElement ID="I" KEY="B30" ENTRY="Print Programs" LENGTH="14 "/>
+    <textElement ID="I" KEY="B40" ENTRY="Upgrade" LENGTH="7 "/>
+    <textElement ID="I" KEY="B90" ENTRY="Output Options" LENGTH="14 "/>
+    <textElement ID="R" ENTRY="Search of all WB objects" LENGTH="24 "/>
+    <textElement ID="S" KEY="P_ALV" ENTRY="        ALV" LENGTH="11 "/>
+    <textElement ID="S" KEY="P_FILE" ENTRY="        Local file" LENGTH="18 "/>
+    <textElement ID="S" KEY="P_INCLYN" ENTRY="        Select Includes" LENGTH="23 "/>
+    <textElement ID="S" KEY="P_MEMORY" ENTRY="        SAP/ABAP Memory" LENGTH="23 "/>
+    <textElement ID="S" KEY="P_PACKSU" ENTRY="        Include subpackages" LENGTH="27 "/>
+    <textElement ID="S" KEY="P_PROGYN" ENTRY="        Select programs/reports" LENGTH="31 "/>
+    <textElement ID="S" KEY="P_WRITE" ENTRY="        Write (List)" LENGTH="20 "/>
+    <textElement ID="S" KEY="S_APPEND" ENTRY="        Append Structure" LENGTH="24 "/>
+    <textElement ID="S" KEY="S_CLASS" ENTRY="        Class" LENGTH="23 "/>
+    <textElement ID="S" KEY="S_CLUST" ENTRY="        Cluster Table" LENGTH="21 "/>
+    <textElement ID="S" KEY="S_DOMAIN" ENTRY="        Domain" LENGTH="19 "/>
+    <textElement ID="S" KEY="S_DTEL" ENTRY="D       ." LENGTH="20 "/>
+    <textElement ID="S" KEY="S_INCLU" ENTRY="        Include" LENGTH="20 "/>
+    <textElement ID="S" KEY="S_INTER" ENTRY="        Interface" LENGTH="23 "/>
+    <textElement ID="S" KEY="S_LOC_OO" ENTRY="        Inclu. with local class/interf" LENGTH="38 "/>
+    <textElement ID="S" KEY="S_PACK" ENTRY="D       ." LENGTH="15 "/>
+    <textElement ID="S" KEY="S_POOL" ENTRY="        Pooled Table" LENGTH="20 "/>
+    <textElement ID="S" KEY="S_STRUCT" ENTRY="        Structure" LENGTH="18 "/>
+    <textElement ID="S" KEY="S_TABLE" ENTRY="        Transparent Table" LENGTH="25 "/>
+    <textElement ID="S" KEY="S_TABTYP" ENTRY="        Table Type" LENGTH="23 "/>
+    <textElement ID="S" KEY="S_VIEW" ENTRY="        View" LENGTH="18 "/>
+   </language>
+  </textPool>
+  <source>*&amp;---------------------------------------------------------------------*
+*&amp; Report  ZWB_OBJECTS_SEARCHER
+*&amp;
+*&amp;---------------------------------------------------------------------*
+*&amp; This program aims to retrieve WB objects and store its details
+*&amp; in classes from WB Framework
+*&amp; If you have a program which needs to retrieve objects from the
+*&amp; ABAP repository, you can call this program to delegate repository
+*&amp; objects selections to the framework
+*&amp;---------------------------------------------------------------------*
+
+REPORT  zwb_objects_searcher.
+
+*********************************
+* Variables for select-options
+
+* Block 00
+DATA v_package TYPE tdevc-devclass.
+
+* Block 01
+DATA v_include TYPE progname_2.
+DATA v_class TYPE seoclass-clsname.
+DATA v_interface TYPE seoclass-clsname.
+DATA v_local_class_interface TYPE reposrc-progname.
+
+* Block 10
+DATA v_domain TYPE dd01l-domname.
+DATA v_data_element TYPE dd04l-rollname.
+DATA v_transparent_table TYPE dd02l-tabname.
+DATA v_structure TYPE dd02l-tabname.
+DATA v_cluster_table TYPE dd02l-tabname.
+DATA v_pooled_table TYPE dd02l-tabname.
+DATA v_view TYPE dd02l-tabname.
+DATA v_append_structure TYPE dd02l-tabname.
+DATA v_table_type TYPE dd40l-typename.
+*Type Group
+*Search Help
+*Matchcode ID
+*Lock Object
+*Matchcode Object
+*Table Index
+
+* Block 20
+* Block 30
+* Block 40
+
+*********************************
+
+
+
+SELECTION-SCREEN BEGIN OF BLOCK b00 WITH FRAME TITLE text-b00. &quot; wb containers
+SELECTION-SCREEN BEGIN OF LINE.
+SELECTION-SCREEN END OF LINE.
+SELECT-OPTIONS s_pack FOR v_package.
+PARAMETERS p_packsu AS CHECKBOX USER-COMMAND ns. &quot; Include subpackages
+SELECTION-SCREEN END OF BLOCK b00.
+
+SELECTION-SCREEN BEGIN OF BLOCK b01 WITH FRAME TITLE text-b01. &quot; abap code
+SELECT-OPTIONS s_inclu FOR v_include MATCHCODE OBJECT progname.
+SELECT-OPTIONS s_class FOR v_class MATCHCODE OBJECT sfbeclname.
+SELECT-OPTIONS s_inter FOR v_interface MATCHCODE OBJECT sfbeclname.
+SELECT-OPTIONS s_loc_oo FOR v_local_class_interface MATCHCODE OBJECT progname.
+
+
+SELECTION-SCREEN END OF BLOCK b01.
+
+SELECTION-SCREEN BEGIN OF BLOCK b10 WITH FRAME TITLE text-b10. &quot; ddic
+
+
+SELECT-OPTIONS:
+  s_domain    FOR v_domain,
+  s_dtel      FOR v_data_element,
+  s_table     FOR v_transparent_table,
+  s_struct    FOR v_structure,
+  s_clust     FOR v_cluster_table,
+  s_pool      FOR v_pooled_table,
+  s_view      FOR v_view,
+  s_append    FOR v_append_structure,
+  s_tabtyp    FOR v_table_type.
+
+
+SELECTION-SCREEN END OF BLOCK b10.
+
+SELECTION-SCREEN BEGIN OF BLOCK b20 WITH FRAME TITLE text-b20. &quot; enhancements
+
+SELECTION-SCREEN END OF BLOCK b20.
+
+SELECTION-SCREEN BEGIN OF BLOCK b30 WITH FRAME TITLE text-b30. &quot; print programs
+
+SELECTION-SCREEN END OF BLOCK b30.
+
+SELECTION-SCREEN BEGIN OF BLOCK b40 WITH FRAME TITLE text-b40. &quot; upgrade
+
+SELECTION-SCREEN END OF BLOCK b40.
+
+SELECTION-SCREEN BEGIN OF BLOCK b90 WITH FRAME TITLE text-b90. &quot; output options
+
+PARAMETERS p_write RADIOBUTTON GROUP outp USER-COMMAND ns.
+PARAMETERS p_alv RADIOBUTTON GROUP outp .
+PARAMETERS p_file RADIOBUTTON GROUP outp.
+PARAMETERS p_memory RADIOBUTTON GROUP outp.
+
+SELECTION-SCREEN END OF BLOCK b90.
+
+
+
+INITIALIZATION.
+
+  LOOP AT SCREEN.
+    IF
+      screen-name = &apos;P_PACKSU&apos; OR
+      screen-name = &apos;P_ALV&apos; OR
+      screen-name = &apos;P_FILE&apos; OR
+      screen-name = &apos;P_MEMORY&apos;.
+
+        screen-input = 0.
+        MODIFY SCREEN.
+
+    ENDIF.
+  ENDLOOP.
+
+
+AT SELECTION-SCREEN.
+
+  IF sy-ucomm = &apos;NS&apos;.
+    MESSAGE &apos;Not supported yet&apos; TYPE &apos;S&apos;.
+  ENDIF.
+
+
+
+*******************************************
+* START-OF-SELECTION
+*******************************************
+START-OF-SELECTION.
+
+* Create a seach criteria based on the values entered in the selection screen
+  DATA r_wb_search_criteria TYPE REF TO zif_wb_search_criteria.
+
+  zcl_wb_search_criteria=&gt;zif_wb_search_criteria~factory(
+    EXPORTING
+      im_packages                 = s_pack[]
+      im_reports                  = s_inclu[]
+      im_classes                  = s_class[]
+      im_interfaces               = s_inter[]
+      im_local_classes_interfaces = s_loc_oo[]
+      im_domains                  = s_domain[]
+      im_data_elements            = s_dtel[]
+      im_transparent_tables        = s_table[]
+      im_structures                = s_struct[]
+      im_cluster_tables            = s_clust[]
+      im_pooled_tables             = s_pool[]
+      im_views                     = s_view[]
+      im_append_structures         = s_append[]
+      im_table_types               = s_tabtyp[]
+    RECEIVING
+      re_search_criteria          = r_wb_search_criteria
+  ).
+
+* Create a searcher object, which will fetch all repository objects based on a search criteria
+  DATA r_wb_searcher TYPE REF TO zif_wb_searcher.
+
+  CREATE OBJECT r_wb_searcher TYPE zcl_wb_searcher
+    EXPORTING
+      im_r_wb_search_criteria = r_wb_search_criteria.
+
+  r_wb_searcher-&gt;search_wb_objects( r_wb_searcher-&gt;r_wb_search_criteria ).
+
+* Once all repository objects *names* are loaded in the searcher, it&apos;s time to use WB Objects Framework to load their
+* inner details in the memory.
+
+* A mass loader is a object responsible for loading multiple ABAP workbench objects at the same time no matter what is their type
+  DATA r_wb_mass_loader TYPE REF TO zif_wb_mass_loader.
+
+  CREATE OBJECT r_wb_mass_loader
+    TYPE zcl_wb_mass_loader_searcher
+    EXPORTING
+      im_r_wb_searcher = r_wb_searcher.
+
+  DATA r_wb_objects_loaded TYPE REF TO zif_wb_collection.
+
+  r_wb_objects_loaded = r_wb_mass_loader-&gt;mass_load( ).
+
+
+  DATA r_wb_objects_itab TYPE REF TO zcl_wb_set_itab.
+  r_wb_objects_itab ?= r_wb_objects_loaded.
+
+
+
+
+
+  DATA r_wb_object TYPE REF TO zif_wb_object.
+  DATA v_object_to_string TYPE string.
+
+  LOOP AT r_wb_objects_itab-&gt;zif_wb_set_itab~t_wb_objects INTO r_wb_object.
+    v_object_to_string = r_wb_object-&gt;to_string( ).
+    WRITE v_object_to_string.
+    NEW-LINE.
+  ENDLOOP.</source>
+ </PROG>
+</nugget>
