@@ -5472,26 +5472,66 @@ ENDCLASS.</source>
     <textElement ID="S" KEY="P_REPOR" ENTRY="        Program/Include Name" LENGTH="28 "/>
    </language>
   </textPool>
+  <programDocumentation OBJECT="ZWB_OBJECTS_DEMO1">
+   <language SPRAS="E">
+    <textLine TDFORMAT="U1" TDLINE="&amp;PURPOSE&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDLINE="This is a demo program to show how to use WB Objects Framework. In this"/>
+    <textLine TDLINE="demo, user can insert the name of Global Class, Global Interface or a"/>
+    <textLine TDLINE="program/include name. WB Objects will retrieve data from each object"/>
+    <textLine TDLINE="according to its type and write some of the information in the screen"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U1" TDLINE="&amp;INTEGRATION&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U1" TDLINE="&amp;PREREQUISITES&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U1" TDLINE="&amp;FEATURES&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U2" TDLINE="&amp;SELECTION&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U2" TDLINE="&amp;STANDARD_VARIANTS&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U2" TDLINE="&amp;OUTPUT&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U1" TDLINE="&amp;ACTIVITIES&amp;"/>
+    <textLine TDFORMAT="AS"/>
+    <textLine TDFORMAT="U1" TDLINE="&amp;EXAMPLE&amp;"/>
+    <textLine TDFORMAT="AS"/>
+   </language>
+  </programDocumentation>
   <source>*&amp;---------------------------------------------------------------------*
 *&amp; Report  ZWB_OBJECTS_DEMO1
-*&amp;
+*&amp; Title: Classes and interfaces (globals and locals)
+*&amp; Creator: Fabio Pagoti
 *&amp;---------------------------------------------------------------------*
 *&amp; This report shows how some WB objects can be loaded into memory
 *&amp; Here, it&apos;s possible to load
 *&amp; 1) A global class
 *&amp; 2) A global interface
 *&amp; 3) All local classes and interfaces from a program/include
+*&amp;
+*&amp; Notice that using ABAP Objects Workbench Framework, you do not need to
+*&amp; worry about where and how exactly workbench objects are saved in the
+*&amp; system. There is no need to use SELECT statements looking for data
+*&amp; from classes and interfaces.
+*&amp;
+*&amp; All you need to know is which WB Object class represents each
+*&amp; ABAP Workbench object. Then, you can use method ZIF_WB_OBJECT~LOAD
+*&amp; to retrieve all data from that specific workbench object and use it
+*&amp; as needed.
+*&amp;
+*&amp; Enjoy!
 *&amp;---------------------------------------------------------------------*
 
 REPORT  zwb_objects_demo1.
 
-PARAMETERS p_class TYPE seoclass-clsname default &apos;CL_SALV_TABLE&apos;.
-PARAMETERS p_inter TYPE seoclass-clsname.
-PARAMETERS p_repor TYPE reposrc-progname.
+PARAMETERS p_class TYPE seoclass-clsname DEFAULT &apos;CL_SALV_TABLE&apos;. &quot; Global Class
+PARAMETERS p_inter TYPE seoclass-clsname. &quot; Global Interface
+PARAMETERS p_repor TYPE reposrc-progname. &quot; Program/Include - will be used to load all local classes and interfaces
 
 AT SELECTION-SCREEN.
 
-  IF &quot; If all is filled or nothing is filled, show message
+  IF &quot; If everything is filled or nothing is filled, show a message
      (  p_class IS NOT INITIAL AND
         p_inter IS NOT INITIAL AND
         p_repor IS NOT INITIAL ) OR
@@ -5506,12 +5546,12 @@ AT SELECTION-SCREEN.
 
 START-OF-SELECTION.
 
-  DATA o_class TYPE REF TO zcl_wb_class.
+  DATA o_class TYPE REF TO zcl_wb_class. &quot; This reference represents an ABAP Class (no matter if it global or local yet)
 
 * Global Class
   IF p_class IS NOT INITIAL.
 
-    DATA o_global_class TYPE REF TO zcl_wb_class_global.
+    DATA o_global_class TYPE REF TO zcl_wb_class_global. &quot; This reference represents an ABAP GLOBAL Class
     DATA wa_seoclskey TYPE seoclskey.
 
     wa_seoclskey-clsname = p_class.
@@ -5530,8 +5570,7 @@ START-OF-SELECTION.
       .
 
     TRY .
-        o_global_class-&gt;zif_wb_object~load( ).
-
+        o_global_class-&gt;zif_wb_object~load( ). &quot; Using zif_wb_object~load method, all details from the class (atributes, methods, methods parameters, events and so on are loaded into the object
       CATCH zcx_wb_class_dont_exist.
         MESSAGE &apos;This class do not exist&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos;.
         STOP.
@@ -5546,15 +5585,16 @@ START-OF-SELECTION.
         STOP.
     ENDTRY.
 
-    o_global_class-&gt;zif_wb_object~to_string( ).
+    o_global_class-&gt;zif_wb_object~write( ). &quot; Write class details
     STOP.
+
   ENDIF.
 
 
 * Global Interface
   IF p_inter IS NOT INITIAL.
 
-    DATA o_global_interface TYPE REF TO zcl_wb_interface_global.
+    DATA o_global_interface TYPE REF TO zcl_wb_interface_global. &quot; This reference represents a GLOBAL interface
     DATA wa_intkey TYPE seoclskey.
 
     wa_intkey-clsname = p_inter.
@@ -5572,7 +5612,7 @@ START-OF-SELECTION.
       .
 
     TRY .
-        o_global_interface-&gt;zif_wb_object~load( ).
+        o_global_interface-&gt;zif_wb_object~load( ). &quot; Again, method zif_wb_object~load is used to retrive all data from a WB object. As this is an interface, all attributes, methods definitions, events etc are loaded inside object reference
       CATCH zcx_wb_interface_dont_exist.
         MESSAGE &apos;This interface do not exist&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos;.
         STOP.
@@ -5587,7 +5627,7 @@ START-OF-SELECTION.
         STOP.
     ENDTRY.
 
-    o_global_interface-&gt;zif_wb_object~to_string( ).
+    o_global_interface-&gt;zif_wb_object~write( ). &quot; Write interface details
     STOP.
   ENDIF.
 
@@ -5595,12 +5635,12 @@ START-OF-SELECTION.
 * Program/Include
   IF p_repor IS NOT INITIAL.
 
-    DATA itab_local_class TYPE ztt_wb_class_local.
-    DATA o_local_class TYPE REF TO zcl_wb_class_local.
+    DATA itab_local_class TYPE ztt_wb_class_local. &quot; A table type of local classes references
+    DATA o_local_class TYPE REF TO zcl_wb_class_local. &quot; A single reference for a local class
 
 * Local classes
     TRY .
-        itab_local_class = zcl_wb_class_local=&gt;load_all_classes( im_program = p_repor ).
+        itab_local_class = zcl_wb_class_local=&gt;load_all_classes( im_program = p_repor ). &quot; Given a program/include, retrieves and loads all its local classes
       CATCH zcx_wb_report_dont_exist.
         MESSAGE &apos;This program/include do not exist&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos; .
         STOP.
@@ -5609,18 +5649,18 @@ START-OF-SELECTION.
         NEW-LINE.
     ENDTRY.
 
-    LOOP AT itab_local_class INTO o_local_class.
-      o_local_class-&gt;zif_wb_object~to_string( ).
+    LOOP AT itab_local_class INTO o_local_class. &quot; As the same program/include might have more than one local class, we can loop over them and ask each object to write its details
+      o_local_class-&gt;zif_wb_object~write( ).
     ENDLOOP.
 
 
 
 * Local interfaces
-    DATA itab_local_interface TYPE ztt_wb_interface_local.
-    DATA o_local_interface TYPE REF TO zcl_wb_interface_local.
+    DATA itab_local_interface TYPE ztt_wb_interface_local. &quot; A table type of local interface references
+    DATA o_local_interface TYPE REF TO zcl_wb_interface_local. &quot; A single reference for a local interface
 
     TRY .
-        itab_local_interface = zcl_wb_interface_local=&gt;load_all_interfaces( im_program = p_repor ).
+        itab_local_interface = zcl_wb_interface_local=&gt;load_all_interfaces( im_program = p_repor ). &quot; Given a program/include, retrieves and loads all its local interfaces
       CATCH zcx_wb_report_dont_exist.
         MESSAGE &apos;This program/include do not exist&apos; TYPE &apos;S&apos; DISPLAY LIKE &apos;E&apos; .
         STOP.
@@ -5629,7 +5669,7 @@ START-OF-SELECTION.
         NEW-LINE.
     ENDTRY.
 
-    LOOP AT itab_local_interface INTO o_local_interface.
+    LOOP AT itab_local_interface INTO o_local_interface. &quot; As the same program/include might have more than one local interface, we can loop over them and ask each object to write its details
       o_local_interface-&gt;zif_wb_object~to_string( ).
     ENDLOOP.
 
@@ -5642,21 +5682,62 @@ START-OF-SELECTION.
     <textElement ID="R" ENTRY="WB Searcher" LENGTH="11 "/>
    </language>
   </textPool>
-  <source>REPORT  zwb_objects_demo3.
+  <source>*&amp;---------------------------------------------------------------------*
+*&amp; Report  ZWB_OBJECTS_DEMO3
+*&amp; Title: WB Searcher
+*&amp; Creator: Fabio Pagoti
+*&amp;---------------------------------------------------------------------*
+*&amp; This report shows how to use WB objects search capability.
+*&amp;
+*&amp; In order to create a WB object instance which represents a workbench object,
+*&amp; you must know object&apos;s full name. Usually this name is passed inside the
+*&amp; constructor of a class and it is used to get all objects details using
+*&amp; helper classes, function modules and even SELECT statements.
+*&amp;
+*&amp; What if you don&apos;t know the full name of a global class to be loaded?
+*&amp; Maybe you just know that it starts with ZCL_WB*.
+*&amp; Or maybe you actually want to know all classes matching this name!
+*&amp;
+*&amp; Fortunately, ABAP Workbench Objects Framework contains a search
+*&amp; mechanism known as WB Searchers. As its name implies, WB searchers
+*&amp; are responsible for searching workbench objects in the system according
+*&amp; to some search criteria. Search criterias are basically ranges (or
+*&amp; select-options) for workbench objects properties, usually their names.
+*&amp;
+*&amp; WB searchers saves you from coding a logic to know all possible
+*&amp; classes which names follow a specific patterns and doing the same all
+*&amp; over again for interfaces, domains, data elements, programs, includes,
+*&amp; tables, views and so on.
+*&amp;
+*&amp; Notice that using ABAP Workbench Objects Framework, you do not need to
+*&amp; worry about where and how exactly workbench objects are saved in the
+*&amp; system. There is no need to use SELECT statements looking for data
+*&amp; from classes and interfaces.
+*&amp;
+*&amp; Notice that WB Searchers are just responsible for select the names
+*&amp; of workbench objects according to a search criteria. Using a WB
+*&amp; Searcher you don&apos;t have references for WB references automatically.
+*&amp; You can have it using a different concept called WB mass loader,
+*&amp; which is a topic for a future demo. For now, understand that
+*&amp; a WB Searcher is the first step you will need to know if you want
+*&amp; to represent more than one WB object using an OO approach.
+*&amp;
+*&amp; Enjoy!
+*&amp;---------------------------------------------------------------------*
+
+REPORT  zwb_objects_demo3.
 
 DATA v_class TYPE zcl_wb_searcher=&gt;ty_class-clsname.
-
-SELECT-OPTIONS: s_class FOR v_class MATCHCODE OBJECT sfbeclname.
+SELECT-OPTIONS: s_class FOR v_class MATCHCODE OBJECT sfbeclname. &quot; Search criteria for a global class
 
 *******************************************
 * INITIALIZATION
 *******************************************
 INITIALIZATION.
-  s_class-low = &apos;ZCL_WB*&apos;.
+  s_class-low = &apos;ZCL_WB*&apos;. &quot; just creating a default search criteria patterns, to save you a few keystrokes
   s_class-sign = &apos;I&apos;.
   s_class-option = &apos;CP&apos;.
   APPEND s_class.
-
 
 *******************************************
 * START-OF-SELECTION
@@ -5667,61 +5748,37 @@ START-OF-SELECTION.
   DATA r_wb_search_criteria TYPE REF TO zcl_wb_search_criteria. &quot; A search criteria is a filter defined by many range objects
 
   r_wb_search_criteria ?= zcl_wb_search_criteria=&gt;zif_wb_search_criteria~factory(
-      im_classes =  s_class[] &quot;
+      im_classes =  s_class[] &quot; When we create a search criteria object, we can pass many ranges all at once.
+                              &quot; Each one will represent a search criteria for each WB object.
+                              &quot; Consider checking optional parameters of this factory method. They were removed as they are not used in this demo
   ).
 
+
+* At this point we have a search criteria object created. We don&apos;t need to do anything else with it. It is just a way to use some dependency injection
+* in a WB searcher object
+
   CREATE OBJECT r_wb_searcher
-    TYPE zcl_wb_searcher &quot; ZCL_WB_SEARCHER is capable of searching any WB object but only search its name + description
+    TYPE zcl_wb_searcher &quot; ZCL_WB_SEARCHER is capable of searching any WB object but only search its name
     EXPORTING
       im_r_wb_search_criteria = r_wb_search_criteria.
 
-  &quot; you can use the other search criterias for the same searcher. In this case, we use the same
+  &quot; you can use other search criteria for the same searcher. In this case, we use the same
   r_wb_searcher-&gt;search_wb_objects( im_wb_search_criteria = r_wb_searcher-&gt;r_wb_search_criteria ).
 
 
   DATA r_wb_full_searcher TYPE REF TO zcl_wb_searcher.
 
   r_wb_full_searcher ?= r_wb_searcher. &quot; Downcasting to access search results
+
+
+* Notice that a WB Searcher only retrieves some specific data (in this case, WB object&apos;s name).
+* The advantage of using a WB Searcher is that we now know how many classes matches our search pattern and who they are
   DATA wa_class TYPE zcl_wb_searcher=&gt;ty_class.
   LOOP AT r_wb_full_searcher-&gt;t_classes INTO wa_class.
     WRITE wa_class-clsname.
     NEW-LINE.
   ENDLOOP.</source>
  </PROG>
- <PROG NAME="ZWB_SCANNER_OBJECTS_TEST" VARCL="X" SUBC="1" RMAND="800" RLOAD="E" FIXPT="X" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="Program Z_WB_SCANNER_OBJECTS_TEST" LENGTH="33 "/>
-   </language>
-  </textPool>
-  <source>*&amp;---------------------------------------------------------------------*
-*&amp; Report  Z_WB_SCANNER_OBJECTS_TEST
-*&amp;
-*&amp;---------------------------------------------------------------------*
-*&amp;
-*&amp;
-*&amp;---------------------------------------------------------------------*
-
-REPORT  zwb_scanner_objects_test.
-
-PARAMETERS p_incl TYPE programm DEFAULT &apos;ZWB_LOCAL_CLASS_EXAMPLE&apos;.
-
-START-OF-SELECTION.
-
-  DATA t_r_local_class TYPE ztt_wb_class_local.
-  DATA r_local_class   TYPE REF TO zcl_wb_class_local.
-
-  t_r_local_class = zcl_wb_class_local=&gt;load_all_classes( p_incl ).
-
-  LOOP AT t_r_local_class INTO r_local_class.
-    r_local_class-&gt;zif_wb_object~load( ).
-    r_local_class-&gt;to_string( ).
-  ENDLOOP.
-
-  &quot;BREAK-POINT.</source>
- </PROG>
- <TTYP TYPENAME="ZTT_WB_CLASS_LOCAL" DDLANGUAGE="E" ROWTYPE="ZCL_WB_CLASS_LOCAL" ROWKIND="R" DATATYPE="REF" LENG="000000" DECIMALS="000000" ACCESSMODE="T" KEYDEF="D" KEYKIND="N" KEYFDCOUNT="0000" DDTEXT="Table of WB local classes" TYPELEN="000008" CTLENG="000000" CTDECIMALS="000000" REFTYPE="C" OCCURS="00000"/>
- <TTYP TYPENAME="ZTT_WB_INTERFACE_LOCAL" DDLANGUAGE="E" ROWTYPE="ZCL_WB_INTERFACE_LOCAL" ROWKIND="R" DATATYPE="REF" LENG="000000" DECIMALS="000000" ACCESSMODE="T" KEYDEF="D" KEYKIND="N" KEYFDCOUNT="0000" DDTEXT="Table of WB local interfaces" TYPELEN="000008" CTLENG="000000" CTDECIMALS="000000" REFTYPE="C" OCCURS="00000"/>
  <PROG NAME="ZWB_OBJECTS_DEMO4" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" RLOAD="E" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
   <textPool>
    <language SPRAS="E">
@@ -5814,7 +5871,36 @@ START-OF-SELECTION.
     <textElement ID="R" ENTRY="Mass loader (based on searcher)" LENGTH="31 "/>
    </language>
   </textPool>
-  <source>REPORT  zwb_objects_demo5.
+  <source>*&amp;---------------------------------------------------------------------*
+*&amp; Report  ZWB_OBJECTS_DEMO5
+*&amp; Title: Mass loader (based on searcher)
+*&amp; Creator: Fabio Pagoti
+*&amp;---------------------------------------------------------------------*
+*&amp; This report shows how to automatically load WB objects based on a WB searcher.
+*&amp;
+*&amp; To know learn about WB Searchers, check ZWB_OBJECTS_DEMO3 and project documentation.
+*&amp;
+*&amp; In this demo, ZWB_OBJECTS_DEMO3 is improved to print more data of a range of classes
+*&amp; Still, classes to be printed are found using a WB Searched.
+*&amp; The difference is that after having a search result, we automatically load
+*&amp; WB instances using what is called Mass Loader. This process can be
+*&amp; considered an evolution of ZWB_OBJECTS_DEMO4, where we manually load
+*&amp; each instance one by one.
+*&amp;
+*&amp; In other words, after the search for classes is completed, we take
+*&amp; a WB searcher result to lead each result in a different WB instance, no matter
+*&amp; what it the right type for it.
+*&amp; Then, after all search results are loaded, we can print more details about each one
+*&amp; (in this exemple, its attributes and methods of classes)
+*&amp;
+*&amp; Notice that we have many instance of ZCL_WB_CLASS_GLOBAL at the same time once we
+*&amp; &apos;mass load&apos; a search result. Different than ZWB_OBJECTS_DEMO4, we just iterate
+*&amp; through the loaded instances to print what is needed
+*&amp;
+*&amp; Enjoy!
+*&amp;---------------------------------------------------------------------*
+
+REPORT  zwb_objects_demo5.
 
 DATA v_class TYPE zcl_wb_searcher=&gt;ty_class-clsname.
 
@@ -5850,8 +5936,8 @@ START-OF-SELECTION.
   r_wb_searcher-&gt;search_wb_objects( im_wb_search_criteria = r_wb_searcher-&gt;r_wb_search_criteria ).
 
 
-  DATA r_wb_mass_loader TYPE REF TO zif_wb_mass_loader. &quot; Generic mass loader
-  DATA r_wb_full_mass_loader TYPE REF TO zcl_wb_mass_loader_searcher. &quot; Full mass loader
+  DATA r_wb_mass_loader TYPE REF TO zif_wb_mass_loader. &quot; Generic mass loader - a mass loader can be based on anything
+  DATA r_wb_full_mass_loader TYPE REF TO zcl_wb_mass_loader_searcher. &quot; Full mass loader - This mass loader is based on a WB Searcher
 
   CREATE OBJECT r_wb_mass_loader
     TYPE zcl_wb_mass_loader_searcher
@@ -5861,12 +5947,12 @@ START-OF-SELECTION.
   r_wb_full_mass_loader ?= r_wb_mass_loader.
 
   DATA r_wb_objects_loaded TYPE REF TO zcl_wb_set_itab. &quot; Object which will store WB objects loaded
-  r_wb_objects_loaded ?= r_wb_full_mass_loader-&gt;zif_wb_mass_loader~mass_load( ).
+  r_wb_objects_loaded ?= r_wb_full_mass_loader-&gt;zif_wb_mass_loader~mass_load( ). &quot; Magic happens: each search result is converted into a WB object instance
 
   DATA r_wb_object TYPE REF TO zif_wb_object.
   DATA r_wb_class TYPE REF TO zcl_wb_class_global.
 
-  LOOP AT r_wb_objects_loaded-&gt;zif_wb_set_itab~t_wb_objects INTO r_wb_object. &quot; Loop is NOT on the search result but on the result from mass loader (a collection)
+  LOOP AT r_wb_objects_loaded-&gt;zif_wb_set_itab~t_wb_objects INTO r_wb_object. &quot; Loop is NOT on the search result anymore but on the result from mass loader (a collection)
 
     r_wb_class ?= r_wb_object. &quot; A collection might have any kind of WB Object. In this case we know that there are just classes
 
@@ -5902,7 +5988,21 @@ START-OF-SELECTION.
     <textElement ID="R" ENTRY="WB Collections" LENGTH="14 "/>
    </language>
   </textPool>
-  <source>REPORT  zwb_objects_demo6.
+  <source>*&amp;---------------------------------------------------------------------*
+*&amp; Report  ZWB_OBJECTS_DEMO6
+*&amp; Title: WB Collections
+*&amp; Creator: Fabio Pagoti
+*&amp;---------------------------------------------------------------------*
+*&amp; This report shows how a very basic usage of WB collections
+*&amp;
+*&amp; It might worth dealing with WB objects inside the same data structure.
+*&amp; In order to accomplish that, WB Objects Framework comes with
+*&amp; very simple collection hierarchy.
+*&amp;
+*&amp; Enjoy!
+*&amp;---------------------------------------------------------------------*
+
+REPORT  zwb_objects_demo6.
 
 DATA r_wb_objects TYPE REF TO zcl_wb_set_itab.
 
@@ -5956,4 +6056,38 @@ LOOP AT r_wb_objects-&gt;zif_wb_set_itab~t_wb_objects INTO r_wb_object.
   WRITE v_to_string. NEW-LINE.
 ENDLOOP.</source>
  </PROG>
+ <PROG NAME="ZWB_SCANNER_OBJECTS_TEST" VARCL="X" SUBC="1" RMAND="800" RLOAD="E" FIXPT="X" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="Program Z_WB_SCANNER_OBJECTS_TEST" LENGTH="33 "/>
+   </language>
+  </textPool>
+  <source>*&amp;---------------------------------------------------------------------*
+*&amp; Report  Z_WB_SCANNER_OBJECTS_TEST
+*&amp;
+*&amp;---------------------------------------------------------------------*
+*&amp;
+*&amp;
+*&amp;---------------------------------------------------------------------*
+
+REPORT  zwb_scanner_objects_test.
+
+PARAMETERS p_incl TYPE programm DEFAULT &apos;ZWB_LOCAL_CLASS_EXAMPLE&apos;.
+
+START-OF-SELECTION.
+
+  DATA t_r_local_class TYPE ztt_wb_class_local.
+  DATA r_local_class   TYPE REF TO zcl_wb_class_local.
+
+  t_r_local_class = zcl_wb_class_local=&gt;load_all_classes( p_incl ).
+
+  LOOP AT t_r_local_class INTO r_local_class.
+    r_local_class-&gt;zif_wb_object~load( ).
+    r_local_class-&gt;to_string( ).
+  ENDLOOP.
+
+  &quot;BREAK-POINT.</source>
+ </PROG>
+ <TTYP TYPENAME="ZTT_WB_INTERFACE_LOCAL" DDLANGUAGE="E" ROWTYPE="ZCL_WB_INTERFACE_LOCAL" ROWKIND="R" DATATYPE="REF" LENG="000000" DECIMALS="000000" ACCESSMODE="T" KEYDEF="D" KEYKIND="N" KEYFDCOUNT="0000" DDTEXT="Table of WB local interfaces" TYPELEN="000008" CTLENG="000000" CTDECIMALS="000000" REFTYPE="C" OCCURS="00000"/>
+ <TTYP TYPENAME="ZTT_WB_CLASS_LOCAL" DDLANGUAGE="E" ROWTYPE="ZCL_WB_CLASS_LOCAL" ROWKIND="R" DATATYPE="REF" LENG="000000" DECIMALS="000000" ACCESSMODE="T" KEYDEF="D" KEYKIND="N" KEYFDCOUNT="0000" DDTEXT="Table of WB local classes" TYPELEN="000008" CTLENG="000000" CTDECIMALS="000000" REFTYPE="C" OCCURS="00000"/>
 </nugget>
