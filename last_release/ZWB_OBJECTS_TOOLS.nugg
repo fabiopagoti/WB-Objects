@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nugget name="WB_OBJECTS_TOOLS">
+<nugget name="ZWB_OBJECTS_TOOLS">
  <CLAS CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_MASS_LOADER_OO_SEARCHER" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <implementing CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" REFCLSNAME="ZIF_WB_MASS_LOADER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
   <localImplementation>*&quot;* use this source file for the definition and implementation of
@@ -26,7 +26,7 @@
 
   ENDMETHOD.                    &quot;ZIF_WB_MASS_LOADER~MASS_LOAD</source>
   </interfaceMethod>
-  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="CONSTRUCTOR" VERSION="0" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_WB_MASS_LOADER_OO_SEARCHER" CMPNAME="CONSTRUCTOR" SCONAME="IM_O_WB_OO_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="IM_O_WB_OO_SEARCHER" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZCL_WB_SEARCHER_OO"/>
    <source>METHOD constructor.
 
@@ -562,68 +562,68 @@
   </method>
  </CLAS>
  <CLAS CLSNAME="ZCL_WB_SEARCHER" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_SEARCHER" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_PACKAGE" VERSION="1" LANGU="E" DESCRIPT="TY_PACKAGE" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="15 " SRCCOLUMN1="6 " SRCROW2="18 " SRCCOLUMN2="24 " TYPESRC_LENG="133 " TYPESRC="BEGIN OF ty_package,
-            devclass TYPE tdevc-devclass,
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_PACKAGE" VERSION="1" LANGU="E" DESCRIPT="TY_PACKAGE" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="16 " SRCCOLUMN1="11 " SRCROW2="19 " SRCCOLUMN2="28 " TYPESRC_LENG="141 " TYPESRC="BEGIN OF TY_PACKAGE,
+                devclass type tdevc-devclass,
 *            text    TYPE tdevct-ctext,
-        END OF ty_package
+            end of ty_package
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="TT_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="20 " SRCCOLUMN1="6 " SRCROW2="20 " SRCCOLUMN2="102 " TYPESRC_LENG="99 " TYPESRC="tt_packages TYPE STANDARD TABLE OF ty_package WITH UNIQUE SORTED KEY devclass COMPONENTS devclass
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="TT_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="20 " SRCCOLUMN1="11 " SRCROW2="20 " SRCCOLUMN2="55 " TYPESRC_LENG="47 " TYPESRC="tt_packages TYPE STANDARD TABLE OF ty_package
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_PROGRAM" VERSION="1" LANGU="E" DESCRIPT="TY_PROGRAM" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="6 " SRCROW2="25 " SRCCOLUMN2="24 " TYPESRC_LENG="137 " TYPESRC="BEGIN OF ty_program,
-            progname  TYPE reposrc-progname,
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_PROGRAM" VERSION="1" LANGU="E" DESCRIPT="TY_PROGRAM" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="12 " SRCROW2="25 " SRCCOLUMN2="28 " TYPESRC_LENG="145 " TYPESRC="BEGIN OF ty_program,
+                progname  type reposrc-progname,
 *            text      TYPE trdirt-text,
-        END OF ty_program
+            end of ty_program
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="TT_PROGRAMS" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="27 " SRCCOLUMN1="6 " SRCROW2="27 " SRCCOLUMN2="102 " TYPESRC_LENG="99 " TYPESRC="tt_programs TYPE STANDARD TABLE OF ty_program WITH UNIQUE SORTED KEY progname COMPONENTS progname
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_PROGRAMS" VERSION="1" LANGU="E" DESCRIPT="TT_PROGRAMS" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="26 " SRCCOLUMN1="11 " SRCROW2="26 " SRCCOLUMN2="55 " TYPESRC_LENG="47 " TYPESRC="tt_programs TYPE STANDARD TABLE OF ty_program
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_CLASS" VERSION="1" LANGU="E" DESCRIPT="TY_CLASS" EXPOSURE="2" STATE="1" EDITORDER="5 " TYPTYPE="4" SRCROW1="30 " SRCCOLUMN1="6 " SRCROW2="33 " SRCCOLUMN2="22 " TYPESRC_LENG="129 " TYPESRC="BEGIN OF ty_class,
-        clsname TYPE seoclass-clsname,
-*        text    TYPE seoclasstx-descript,
-        END OF ty_class
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_CLASS" VERSION="1" LANGU="E" DESCRIPT="TY_CLASS" EXPOSURE="2" STATE="1" EDITORDER="5 " TYPTYPE="4" SRCROW1="28 " SRCCOLUMN1="11 " SRCROW2="31 " SRCCOLUMN2="26 " TYPESRC_LENG="139 " TYPESRC="BEGIN OF ty_class,
+            clsname type seoclass-clsname,
+***        text    TYPE seoclasstx-descript,
+            end of ty_class
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_CLASSES" VERSION="1" LANGU="E" DESCRIPT="TT_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="6 " TYPTYPE="4" SRCROW1="35 " SRCCOLUMN1="6 " SRCROW2="35 " SRCCOLUMN2="97 " TYPESRC_LENG="94 " TYPESRC="tt_classes TYPE STANDARD TABLE OF ty_class WITH UNIQUE SORTED KEY clsname COMPONENTS clsname
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_CLASSES" VERSION="1" LANGU="E" DESCRIPT="TT_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="6 " TYPTYPE="4" SRCROW1="32 " SRCCOLUMN1="11 " SRCROW2="32 " SRCCOLUMN2="52 " TYPESRC_LENG="44 " TYPESRC="tt_classes TYPE STANDARD TABLE OF ty_class
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_INTERFACE" VERSION="1" LANGU="E" DESCRIPT="TY_INTERFACE" EXPOSURE="2" STATE="1" EDITORDER="7 " TYPTYPE="4" SRCROW1="37 " SRCCOLUMN1="6 " SRCROW2="40 " SRCCOLUMN2="26 " TYPESRC_LENG="137 " TYPESRC="BEGIN OF ty_interface,
-        intname TYPE seoclass-clsname,
-*        text    TYPE seoclasstx-descript,
-        END OF ty_interface
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_INTERFACE" VERSION="1" LANGU="E" DESCRIPT="TY_INTERFACE" EXPOSURE="2" STATE="1" EDITORDER="7 " TYPTYPE="4" SRCROW1="34 " SRCCOLUMN1="11 " SRCROW2="37 " SRCCOLUMN2="30 " TYPESRC_LENG="147 " TYPESRC="BEGIN OF ty_interface,
+            intname type seoclass-clsname,
+***        text    TYPE seoclasstx-descript,
+            end of ty_interface
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="TT_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="8 " TYPTYPE="4" SRCROW1="42 " SRCCOLUMN1="6 " SRCROW2="42 " SRCCOLUMN2="104 " TYPESRC_LENG="101 " TYPESRC="tt_interfaces TYPE STANDARD TABLE OF ty_interface WITH UNIQUE SORTED KEY intname COMPONENTS intname
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="TT_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="8 " TYPTYPE="4" SRCROW1="38 " SRCCOLUMN1="11 " SRCROW2="38 " SRCCOLUMN2="59 " TYPESRC_LENG="51 " TYPESRC="tt_interfaces TYPE STANDARD TABLE OF ty_interface
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_LOCAL_CLASS_INTERFACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " TYPTYPE="4" SRCROW1="45 " SRCCOLUMN1="6 " SRCROW2="48 " SRCCOLUMN2="38 " TYPESRC_LENG="165 " TYPESRC="BEGIN OF ty_local_class_interface,
-            progname  TYPE reposrc-progname,
-*            text      TYPE trdirt-text,
-        END OF ty_local_class_interface
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_LOCAL_CLASS_INTERFACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " TYPTYPE="4" SRCROW1="40 " SRCCOLUMN1="11 " SRCROW2="43 " SRCCOLUMN2="42 " TYPESRC_LENG="174 " TYPESRC="BEGIN OF ty_local_class_interface,
+                progname  type reposrc-progname,
+**            text      TYPE trdirt-text,
+            end of ty_local_class_interface
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_LOCAL_CLASS_INTERFACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " TYPTYPE="4" SRCROW1="50 " SRCCOLUMN1="6 " SRCROW2="50 " SRCCOLUMN2="129 " TYPESRC_LENG="126 " TYPESRC="tt_local_class_interface TYPE STANDARD TABLE OF ty_local_class_interface WITH UNIQUE SORTED KEY progname COMPONENTS progname
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_LOCAL_CLASS_INTERFACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " TYPTYPE="4" SRCROW1="44 " SRCCOLUMN1="11 " SRCROW2="44 " SRCCOLUMN2="82 " TYPESRC_LENG="74 " TYPESRC="tt_local_class_interface TYPE STANDARD TABLE OF TY_LOCAL_CLASS_INTERFACE
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_DOMAIN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " TYPTYPE="4" SRCROW1="53 " SRCCOLUMN1="6 " SRCROW2="56 " SRCCOLUMN2="23 " TYPESRC_LENG="121 " TYPESRC="BEGIN OF ty_domain,
-        domname TYPE dd01l-domname,
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_DOMAIN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " TYPTYPE="4" SRCROW1="46 " SRCCOLUMN1="11 " SRCROW2="49 " SRCCOLUMN2="21 " TYPESRC_LENG="117 " TYPESRC="BEGIN OF ty_domain,
+      domname type dd01l-domname,
 *        text    TYPE dd01t-ddtext,
-        END OF ty_domain
+      end of ty_domain
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_DOMAINS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " TYPTYPE="4" SRCROW1="58 " SRCCOLUMN1="6 " SRCROW2="58 " SRCCOLUMN2="98 " TYPESRC_LENG="95 " TYPESRC="tt_domains TYPE STANDARD TABLE OF ty_domain WITH UNIQUE SORTED KEY domname COMPONENTS domname
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_DOMAINS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " TYPTYPE="4" SRCROW1="50 " SRCCOLUMN1="11 " SRCROW2="50 " SRCCOLUMN2="53 " TYPESRC_LENG="45 " TYPESRC="tt_domains TYPE STANDARD TABLE OF TY_DOMAIN
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_DATA_ELEMENT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " TYPTYPE="4" SRCROW1="61 " SRCCOLUMN1="6 " SRCROW2="64 " SRCCOLUMN2="29 " TYPESRC_LENG="136 " TYPESRC="BEGIN OF ty_data_element,
-        dtel_name TYPE dd04l-rollname,
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_DATA_ELEMENT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " TYPTYPE="4" SRCROW1="52 " SRCCOLUMN1="11 " SRCROW2="55 " SRCCOLUMN2="33 " TYPESRC_LENG="144 " TYPESRC="BEGIN OF ty_data_element,
+            dtel_name type dd04l-rollname,
 *        text    TYPE dd04v-ddtext,
-        END OF ty_data_element
+            end of ty_data_element
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_DATA_ELEMENTS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " TYPTYPE="4" SRCROW1="66 " SRCCOLUMN1="6 " SRCROW2="66 " SRCCOLUMN2="114 " TYPESRC_LENG="111 " TYPESRC="tt_data_elements TYPE STANDARD TABLE OF ty_data_element WITH UNIQUE SORTED KEY dtel_name COMPONENTS dtel_name
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_DATA_ELEMENTS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " TYPTYPE="4" SRCROW1="56 " SRCCOLUMN1="11 " SRCROW2="56 " SRCCOLUMN2="65 " TYPESRC_LENG="57 " TYPESRC="tt_data_elements TYPE STANDARD TABLE OF TY_DATA_ELEMENT
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_TABLE_TYPE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="15 " TYPTYPE="4" SRCROW1="69 " SRCCOLUMN1="6 " SRCROW2="72 " SRCCOLUMN2="27 " TYPESRC_LENG="131 " TYPESRC="BEGIN OF ty_table_type,
-        typename TYPE dd40l-typename,
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_DD02L" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="15 " TYPTYPE="4" SRCROW1="58 " SRCCOLUMN1="11 " SRCROW2="61 " SRCCOLUMN2="26 " TYPESRC_LENG="124 " TYPESRC="BEGIN OF ty_dd02l,
+            name type dd02l-tabname,
+*        text    TYPE dd04v-ddtext,
+            end of ty_dd02l
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_DD02L" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " TYPTYPE="4" SRCROW1="62 " SRCCOLUMN1="11 " SRCROW2="62 " SRCCOLUMN2="50 " TYPESRC_LENG="42 " TYPESRC="tt_dd02l TYPE STANDARD TABLE OF ty_dd02l
+"/>
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_TABLE_TYPE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="17 " TYPTYPE="4" SRCROW1="64 " SRCCOLUMN1="11 " SRCROW2="67 " SRCCOLUMN2="31 " TYPESRC_LENG="139 " TYPESRC="BEGIN OF ty_table_type,
+            typename type dd40l-typename,
 *        text    TYPE dd40t-ddtext,
-        END OF ty_table_type
+            end of ty_table_type
 "/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_TABLE_TYPES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " TYPTYPE="4" SRCROW1="74 " SRCCOLUMN1="6 " SRCROW2="74 " SRCCOLUMN2="108 " TYPESRC_LENG="105 " TYPESRC="tt_table_types TYPE STANDARD TABLE OF ty_table_type WITH UNIQUE SORTED KEY typename COMPONENTS typename
-"/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TY_DD02L" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="17 " TYPTYPE="4" SRCROW1="77 " SRCCOLUMN1="6 " SRCROW2="80 " SRCCOLUMN2="22 " TYPESRC_LENG="116 " TYPESRC="BEGIN OF ty_dd02l,
-        name TYPE dd02l-tabname,
-*        text    TYPE dd04v-ddtext,
-        END OF ty_dd02l
-"/>
-  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_DD02L" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="18 " TYPTYPE="4" SRCROW1="82 " SRCCOLUMN1="6 " SRCROW2="82 " SRCCOLUMN2="89 " TYPESRC_LENG="86 " TYPESRC="tt_dd02l TYPE STANDARD TABLE OF ty_dd02l WITH UNIQUE SORTED KEY name COMPONENTS name
+  <types CLSNAME="ZCL_WB_SEARCHER" CMPNAME="TT_TABLE_TYPES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="18 " TYPTYPE="4" SRCROW1="68 " SRCCOLUMN1="11 " SRCROW2="68 " SRCCOLUMN2="61 " TYPESRC_LENG="53 " TYPESRC="tt_table_types TYPE STANDARD TABLE OF ty_table_type
 "/>
   <implementing CLSNAME="ZCL_WB_SEARCHER" REFCLSNAME="ZIF_WB_SEARCHER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
   <localImplementation>*&quot;* use this source file for the definition and implementation of
@@ -695,7 +695,7 @@
 *          seoclasstx AS ctext
 *        ON
 *          class~clsname = ctext~clsname
-        INTO TABLE
+        APPENDING TABLE
           ch_t_classes
         WHERE
           class~clsname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_classes AND
@@ -722,7 +722,7 @@
 *          ddtext
         FROM
           dd04l
-        INTO TABLE
+        APPENDING TABLE
           lt_data_elements
         WHERE
           rollname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_data_elements.
@@ -749,7 +749,7 @@
 *          ddtext
         FROM
           dd01v
-        INTO TABLE
+        APPENDING TABLE
           lt_domains
         WHERE
           domname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_domains.
@@ -767,9 +767,9 @@
   </method>
   <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_FUNCTION_GROUPS" VERSION="1" LANGU="E" DESCRIPT="SEARCH_FUNCTION_GROUPS" EXPOSURE="1" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>METHOD search_function_groups.
+&quot; see table D010INC
 
-
-  ENDMETHOD.                    &quot;SEARCH_FUNCTION_GROUPS</source>
+ENDMETHOD.                    &quot;SEARCH_FUNCTION_GROUPS</source>
   </method>
   <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_FUNCTION_MODULES" VERSION="1" LANGU="E" DESCRIPT="SEARCH_FUNCTION_MODULES" EXPOSURE="1" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>METHOD search_function_modules.
@@ -792,7 +792,7 @@
 *          seoclasstx AS ctext
 *        ON
 *          inter~clsname = ctext~clsname
-        INTO TABLE
+        APPENDING TABLE
           ch_t_interfaces
         WHERE
           inter~clsname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_interfaces AND
@@ -814,7 +814,7 @@
         obj_name
       FROM
         tadir
-      INTO TABLE
+      APPENDING TABLE
         ch_t_local_class_interfaces
       WHERE
         pgmid = &apos;R3TR&apos; AND
@@ -859,7 +859,7 @@
 *          ctext
         FROM
           tdevc
-        INTO TABLE
+        APPENDING TABLE
           ch_t_packages
         WHERE
           devclass IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_packages.
@@ -885,7 +885,7 @@
 *          trdirt  AS rtext
 *        ON
 *          repo~progname = rtext~name
-        INTO TABLE
+        APPENDING TABLE
           ch_t_programs
         WHERE
           progname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_reports AND
@@ -913,7 +913,7 @@
             tabname
         FROM
           dd02l
-        INTO TABLE
+        APPENDING TABLE
           ch_t_structures
         WHERE
           tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_structures AND
@@ -935,7 +935,7 @@
             tabname
         FROM
           dd02l
-        INTO TABLE
+        APPENDING TABLE
           ch_t_structures_append
         WHERE
           tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_append_structures AND
@@ -956,7 +956,7 @@
             tabname
         FROM
           dd02l
-        INTO TABLE
+        APPENDING TABLE
           ch_t_tables
         WHERE
           tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_transparent_tables AND
@@ -977,7 +977,7 @@
             tabname
         FROM
           dd02l
-        INTO TABLE
+        APPENDING TABLE
           ch_t_tables_cluster
         WHERE
           tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_cluster_tables AND
@@ -998,7 +998,7 @@
             tabname
         FROM
           dd02l
-        INTO TABLE
+        APPENDING TABLE
           ch_t_tables_pooled
         WHERE
           tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_pooled_tables AND
@@ -1019,7 +1019,7 @@
          typename
         FROM
           dd40l
-        INTO TABLE
+        APPENDING TABLE
           ch_t_table_types
         WHERE
           typename IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_table_types AND
@@ -1045,7 +1045,7 @@
             tabname
         FROM
           dd02l
-        INTO TABLE
+        APPENDING TABLE
           ch_t_views
         WHERE
           tabname IN me-&gt;zif_wb_searcher~r_wb_search_criteria-&gt;r_views AND
@@ -1067,6 +1067,7 @@
   <localMacros>*&quot;* use this source file for any macro definitions you need
 *&quot;* in the implementation part of the class</localMacros>
   <inheritance CLSNAME="ZCL_WB_SEARCHER_OO" REFCLSNAME="ZCL_WB_SEARCHER" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCL_WB_SEARCHER_OO" REFCLSNAME="ZCL_WB_SEARCHER" VERSION="1" MTDNAME="SEARCH_PACKAGES" EXPOSURE="1"/>
    <redefinition CLSNAME="ZCL_WB_SEARCHER_OO" REFCLSNAME="ZCL_WB_SEARCHER" VERSION="1" MTDNAME="ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS" EXPOSURE="0"/>
   </inheritance>
   <interfaceMethod CLSNAME="ZCL_WB_SEARCHER_OO" CPDNAME="ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS">
@@ -1082,6 +1083,63 @@
 
   ENDMETHOD.                    &quot;ZIF_WB_SEARCHER~SEARCH_WB_OBJECTS</source>
   </interfaceMethod>
+  <method CLSNAME="ZCL_WB_SEARCHER" CMPNAME="SEARCH_PACKAGES" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD search_packages.
+  super-&gt;search_packages( CHANGING ch_t_packages = ch_t_packages ).
+
+  IF ch_t_packages IS NOT INITIAL.
+    &quot; If at least one package is found, get all classes
+
+* Classes
+    SELECT
+      obj_name
+      FROM
+        tadir
+      APPENDING TABLE
+        me-&gt;t_classes
+      FOR ALL ENTRIES IN
+        ch_t_packages
+      WHERE
+        pgmid     = &apos;R3TR&apos; AND
+        object    = &apos;CLAS&apos; AND
+        devclass = ch_t_packages-devclass AND
+        delflag = space.
+
+* Interfaces
+    SELECT
+      obj_name
+      FROM
+        tadir
+      APPENDING TABLE
+        me-&gt;t_interfaces
+      FOR ALL ENTRIES IN
+        ch_t_packages
+      WHERE
+        pgmid     = &apos;R3TR&apos; AND
+        object    = &apos;INTF&apos; AND
+        devclass = ch_t_packages-devclass AND
+        delflag = space.
+
+* Programs and Includes
+    SELECT
+      obj_name
+      FROM
+        tadir
+      APPENDING TABLE
+        me-&gt;t_programs
+      FOR ALL ENTRIES IN
+        ch_t_packages
+      WHERE
+        pgmid     = &apos;R3TR&apos; AND
+        object    = &apos;PROG&apos; AND
+        devclass = ch_t_packages-devclass AND
+        delflag = space.
+
+  ENDIF.
+
+
+ENDMETHOD.</source>
+  </method>
  </CLAS>
  <CLAS CLSNAME="ZCL_WB_SEARCHER_STUB" VERSION="1" LANGU="E" DESCRIPT="ZCL_WB_SEARCHER_STUB" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
   <implementing CLSNAME="ZCL_WB_SEARCHER_STUB" REFCLSNAME="ZIF_WB_SEARCHER" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="0 "/>
@@ -1154,7 +1212,7 @@ endmethod.</source>
   </interfaceMethod>
  </CLAS>
  <INTF CLSNAME="ZIF_WB_MASS_LOADER" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
-  <method CLSNAME="ZIF_WB_MASS_LOADER" CMPNAME="MASS_LOAD" VERSION="0" LANGU="E" DESCRIPT="MASS_LOAD" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZIF_WB_MASS_LOADER" CMPNAME="MASS_LOAD" VERSION="1" LANGU="E" DESCRIPT="MASS_LOAD" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZIF_WB_MASS_LOADER" CMPNAME="MASS_LOAD" SCONAME="RE_WB_OBJECTS_SET" VERSION="1" LANGU="E" DESCRIPT="RE_WB_OBJECTS_SET" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZIF_WB_SET_ITAB"/>
   </method>
  </INTF>
@@ -1165,33 +1223,33 @@ endmethod.</source>
   </method>
  </INTF>
  <INTF CLSNAME="ZIF_WB_SEARCH_CRITERIA" VERSION="1" LANGU="E" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" UNICODE="X">
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="8 " SRCROW2="10 " SRCCOLUMN2="67 " TYPESRC_LENG="62 " TYPESRC="ty_ra_packages                  TYPE RANGE OF tdevc-devclass
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_PACKAGES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_PACKAGES" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="7 " SRCCOLUMN1="4 " SRCROW2="7 " SRCCOLUMN2="63 " TYPESRC_LENG="62 " TYPESRC="ty_ra_packages                  TYPE RANGE OF tdevc-devclass
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_REPORTS" VERSION="1" LANGU="E" DESCRIPT="TY_RA_REPORTS" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="13 " SRCCOLUMN1="8 " SRCROW2="13 " SRCCOLUMN2="69 " TYPESRC_LENG="64 " TYPESRC="ty_ra_reports                   TYPE RANGE OF reposrc-progname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_REPORTS" VERSION="1" LANGU="E" DESCRIPT="TY_RA_REPORTS" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="9 " SRCCOLUMN1="4 " SRCROW2="9 " SRCCOLUMN2="65 " TYPESRC_LENG="64 " TYPESRC="ty_ra_reports                   TYPE RANGE OF reposrc-progname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_CLASSES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="14 " SRCCOLUMN1="8 " SRCROW2="14 " SRCCOLUMN2="69 " TYPESRC_LENG="64 " TYPESRC="ty_ra_classes                   TYPE RANGE OF seoclass-clsname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_CLASSES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="11 " SRCCOLUMN1="4 " SRCROW2="11 " SRCCOLUMN2="65 " TYPESRC_LENG="64 " TYPESRC="ty_ra_classes                   TYPE RANGE OF seoclass-clsname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="15 " SRCCOLUMN1="8 " SRCROW2="15 " SRCCOLUMN2="69 " TYPESRC_LENG="64 " TYPESRC="ty_ra_interfaces                TYPE RANGE OF seoclass-clsname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_INTERFACES" VERSION="1" LANGU="E" DESCRIPT="TY_RA_INTERFACES" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="13 " SRCCOLUMN1="4 " SRCROW2="13 " SRCCOLUMN2="65 " TYPESRC_LENG="64 " TYPESRC="ty_ra_interfaces                TYPE RANGE OF seoclass-clsname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_LOCAL_CLASSES_INTERFACES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " TYPTYPE="4" SRCROW1="16 " SRCCOLUMN1="8 " SRCROW2="16 " SRCCOLUMN2="69 " TYPESRC_LENG="64 " TYPESRC="ty_ra_local_classes_interfaces  TYPE RANGE OF reposrc-progname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_LOCAL_CLASSES_INTERFACES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " TYPTYPE="4" SRCROW1="15 " SRCCOLUMN1="4 " SRCROW2="15 " SRCCOLUMN2="65 " TYPESRC_LENG="64 " TYPESRC="ty_ra_local_classes_interfaces  TYPE RANGE OF reposrc-progname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_DOMAINS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " TYPTYPE="4" SRCROW1="19 " SRCCOLUMN1="8 " SRCROW2="19 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_domains                   TYPE RANGE OF dd01l-domname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_DOMAINS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " TYPTYPE="4" SRCROW1="17 " SRCCOLUMN1="4 " SRCROW2="17 " SRCCOLUMN2="62 " TYPESRC_LENG="61 " TYPESRC="ty_ra_domains                   TYPE RANGE OF dd01l-domname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_DATA_ELEMENTS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " TYPTYPE="4" SRCROW1="20 " SRCCOLUMN1="8 " SRCROW2="20 " SRCCOLUMN2="67 " TYPESRC_LENG="62 " TYPESRC="ty_ra_data_elements             TYPE RANGE OF dd04l-rollname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_DATA_ELEMENTS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " TYPTYPE="4" SRCROW1="19 " SRCCOLUMN1="4 " SRCROW2="19 " SRCCOLUMN2="63 " TYPESRC_LENG="62 " TYPESRC="ty_ra_data_elements             TYPE RANGE OF dd04l-rollname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_TRANSPARENT_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="8 " SRCROW2="21 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_transparent_table         TYPE RANGE OF dd02l-tabname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_TRANSPARENT_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="4 " SRCROW2="21 " SRCCOLUMN2="62 " TYPESRC_LENG="61 " TYPESRC="ty_ra_transparent_table         TYPE RANGE OF dd02l-tabname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_STRUCTURE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="8 " SRCROW2="22 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_structure                 TYPE RANGE OF dd02l-tabname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_STRUCTURE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="4 " SRCROW2="23 " SRCCOLUMN2="62 " TYPESRC_LENG="61 " TYPESRC="ty_ra_structure                 TYPE RANGE OF dd02l-tabname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_CLUSTER_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="8 " SRCROW2="23 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_cluster_table             TYPE RANGE OF dd02l-tabname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_CLUSTER_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " TYPTYPE="4" SRCROW1="25 " SRCCOLUMN1="4 " SRCROW2="25 " SRCCOLUMN2="62 " TYPESRC_LENG="61 " TYPESRC="ty_ra_cluster_table             TYPE RANGE OF dd02l-tabname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_POOLED_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " TYPTYPE="4" SRCROW1="24 " SRCCOLUMN1="8 " SRCROW2="24 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_pooled_table              TYPE RANGE OF dd02l-tabname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_POOLED_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " TYPTYPE="4" SRCROW1="27 " SRCCOLUMN1="4 " SRCROW2="27 " SRCCOLUMN2="62 " TYPESRC_LENG="61 " TYPESRC="ty_ra_pooled_table              TYPE RANGE OF dd02l-tabname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_VIEW" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " TYPTYPE="4" SRCROW1="25 " SRCCOLUMN1="8 " SRCROW2="25 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_view                      TYPE RANGE OF dd02l-tabname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_VIEW" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " TYPTYPE="4" SRCROW1="29 " SRCCOLUMN1="4 " SRCROW2="29 " SRCCOLUMN2="62 " TYPESRC_LENG="61 " TYPESRC="ty_ra_view                      TYPE RANGE OF dd02l-tabname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_APPEND_STRUCTURE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " TYPTYPE="4" SRCROW1="26 " SRCCOLUMN1="8 " SRCROW2="26 " SRCCOLUMN2="66 " TYPESRC_LENG="61 " TYPESRC="ty_ra_append_structure          TYPE RANGE OF dd02l-tabname
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_APPEND_STRUCTURE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " TYPTYPE="4" SRCROW1="31 " SRCCOLUMN1="4 " SRCROW2="31 " SRCCOLUMN2="62 " TYPESRC_LENG="61 " TYPESRC="ty_ra_append_structure          TYPE RANGE OF dd02l-tabname
 "/>
-  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_TABLE_TYPE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " TYPTYPE="4" SRCROW1="27 " SRCCOLUMN1="8 " SRCROW2="27 " SRCCOLUMN2="67 " TYPESRC_LENG="62 " TYPESRC="ty_ra_table_type                TYPE RANGE OF dd40l-typename
+  <types CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="TY_RA_TABLE_TYPE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " TYPTYPE="4" SRCROW1="33 " SRCCOLUMN1="4 " SRCROW2="33 " SRCCOLUMN2="63 " TYPESRC_LENG="62 " TYPESRC="ty_ra_table_type                TYPE RANGE OF dd40l-typename
 "/>
   <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_APPEND_STRUCTURES" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_APPEND_STRUCTURE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZIF_WB_SEARCH_CRITERIA" CMPNAME="R_CLASSES" VERSION="1" LANGU="E" DESCRIPT="R_CLASSES" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TY_RA_CLASSES" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
